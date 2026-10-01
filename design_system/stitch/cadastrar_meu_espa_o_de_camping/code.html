@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TerraCamp - Cadastrar Meu Espaço</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CDN with plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration Verbatim -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "outline": "#727974",
+            "on-surface": "#1b1c19",
+            "primary-fixed": "#caeada",
+            "inverse-on-surface": "#f2f1ec",
+            "surface-container-highest": "#e4e2dd",
+            "on-background": "#1b1c19",
+            "on-tertiary-fixed-variant": "#224f3c",
+            "tertiary-container": "#0b3c2a",
+            "outline-variant": "#c1c8c3",
+            "on-primary": "#ffffff",
+            "on-primary-container": "#86a496",
+            "tertiary": "#002517",
+            "on-tertiary": "#ffffff",
+            "background": "#fbf9f4",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-high": "#eae8e3",
+            "secondary-container": "#fe8450",
+            "tertiary-fixed": "#bceed3",
+            "tertiary-fixed-dim": "#a1d1b8",
+            "surface-bright": "#fbf9f4",
+            "primary-fixed-dim": "#aecebe",
+            "error-container": "#ffdad6",
+            "on-primary-fixed-variant": "#304c41",
+            "on-error": "#ffffff",
+            "surface-tint": "#486458",
+            "on-surface-variant": "#424844",
+            "on-error-container": "#93000a",
+            "on-primary-fixed": "#032017",
+            "on-tertiary-fixed": "#002114",
+            "on-secondary-container": "#6c2400",
+            "on-secondary": "#ffffff",
+            "surface-container-low": "#f5f3ee",
+            "primary-container": "#1e3a2f",
+            "secondary": "#a23f0f",
+            "surface-dim": "#dbdad5",
+            "error": "#ba1a1a",
+            "on-tertiary-container": "#78a78f",
+            "inverse-primary": "#aecebe",
+            "primary": "#07241a",
+            "on-secondary-fixed": "#370e00",
+            "surface-variant": "#e4e2dd",
+            "on-secondary-fixed-variant": "#7f2b00",
+            "secondary-fixed": "#ffdbce",
+            "surface": "#fbf9f4",
+            "inverse-surface": "#30312e",
+            "secondary-fixed-dim": "#ffb598",
+            "surface-container": "#f0eee9"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-lg": "1.5rem",
+            "margin": "2rem",
+            "space-xl": "2.25rem",
+            "margin-mobile": "1rem",
+            "gutter": "1rem",
+            "space-sm": "0.5rem",
+            "gutter-mobile": "0.75rem",
+            "space-xs": "0.25rem",
+            "space-md": "1rem"
+          },
+          "fontFamily": {
+            "headline-sm": [
+              "Plus Jakarta Sans"
+            ],
+            "label-lg": [
+              "Plus Jakarta Sans"
+            ],
+            "headline-md": [
+              "Plus Jakarta Sans"
+            ],
+            "display-lg-mobile": [
+              "Plus Jakarta Sans"
+            ],
+            "display-lg": [
+              "Plus Jakarta Sans"
+            ],
+            "body-lg": [
+              "Plus Jakarta Sans"
+            ],
+            "body-md": [
+              "Plus Jakarta Sans"
+            ],
+            "body-sm": [
+              "Plus Jakarta Sans"
+            ],
+            "label-md": [
+              "Plus Jakarta Sans"
+            ],
+            "headline-lg": [
+              "Plus Jakarta Sans"
+            ],
+            "label-sm": [
+              "Plus Jakarta Sans"
+            ]
+          },
+          "fontSize": {
+            "headline-sm": [
+              "18px",
+              {
+                "lineHeight": "24px",
+                "fontWeight": "600"
+              }
+            ],
+            "label-lg": [
+              "14px",
+              {
+                "lineHeight": "18px",
+                "letterSpacing": "0.01em",
+                "fontWeight": "600"
+              }
+            ],
+            "headline-md": [
+              "22px",
+              {
+                "lineHeight": "28px",
+                "letterSpacing": "-0.01em",
+                "fontWeight": "700"
+              }
+            ],
+            "display-lg-mobile": [
+              "32px",
+              {
+                "lineHeight": "38px",
+                "letterSpacing": "-0.02em",
+                "fontWeight": "800"
+              }
+            ],
+            "display-lg": [
+              "40px",
+              {
+                "lineHeight": "48px",
+                "letterSpacing": "-0.03em",
+                "fontWeight": "800"
+              }
+            ],
+            "body-lg": [
+              "16px",
+              {
+                "lineHeight": "24px",
+                "fontWeight": "400"
+              }
+            ],
+            "body-md": [
+              "14px",
+              {
+                "lineHeight": "20px",
+                "fontWeight": "400"
+              }
+            ],
+            "body-sm": [
+              "12px",
+              {
+                "lineHeight": "16px",
+                "fontWeight": "400"
+              }
+            ],
+            "label-md": [
+              "12px",
+              {
+                "lineHeight": "16px",
+                "letterSpacing": "0.02em",
+                "fontWeight": "600"
+              }
+            ],
+            "headline-lg": [
+              "28px",
+              {
+                "lineHeight": "34px",
+                "letterSpacing": "-0.02em",
+                "fontWeight": "700"
+              }
+            ],
+            "label-sm": [
+              "10px",
+              {
+                "lineHeight": "12px",
+                "letterSpacing": "0.04em",
+                "fontWeight": "700"
+              }
+            ]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    /* Hide scrollbar for clean chip rail */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex justify-center selection:bg-secondary-fixed selection:text-on-secondary-fixed">
+<!-- Mobile Viewport Container (Max 480px width mobile centered shell) -->
+<div class="w-full max-w-md bg-background min-h-screen flex flex-col relative pb-32">
+<!-- 1. Header / TopBar (Task focused flow: Back button + Step indicator, no global nav) -->
+<header class="sticky top-0 z-40 bg-surface/90 backdrop-blur-md px-margin-mobile py-space-sm flex items-center justify-between border-none shadow-sm">
+<div class="flex items-center gap-space-sm">
+<button aria-label="Voltar" class="w-10 h-10 rounded-full flex items-center justify-center bg-surface-container hover:bg-surface-variant active:scale-95 transition-all text-primary" type="button">
+<span class="material-symbols-outlined text-[22px]">arrow_back</span>
+</button>
+<div>
+<h1 class="font-headline-md text-headline-md-mobile text-primary tracking-tight">Cadastrar Espaço</h1>
+<span class="inline-block font-label-sm text-label-sm text-secondary font-bold tracking-wider uppercase">Etapa 1 de 2: Informações &amp; Presença</span>
+</div>
+</div>
+<div class="w-8 h-8 rounded-full bg-primary-fixed flex items-center justify-center text-on-primary-fixed font-label-md text-label-md font-bold">
+        1/2
+      </div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 px-margin-mobile pt-space-sm space-y-space-lg">
+<!-- 2. Informative Banner: TerraCamp Verification Philosophy -->
+<section class="bg-primary-container text-on-primary rounded-xl p-space-md shadow-[0_2px_8px_rgba(30,58,47,0.08)] relative overflow-hidden">
+<div class="absolute -right-6 -bottom-6 w-28 h-28 bg-primary/40 rounded-full blur-xl pointer-events-none"></div>
+<div class="flex items-start gap-space-sm relative z-10">
+<div class="w-10 h-10 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">camping</span>
+</div>
+<div class="space-y-space-xs">
+<h2 class="font-headline-sm text-headline-sm text-white">Torne seu refúgio visível</h2>
+<p class="font-body-sm text-body-sm text-on-primary-container leading-relaxed">
+              Conecte seu camping a milhares de exploradores. Para manter nossa comunidade segura, cadastramos espaços com presença verificável na internet (Instagram, Google Maps ou Site Oficial).
+            </p>
+</div>
+</div>
+</section>
+<!-- 3. Section: Presença Digital (Essential) -->
+<section class="space-y-space-sm bg-surface-container-lowest p-space-md rounded-xl shadow-[0_2px_8px_rgba(30,58,47,0.05)]">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[20px]">verified</span>
+<h3 class="font-headline-sm text-headline-sm text-primary">Presença Digital</h3>
+</div>
+<span class="font-label-sm text-label-sm bg-secondary-fixed text-on-secondary-fixed px-2 py-0.5 rounded-full font-bold">Obrigatório</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Estes links são auditados pela nossa curadoria para garantir a autenticidade das coordenadas e comodidades.
+        </p>
+<!-- Instagram -->
+<div class="space-y-1 pt-space-xs">
+<label class="block font-label-md text-label-md text-on-surface font-semibold">Instagram do Camping</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3.5 text-outline text-[20px]">photo_camera</span>
+<input class="w-full pl-11 pr-4 py-3 bg-surface-container rounded-lg border-0 focus:ring-2 focus:ring-primary font-body-md text-body-md text-on-surface placeholder:text-outline text-sm transition-all" placeholder="instagram.com/seucamping ou @usuario" type="text"/>
+</div>
+</div>
+<!-- Google Maps Link -->
+<div class="space-y-1">
+<label class="block font-label-md text-label-md text-on-surface font-semibold">Localização no Google Maps ou Coordenadas</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3.5 text-outline text-[20px]">explore</span>
+<input class="w-full pl-11 pr-4 py-3 bg-surface-container rounded-lg border-0 focus:ring-2 focus:ring-primary font-body-md text-body-md text-on-surface placeholder:text-outline text-sm transition-all" placeholder="https://maps.app.goo.gl/... ou -22.90, -43.17" type="text"/>
+</div>
+</div>
+<!-- WhatsApp -->
+<div class="space-y-1">
+<label class="block font-label-md text-label-md text-on-surface font-semibold">WhatsApp para Reservas &amp; Contato</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3.5 text-outline text-[20px]">chat</span>
+<input class="w-full pl-11 pr-4 py-3 bg-surface-container rounded-lg border-0 focus:ring-2 focus:ring-primary font-body-md text-body-md text-on-surface placeholder:text-outline text-sm transition-all" placeholder="+55 (11) 98765-4321" type="tel"/>
+</div>
+</div>
+<!-- Site Opcional -->
+<div class="space-y-1">
+<label class="block font-label-md text-label-md text-on-surface font-semibold">Site Oficial ou Linktree <span class="font-normal text-outline text-xs">(Opcional)</span></label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3.5 text-outline text-[20px]">language</span>
+<input class="w-full pl-11 pr-4 py-3 bg-surface-container rounded-lg border-0 focus:ring-2 focus:ring-primary font-body-md text-body-md text-on-surface placeholder:text-outline text-sm transition-all" placeholder="https://www.meucamping.com.br" type="url"/>
+</div>
+</div>
+</section>
+<!-- 4. Section: Dados Básicos e Localização -->
+<section class="space-y-space-sm bg-surface-container-lowest p-space-md rounded-xl shadow-[0_2px_8px_rgba(30,58,47,0.05)]">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">signpost</span>
+<h3 class="font-headline-sm text-headline-sm text-primary">Identificação do Espaço</h3>
+</div>
+<!-- Nome do Espaço -->
+<div class="space-y-1">
+<label class="block font-label-md text-label-md text-on-surface font-semibold">Nome do Camping / Refúgio</label>
+<input class="w-full px-4 py-3 bg-surface-container rounded-lg border-0 focus:ring-2 focus:ring-primary font-body-md text-body-md text-on-surface placeholder:text-outline transition-all" placeholder="Ex: Refúgio Serra da Mantiqueira" type="text"/>
+</div>
+<!-- Tipo de Espaço (Horizontal Chips selector) -->
+<div class="space-y-2">
+<label class="block font-label-md text-label-md text-on-surface font-semibold">Tipo Principal de Acomodação</label>
+<div class="grid grid-cols-2 gap-2">
+<label class="cursor-pointer">
+<input checked="" class="peer sr-only" name="campsite_type" type="radio"/>
+<div class="p-3 rounded-lg border border-outline-variant bg-surface-container text-on-surface flex items-center gap-2 peer-checked:bg-primary peer-checked:text-on-primary peer-checked:border-primary transition-all">
+<span class="material-symbols-outlined text-[18px]">camping</span>
+<span class="font-label-md text-label-md">Camping Tradicional</span>
+</div>
+</label>
+<label class="cursor-pointer">
+<input class="peer sr-only" name="campsite_type" type="radio"/>
+<div class="p-3 rounded-lg border border-outline-variant bg-surface-container text-on-surface flex items-center gap-2 peer-checked:bg-primary peer-checked:text-on-primary peer-checked:border-primary transition-all">
+<span class="material-symbols-outlined text-[18px]">cabin</span>
+<span class="font-label-md text-label-md">Glamping &amp; Cabana</span>
+</div>
+</label>
+<label class="cursor-pointer">
+<input class="peer sr-only" name="campsite_type" type="radio"/>
+<div class="p-3 rounded-lg border border-outline-variant bg-surface-container text-on-surface flex items-center gap-2 peer-checked:bg-primary peer-checked:text-on-primary peer-checked:border-primary transition-all">
+<span class="material-symbols-outlined text-[18px]">rv_hookup</span>
+<span class="font-label-md text-label-md">Vans &amp; Motorhome</span>
+</div>
+</label>
+<label class="cursor-pointer">
+<input class="peer sr-only" name="campsite_type" type="radio"/>
+<div class="p-3 rounded-lg border border-outline-variant bg-surface-container text-on-surface flex items-center gap-2 peer-checked:bg-primary peer-checked:text-on-primary peer-checked:border-primary transition-all">
+<span class="material-symbols-outlined text-[18px]">forest</span>
+<span class="font-label-md text-label-md">Camping Selvagem</span>
+</div>
+</label>
+</div>
+</div>
+<!-- Localização Geográfica -->
+<div class="space-y-2 pt-2">
+<label class="block font-label-md text-label-md text-on-surface font-semibold">Região e Território</label>
+<div class="grid grid-cols-2 gap-2">
+<div class="flex items-center gap-2 bg-surface-container px-3 py-3 rounded-lg border-0 text-on-surface font-body-md text-body-md">
+<span class="text-base leading-none">🇧🇷</span>
+<span class="font-label-md text-label-md font-bold">Brasil</span>
+</div>
+<input class="w-full px-4 py-3 bg-surface-container rounded-lg border-0 focus:ring-2 focus:ring-primary font-body-md text-body-md text-on-surface placeholder:text-outline" placeholder="Estado (ex: MG, SP)" type="text"/>
+</div>
+<input class="w-full px-4 py-3 bg-surface-container rounded-lg border-0 focus:ring-2 focus:ring-primary font-body-md text-body-md text-on-surface placeholder:text-outline" placeholder="Cidade (ex: Gonçalves, Aiuruoca)" type="text"/>
+<input class="w-full px-4 py-3 bg-surface-container rounded-lg border-0 focus:ring-2 focus:ring-primary font-body-md text-body-md text-on-surface placeholder:text-outline" placeholder="Ponto de Referência ou Km da Estrada (ex: Estrada Rural km 8)" type="text"/>
+</div>
+</section>
+<!-- 5. Section: Infraestrutura & Comodidades (Interactive Chips) -->
+<section class="space-y-space-sm bg-surface-container-lowest p-space-md rounded-xl shadow-[0_2px_8px_rgba(30,58,47,0.05)]">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">checklist</span>
+<h3 class="font-headline-sm text-headline-sm text-primary">Comodidades Disponíveis</h3>
+</div>
+<span class="font-label-sm text-label-sm text-outline">Toque para marcar</span>
+</div>
+<div class="flex flex-wrap gap-2 pt-1" id="amenities-container">
+<!-- Active Chip: Ponto de Energia -->
+<button class="h-9 px-3.5 rounded-full flex items-center gap-1.5 bg-primary-container text-on-primary font-label-md text-label-md shadow-sm active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">bolt</span>
+<span>Energia (110V/220V)</span>
+</button>
+<!-- Active Chip: Água Potável -->
+<button class="h-9 px-3.5 rounded-full flex items-center gap-1.5 bg-primary-container text-on-primary font-label-md text-label-md shadow-sm active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">water_drop</span>
+<span>Água Potável</span>
+</button>
+<!-- Active Chip: Chuveiro Quente -->
+<button class="h-9 px-3.5 rounded-full flex items-center gap-1.5 bg-primary-container text-on-primary font-label-md text-label-md shadow-sm active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">shower</span>
+<span>Chuveiro Quente</span>
+</button>
+<!-- Inactive Chip: Cozinha Comunitária -->
+<button class="h-9 px-3.5 rounded-full flex items-center gap-1.5 bg-surface-container text-on-surface-variant border border-outline-variant font-label-md text-label-md active:scale-95 hover:bg-surface-variant transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">soup_kitchen</span>
+<span>Cozinha Comunitária</span>
+</button>
+<!-- Active Chip: Wi-Fi / Starlink -->
+<button class="h-9 px-3.5 rounded-full flex items-center gap-1.5 bg-primary-container text-on-primary font-label-md text-label-md shadow-sm active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">wifi</span>
+<span>Wi-Fi / Starlink</span>
+</button>
+<!-- Inactive Chip: Aceita Pets -->
+<button class="h-9 px-3.5 rounded-full flex items-center gap-1.5 bg-surface-container text-on-surface-variant border border-outline-variant font-label-md text-label-md active:scale-95 hover:bg-surface-variant transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">pets</span>
+<span>Aceita Pets</span>
+</button>
+<!-- Inactive Chip: Área de Fogueira -->
+<button class="h-9 px-3.5 rounded-full flex items-center gap-1.5 bg-surface-container text-on-surface-variant border border-outline-variant font-label-md text-label-md active:scale-95 hover:bg-surface-variant transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">local_fire_department</span>
+<span>Área de Fogueira</span>
+</button>
+<!-- Inactive Chip: Acesso 4x4 Apenas -->
+<button class="h-9 px-3.5 rounded-full flex items-center gap-1.5 bg-surface-container text-on-surface-variant border border-outline-variant font-label-md text-label-md active:scale-95 hover:bg-surface-variant transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">terrain</span>
+<span>Acesso 4x4 apenas</span>
+</button>
+</div>
+</section>
+<!-- 6. Section: Fotos do Espaço -->
+<section class="space-y-space-sm bg-surface-container-lowest p-space-md rounded-xl shadow-[0_2px_8px_rgba(30,58,47,0.05)]">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">add_photo_alternate</span>
+<h3 class="font-headline-sm text-headline-sm text-primary">Fotografias do Local</h3>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-bold">2 adicionadas</span>
+</div>
+<!-- Uploader Bento Gallery -->
+<div class="grid grid-cols-3 gap-2 pt-1">
+<!-- Thumbnail 1 -->
+<div class="relative aspect-square rounded-lg overflow-hidden border border-outline-variant shadow-sm group">
+<img class="w-full h-full object-cover" data-alt="A tranquil wilderness campsite pitched on a grassy highland plateau during golden hour sunrise. Warm directional morning sun casts glowing amber hues over two earth-toned canvas tents and surrounding pine forest in the misty background. The style embodies organic tactility and rich deep greens consistent with premium outdoor adventure photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDi0ddDoijm_UwCbdLBTBP7u53ZVUGBwPfQQxw3qfqg44fAE0ldj-M3XaPYtz7of1kV2DayoO0nsumNNlqKXWmEmugcjM5g26GKtfbPRVYgZFxzWqi6OM7FgglnyBHWClW0hMml529m-nWIswEQ49qeLv0rpZbSSnCAJ3wfvO5Coh9svRgdNDy-Cue893wvSqYYrqwg8NVsScb-iaBGHLxibELZMuOLXKMLoF2bsHU4Rg7uvXkwNCAqMw"/>
+<div class="absolute top-1 right-1 bg-inverse-surface/80 rounded-full w-6 h-6 flex items-center justify-center text-white cursor-pointer active:scale-90">
+<span class="material-symbols-outlined text-[14px]">close</span>
+</div>
+<span class="absolute bottom-1 left-1 bg-primary/80 backdrop-blur-xs text-white text-[9px] px-1.5 py-0.5 rounded font-bold">Capa</span>
+</div>
+<!-- Thumbnail 2 -->
+<div class="relative aspect-square rounded-lg overflow-hidden border border-outline-variant shadow-sm group">
+<img class="w-full h-full object-cover" data-alt="Close up architectural detail of an eco-friendly modern timber campsite communal kitchen and washroom facility in a forested valley. Natural cedar wood slats, stone basin, and soft ambient warm lighting harmonize with misty Brazilian highlands flora, evoking safety, cleanliness, and thoughtful design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBw4s7TNnpzU5sFgpj_1wWs6TaAZWSHpUBxGsOXm22xVHkIwTlwPEi521iW0S3VHIZun8n4a4QJfi-tG31fmIDK7PA1PBnzsO4BR9Bt9_WG3EFv6sT9LUi5REhpTBqWs8cqWZzeKPMoeHiszZEWHPee9bpOZjDSRsw0C9VNk4PUbb0dZ0Ie7mgCfVQysV8G-H9AP24aTFh-6-aMt9Ix6JJIrTEFCUNE-8DUNcNVcLtCv_qLY2tOBM1Nkg"/>
+<div class="absolute top-1 right-1 bg-inverse-surface/80 rounded-full w-6 h-6 flex items-center justify-center text-white cursor-pointer active:scale-90">
+<span class="material-symbols-outlined text-[14px]">close</span>
+</div>
+</div>
+<!-- Add Photo Tile Action -->
+<button class="aspect-square rounded-lg border-2 border-dashed border-outline-variant hover:border-primary bg-surface-container flex flex-col items-center justify-center text-on-surface-variant p-2 text-center active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-primary text-[26px]">add_a_photo</span>
+<span class="font-label-sm text-label-sm font-bold text-primary mt-1 leading-tight">+ Foto</span>
+</button>
+</div>
+<!-- Tip Box -->
+<div class="bg-surface-container p-3 rounded-lg flex items-start gap-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary text-[18px] shrink-0 mt-0.5">lightbulb</span>
+<p class="font-body-sm text-body-sm leading-snug">
+<strong class="text-on-surface">Dica do Curador:</strong> Fotos com iluminação natural da área de barracas, banheiros limpos e vista panorâmica aumentam em 3x o interesse de viajantes.
+          </p>
+</div>
+</section>
+<!-- 7. Section: Faixa de Preço Estimada -->
+<section class="space-y-space-sm bg-surface-container-lowest p-space-md rounded-xl shadow-[0_2px_8px_rgba(30,58,47,0.05)]">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">payments</span>
+<h3 class="font-headline-sm text-headline-sm text-primary">Preço Médio por Diária</h3>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Informe o valor aproximado para orientar campistas e mochileiros.
+        </p>
+<div class="relative flex items-center max-w-xs">
+<span class="absolute left-4 font-headline-sm text-headline-sm text-on-surface-variant font-bold">R$</span>
+<input class="w-full pl-12 pr-36 py-3.5 bg-surface-container rounded-lg border-0 focus:ring-2 focus:ring-primary font-headline-md text-headline-md text-primary font-bold transition-all" placeholder="0" type="number" value="75"/>
+<span class="absolute right-4 font-label-md text-label-md text-outline">/ pessoa ou noite</span>
+</div>
+</section>
+<!-- Trust & Privacy Micro-guarantee -->
+<div class="px-2 text-center space-y-1">
+<div class="flex items-center justify-center gap-1.5 text-on-surface-variant font-label-md text-label-md">
+<span class="material-symbols-outlined text-[18px] text-primary">shield</span>
+<span>Sem taxas de comissão no plano comunitário TerraCamp</span>
+</div>
+<p class="font-body-sm text-body-sm text-outline">
+          Ao prosseguir, você concorda com nossos termos de preservação ambiental e diretrizes de turismo regenerativo.
+        </p>
+</div>
+</main>
+<!-- 8. Fixed Bottom Action Dock (Primary CTA in Ember Sunset #E06D3B) -->
+<div class="fixed bottom-0 left-0 w-full z-50 flex justify-center pointer-events-none">
+<div class="w-full max-w-md bg-surface/95 backdrop-blur-md px-margin-mobile py-3.5 shadow-[0_-8px_32px_rgba(17,28,22,0.12)] border-none pointer-events-auto flex flex-col gap-1.5 items-center">
+<!-- Main Primary CTA Button -->
+<button class="w-full h-12 bg-secondary hover:bg-secondary/90 active:scale-[0.98] text-on-secondary font-label-lg text-label-lg rounded-full shadow-[0_4px_16px_rgba(162,63,15,0.28)] flex items-center justify-center gap-2 transition-all font-bold" type="button">
+<span class="material-symbols-outlined text-[20px]">send</span>
+<span>Enviar para Verificação</span>
+</button>
+<!-- Audit microcopy -->
+<p class="font-label-sm text-label-sm text-on-surface-variant text-center flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-secondary">schedule</span>
+          Nossa equipe avalia os links em até 24h para inserção no mapa.
+        </p>
+</div>
+</div>
+</div>
+<!-- Micro-interactions Script for amenity chip toggles -->
+<script>
+    document.querySelectorAll('#amenities-container button').forEach(button => {
+      button.addEventListener('click', () => {
+        const isSelected = button.classList.contains('bg-primary-container');
+        if (isSelected) {
+          button.classList.remove('bg-primary-container', 'text-on-primary', 'shadow-sm');
+          button.classList.add('bg-surface-container', 'text-on-surface-variant', 'border', 'border-outline-variant');
+        } else {
+          button.classList.add('bg-primary-container', 'text-on-primary', 'shadow-sm');
+          button.classList.remove('bg-surface-container', 'text-on-surface-variant', 'border', 'border-outline-variant');
+        }
+      });
+    });
+  </script>
+</body></html>

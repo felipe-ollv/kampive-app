@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TerraCamp - Perfil do Campista</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100..900&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "primary-fixed-dim": "#aecebe",
+            "tertiary-container": "#0b3c2a",
+            "surface-bright": "#fbf9f4",
+            "error-container": "#ffdad6",
+            "primary-container": "#1e3a2f",
+            "outline-variant": "#c1c8c3",
+            "surface": "#fbf9f4",
+            "surface-container-low": "#f5f3ee",
+            "on-error": "#ffffff",
+            "error": "#ba1a1a",
+            "on-secondary-fixed-variant": "#7f2b00",
+            "on-surface": "#1b1c19",
+            "surface-tint": "#486458",
+            "on-primary": "#ffffff",
+            "on-primary-fixed-variant": "#304c41",
+            "surface-container-lowest": "#ffffff",
+            "on-secondary": "#ffffff",
+            "surface-variant": "#e4e2dd",
+            "on-surface-variant": "#424844",
+            "on-tertiary-fixed": "#002114",
+            "on-tertiary-container": "#78a78f",
+            "secondary-fixed": "#ffdbce",
+            "inverse-on-surface": "#f2f1ec",
+            "on-tertiary": "#ffffff",
+            "on-error-container": "#93000a",
+            "surface-container-highest": "#e4e2dd",
+            "on-primary-container": "#86a496",
+            "secondary": "#a23f0f",
+            "on-secondary-fixed": "#370e00",
+            "surface-container": "#f0eee9",
+            "on-tertiary-fixed-variant": "#224f3c",
+            "secondary-fixed-dim": "#ffb598",
+            "outline": "#727974",
+            "secondary-container": "#fe8450",
+            "surface-dim": "#dbdad5",
+            "tertiary-fixed-dim": "#a1d1b8",
+            "on-background": "#1b1c19",
+            "inverse-primary": "#aecebe",
+            "primary": "#07241a",
+            "background": "#fbf9f4",
+            "tertiary-fixed": "#bceed3",
+            "on-primary-fixed": "#032017",
+            "inverse-surface": "#30312e",
+            "surface-container-high": "#eae8e3",
+            "tertiary": "#002517",
+            "primary-fixed": "#caeada",
+            "on-secondary-container": "#6c2400"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-md": "1rem",
+            "margin": "2rem",
+            "space-lg": "1.5rem",
+            "margin-mobile": "1rem",
+            "gutter-mobile": "0.75rem",
+            "space-sm": "0.5rem",
+            "gutter": "1rem",
+            "space-xl": "2.25rem",
+            "space-xs": "0.25rem"
+          },
+          "fontFamily": {
+            "display-lg": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "display-lg-mobile": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.03em", "fontWeight": "800" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "label-lg": ["14px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "label-sm": ["10px", { "lineHeight": "12px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+            "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+            "headline-lg": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "headline-md": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .custom-shadow-card {
+      box-shadow: 0px 2px 8px rgba(30, 58, 47, 0.05), 0px 1px 2px rgba(30, 58, 47, 0.03);
+    }
+    .custom-shadow-float {
+      box-shadow: 0px 6px 20px rgba(30, 58, 47, 0.08), 0px 2px 6px rgba(30, 58, 47, 0.04);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen pb-28">
+<!-- TopAppBar (Shared Component) -->
+<header class="sticky top-0 z-40 flex items-center justify-between w-full px-4 h-16 bg-surface shadow-sm">
+<div class="flex items-center gap-2">
+<button aria-label="Explorar" class="w-10 h-10 rounded-full flex items-center justify-center text-primary hover:bg-surface-container transition-colors duration-150 active:scale-95" type="button">
+<span class="material-symbols-outlined" data-icon="explore">explore</span>
+</button>
+<span class="font-display-lg-mobile text-display-lg-mobile font-extrabold text-primary tracking-tight">TerraCamp</span>
+</div>
+<!-- Web Navigation cluster -->
+<nav class="hidden md:flex items-center gap-6">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Explorar</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Países</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Salvos</a>
+<a class="font-label-md text-label-md text-primary font-bold" href="#">Perfil</a>
+</nav>
+<div class="flex items-center gap-3">
+<button class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-container p-0.5 active:scale-95 transition-transform" title="Avatar do usuário explorador com chapéu de trilha" type="button">
+<img alt="Lucas Silveira" class="w-full h-full object-cover rounded-full" data-alt="Close-up portrait of an outdoor explorer adventurer wearing a rugged brimmed trail hat, warm sunlight, scenic forest in the background with rich green foliage and natural lighting, styled with earthy tones and warm outdoor photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcoW5x0a_vGo_XsWWfU2GItjKnaUIlg4dl_gffEuZtWbfU4T64YbX0y_vq8K3DTV5q9nt8DYqXW49i7QKFbun7q_gMFXzep7rB1oI5-Ql6PdNEwlG82MBfpZvSNi54dR-Kd3Dxc98Zg85Xw39GtAxTQP8BLZ0fTXaNn7WuNpu3oz5CTIVwSsbopO7o4adqdYObVm5SRPPju2cx-KE-ASA8Uy1wyQXCWlVvTup5_64CBL0DcNW4o8TB3A"/>
+</button>
+</div>
+</header>
+<!-- Main Canvas Container -->
+<main class="max-w-4xl mx-auto px-4 sm:px-6 pt-6">
+<!-- Profile Hero Section (Bento Style) -->
+<section class="bg-surface-container-lowest rounded-xl p-6 sm:p-8 custom-shadow-card mb-6">
+<div class="flex flex-col sm:flex-row items-center sm:items-start gap-6">
+<!-- Profile Picture with Edit Button Overlay -->
+<div class="relative shrink-0">
+<div class="w-28 h-28 sm:w-32 sm:h-32 rounded-full overflow-hidden ring-4 ring-surface-container-low shadow-md">
+<img alt="Foto de perfil de Lucas Silveira" class="w-full h-full object-cover" data-alt="Portrait photo of Lucas Silveira, a smiling camper with a lightweight jacket and hiking attire under the warm golden hour sun in a mountain valley setting, earthy palette of deep forest greens and warm sandstone tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqgciMsHnpBigmfC4aVLuoT0dMRr2-PMMqeyCzRkb0h0ezGurnPM__KkcYLsI2h68o6D6MsVXkfkJkMTd4AjtMRrX2lqqX_PhDzCDWek4FU2FpoEDpUcyRPKZhP-e1EV0PE-M5T3vhtuMb7ZbpCsdNHwZS_2xa5KLyO9cFEm-u1rEZDVYtYi7LScy14R3mdipXxolQHIGBun-xbtBAJjO0ZOKoKfR5xnQWD9Mk2IzqgVbBLuMCFZ7kqw"/>
+</div>
+<button aria-label="Editar foto de perfil" class="absolute bottom-1 right-1 w-9 h-9 rounded-full bg-secondary text-on-secondary flex items-center justify-center shadow-md hover:bg-secondary-container transition-colors active:scale-95" type="button">
+<span class="material-symbols-outlined text-base" data-icon="photo_camera">photo_camera</span>
+</button>
+</div>
+<!-- Identity Details -->
+<div class="flex-1 text-center sm:text-left flex flex-col items-center sm:items-start">
+<div class="flex flex-wrap items-center justify-center sm:justify-start gap-2 mb-1.5">
+<h1 class="font-headline-lg text-headline-lg font-extrabold text-primary">Lucas Silveira</h1>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md">
+<span>Brasil</span>
+<span class="text-sm">🇧🇷</span>
+</span>
+</div>
+<!-- Explorer Level Badge -->
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant font-label-md text-label-md font-bold mb-3 shadow-sm">
+<span class="material-symbols-outlined text-sm" data-icon="military_tech" data-weight="fill" style="font-variation-settings: 'FILL' 1;">military_tech</span>
+<span>Campista Nível 3 - 8 acampamentos visitados</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-lg mb-4">
+            Apaixonado por acampamento selvagem, vanlife e noites estreladas na Serra da Mantiqueira e no Litoral Sul. Deixando apenas pegadas.
+          </p>
+<!-- Quick Suggest Camping Action (Primary CTA) -->
+<button class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-secondary text-on-secondary font-label-lg text-label-lg font-bold hover:opacity-95 active:scale-98 transition-all custom-shadow-float" type="button">
+<span class="material-symbols-outlined text-xl" data-icon="add_location_alt">add_location_alt</span>
+<span>Sugerir / Cadastrar Novo Camping com link da internet</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Statistics Bento Grid -->
+<section class="grid grid-cols-3 gap-3 sm:gap-4 mb-8">
+<div class="bg-surface-container-low rounded-xl p-4 text-center border border-outline-variant/30 custom-shadow-card flex flex-col items-center justify-center">
+<span class="material-symbols-outlined text-primary mb-1" data-icon="forest">forest</span>
+<span class="font-headline-lg text-headline-lg font-extrabold text-primary">8</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-bold">Campings visitados</span>
+</div>
+<div class="bg-surface-container-low rounded-xl p-4 text-center border border-outline-variant/30 custom-shadow-card flex flex-col items-center justify-center">
+<span class="material-symbols-outlined text-secondary mb-1" data-icon="reviews">reviews</span>
+<span class="font-headline-lg text-headline-lg font-extrabold text-primary">12</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-bold">Avaliações publicadas</span>
+</div>
+<div class="bg-surface-container-low rounded-xl p-4 text-center border border-outline-variant/30 custom-shadow-card flex flex-col items-center justify-center">
+<span class="material-symbols-outlined text-primary-container mb-1" data-icon="photo_library">photo_library</span>
+<span class="font-headline-lg text-headline-lg font-extrabold text-primary">24</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-bold">Fotos enviadas</span>
+</div>
+</section>
+<!-- Interactive Navigation Tabs -->
+<div class="flex items-center border-b border-surface-variant mb-6 px-1 gap-4">
+<button class="pb-3 pt-1 border-b-2 border-secondary text-primary font-headline-sm text-headline-sm font-bold flex items-center gap-2 transition-colors" id="tab-reviews-btn" onclick="switchTab('reviews')" type="button">
+<span class="material-symbols-outlined text-xl" data-icon="rate_review">rate_review</span>
+<span>Minhas Avaliações & Fotos</span>
+</button>
+<button class="pb-3 pt-1 border-b-2 border-transparent text-on-surface-variant hover:text-primary font-headline-sm text-headline-sm font-semibold flex items-center gap-2 transition-colors" id="tab-account-btn" onclick="switchTab('account')" type="button">
+<span class="material-symbols-outlined text-xl" data-icon="manage_accounts">manage_accounts</span>
+<span>Dados da Conta / Cadastro</span>
+</button>
+</div>
+<!-- TAB CONTENT 1: Minhas Avaliações & Fotos -->
+<section class="space-y-6" id="tab-reviews">
+<!-- Review Item 1 -->
+<article class="bg-surface-container-lowest rounded-xl p-5 sm:p-6 custom-shadow-card border border-surface-variant/50">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+<div>
+<div class="flex items-center gap-2">
+<h2 class="font-headline-sm text-headline-sm font-bold text-primary">Camping Vale das Araucárias</h2>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface font-label-sm text-label-sm font-bold">Urubici, SC</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Avaliado em 14 de Outubro, 2024</p>
+</div>
+<!-- Rating badge -->
+<div class="flex items-center gap-1.5 self-start sm:self-center bg-surface-container-high px-3 py-1 rounded-full">
+<span class="material-symbols-outlined text-secondary text-base" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md text-label-md font-bold text-primary">5.0</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">(Excelente)</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface mb-4">
+          "Estrutura impecável com tomadas 220V bem distribuídas para barracas e trailers. A vista da nascente do sol entre as araucárias é surreal. Banheiros com água quente potente e área comunitária de fogueira fantástica."
+        </p>
+<!-- Max 3 Photos Attached -->
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-bold block mb-2">Fotos enviadas (3)</span>
+<div class="grid grid-cols-3 gap-2 sm:gap-3">
+<div class="relative h-28 sm:h-36 rounded-lg overflow-hidden group">
+<img alt="Vista do amanhecer nas araucárias" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Scenic wooden campsite pitch situated among tall majestic araucaria pine trees during sunrise, misty morning atmosphere in Southern Brazil with golden hour warm glow, high dynamic range outdoor photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpVE3djcU5EBMpwTfdMgoOnWSarB_Vte2lhigbMhA_0Nxf4tiPARdQNgnP567mahOUzLtA1Na41dd7u-edcko5ZLuKOKMu02-JAu4VRtFBXQyFbRWBzCq0IF843Vkgnhs_qOkov7o21eFPZ3kzzJv-c1lvivD61Nfgj5DACTrbuJ5tg-Psi_qSIDisfsle9dMyBrBX8Qq4HMGdy4omF5EYUqqu6BSouZravDfEMcNNew7UlwafPwI8xw"/>
+</div>
+<div class="relative h-28 sm:h-36 rounded-lg overflow-hidden group">
+<img alt="Barraca montada ao lado da fogueira" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="A cozy green canvas tent set up on a clean grassy platform with a small stone campfire ring glowing with embers in twilight, surrounded by pristine nature and pine forest" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAuopkQe2AwsvPe8BtuB2LhgwaOjEO2pF9uFFY9gMNUN74Vk9ukgOCGfaiJIQ-VcC1rw1Bx8hz_9Khc4BBIXj4DMancT8yWcM1swzOb42PykTYeYYS2vzLQxofiNkIxaGDPXKXdc6AbrbBKwOqmDRHqnPGGXps80kOYoqddWD1tgnRJVoad6oh1qvseP6L3sQuZpYiJjyFtUQCa_rFHjhFd96plWrnqBX-iNOcsv-aXmJNT_sMuyTjNg"/>
+</div>
+<div class="relative h-28 sm:h-36 rounded-lg overflow-hidden group">
+<img alt="Área comunitária de convivência" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Rustic clean wooden kitchen shelter at a mountain campsite with warm pendant lamps, camping gear arranged neatly, surrounded by lush native wilderness and morning dew" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDswJAWHXMs_iMN49ypiD6YEImkmeOhqLwgTDwp0XqpCxJFz0AXNJ1sR7GVCnIhdT-4It6Xz3iJtsryrfbFqJ2oKNZ8hsFRUJIiLhaZ3lmlC6ssYK4-ICZ3fEIYYx1GneSOvrV9xkTmArIoC1scM22UOfn0Pk2XjnYnBd1_8uAdXHGI2-SXLmG5iDRlhQADhdKaWjW5CUbyiwGjReskmKFQlrkdVVYdhwFDDwSZqXmEqfmU6SvxjLWb_A"/>
+</div>
+</div>
+</div>
+</article>
+<!-- Review Item 2 -->
+<article class="bg-surface-container-lowest rounded-xl p-5 sm:p-6 custom-shadow-card border border-surface-variant/50">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+<div>
+<div class="flex items-center gap-2">
+<h2 class="font-headline-sm text-headline-sm font-bold text-primary">Eco Camping Cantinho da Serra</h2>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface font-label-sm text-label-sm font-bold">Campos do Jordão, SP</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Avaliado em 02 de Agosto, 2024</p>
+</div>
+<!-- Rating badge -->
+<div class="flex items-center gap-1.5 self-start sm:self-center bg-surface-container-high px-3 py-1 rounded-full">
+<span class="material-symbols-outlined text-secondary text-base" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md text-label-md font-bold text-primary">4.8</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">(Muito bom)</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface mb-4">
+          "Trilhas autoguiadas direto do terreno e cachoeira particular a 10 minutos de caminhada. Muito silencioso durante a noite, os proprietários são extremamente acolhedores. Sinal de celular é fraco, mas há Starlink na recepção."
+        </p>
+<!-- Max 3 Photos Attached -->
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-bold block mb-2">Fotos enviadas (2)</span>
+<div class="grid grid-cols-3 gap-2 sm:gap-3">
+<div class="relative h-28 sm:h-36 rounded-lg overflow-hidden group">
+<img alt="Cachoeira particular no camping" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Crystal clear freshwater creek flowing through mossy boulders and lush mountain forest, bright dappled sunlight filtering through green leaf canopy in modern outdoor travel photography style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuPRQ5cUeftTWx0Lv4XH0_yf-XgfOJShCOI5b1C51Q6e_GEro44VSv3e2JKgozpyWN14-97qwx_BUeEiZI33Rp7jUFjX0iCMaQrnxtLJdUF1dO7DHDfgFAw3nr9X0LNORWGr0wV2Shg0rVo6ma4_yxbGYEUiAMYrwWueo8NcctRUthWSDTzxXPS9XsMr2DQuGqXV7Ag0n_SShocS6-_Du5jm34xfIv1StL4K4UW9dRzSexAmjn1JtkYw"/>
+</div>
+<div class="relative h-28 sm:h-36 rounded-lg overflow-hidden group">
+<img alt="Mirante do pôr do sol" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Wide panorama of mountain hills layered in morning mist, seen from a high altitude campsite lookout deck with wooden railings and camping chairs overlooking the valley" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8rl906uJEvABYukKJWqyr8klaldm31HTK7Omn6LAxR0v-Sfv2-XxAbAXgB_hHdYDD8e2Ng_FUe1nS1hvQj3ltvah4xVU9D1WNkzqzoV5CodxcqLpOiOm5Q2P7Jbz5ID3cBT1Tmasre4w0sFqjK36k5ixGDtYgzJu1GFDq4KGoAI2PmHY_xN2xhDiMQV0k-Guq_FyFABiVM48a1qkfLBwYCjbRYmKSzCEgy9_yu00Fil52VDiBBNr_xg"/>
+</div>
+</div>
+</div>
+</article>
+</section>
+<!-- TAB CONTENT 2: Dados da Conta / Cadastro (Hidden by default, toggleable) -->
+<section class="hidden bg-surface-container-lowest rounded-xl p-6 sm:p-8 custom-shadow-card border border-surface-variant/50" id="tab-account">
+<div class="flex items-center justify-between pb-4 mb-6 border-b border-surface-container">
+<div>
+<h2 class="font-headline-sm text-headline-sm font-bold text-primary">Informações Cadastrais</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Gerencie suas credenciais de acesso e perfil público de explorador.</p>
+</div>
+<button class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-primary text-primary hover:bg-surface-container transition-colors font-label-md text-label-md font-bold" id="toggle-edit-btn" onclick="toggleEditMode()" type="button">
+<span class="material-symbols-outlined text-base" data-icon="edit">edit</span>
+<span id="edit-btn-text">Editar Dados</span>
+</button>
+</div>
+<form class="space-y-5" id="profile-form" onsubmit="event.preventDefault(); toggleEditMode();">
+<!-- Full Name -->
+<div>
+<label class="block font-label-md text-label-md text-primary font-bold mb-1.5" for="full-name">Nome Completo</label>
+<div class="relative rounded-lg bg-surface-container">
+<span class="material-symbols-outlined absolute left-3 top-3 text-on-surface-variant text-lg" data-icon="person">person</span>
+<input class="w-full pl-10 pr-4 py-2.5 bg-transparent border-0 rounded-lg text-on-surface font-body-md text-body-md focus:ring-2 focus:ring-primary disabled:opacity-80 transition-all" disabled="" id="full-name" type="text" value="Lucas Silveira"/>
+</div>
+</div>
+<!-- Registered Email -->
+<div>
+<label class="block font-label-md text-label-md text-primary font-bold mb-1.5" for="account-email">E-mail Cadastrado</label>
+<div class="relative rounded-lg bg-surface-container">
+<span class="material-symbols-outlined absolute left-3 top-3 text-on-surface-variant text-lg" data-icon="mail">mail</span>
+<input class="w-full pl-10 pr-4 py-2.5 bg-transparent border-0 rounded-lg text-on-surface font-body-md text-body-md focus:ring-2 focus:ring-primary disabled:opacity-80 transition-all" disabled="" id="account-email" type="email" value="lucas.silveira@explorador.com.br"/>
+</div>
+</div>
+<!-- Password with Security Status -->
+<div>
+<div class="flex items-center justify-between mb-1.5">
+<label class="font-label-md text-label-md text-primary font-bold" for="account-password">Senha</label>
+<!-- Password strength indicator -->
+<span class="inline-flex items-center gap-1 text-xs font-bold text-primary">
+<span class="material-symbols-outlined text-sm" data-icon="verified_user">verified_user</span>
+<span>Status: Forte (Protegida)</span>
+</span>
+</div>
+<div class="relative rounded-lg bg-surface-container">
+<span class="material-symbols-outlined absolute left-3 top-3 text-on-surface-variant text-lg" data-icon="lock">lock</span>
+<input class="w-full pl-10 pr-12 py-2.5 bg-transparent border-0 rounded-lg text-on-surface font-body-md text-body-md focus:ring-2 focus:ring-primary disabled:opacity-80 tracking-widest transition-all" disabled="" id="account-password" type="password" value="••••••••••••••••"/>
+<button aria-label="Visualizar senha" class="absolute right-3 top-2.5 text-on-surface-variant hover:text-primary" type="button">
+<span class="material-symbols-outlined text-lg" data-icon="visibility">visibility</span>
+</button>
+</div>
+<!-- Security meter bar -->
+<div class="w-full bg-surface-container-high h-1.5 rounded-full mt-2 overflow-hidden flex gap-1">
+<div class="bg-primary flex-1 h-full rounded-full"></div>
+<div class="bg-primary flex-1 h-full rounded-full"></div>
+<div class="bg-primary flex-1 h-full rounded-full"></div>
+<div class="bg-primary flex-1 h-full rounded-full"></div>
+</div>
+</div>
+<!-- Phone / WhatsApp for Booking -->
+<div>
+<label class="block font-label-md text-label-md text-primary font-bold mb-1.5" for="account-phone">Telefone de Contato (WhatsApp)</label>
+<div class="relative rounded-lg bg-surface-container">
+<span class="material-symbols-outlined absolute left-3 top-3 text-on-surface-variant text-lg" data-icon="call">call</span>
+<input class="w-full pl-10 pr-4 py-2.5 bg-transparent border-0 rounded-lg text-on-surface font-body-md text-body-md focus:ring-2 focus:ring-primary disabled:opacity-80 transition-all" disabled="" id="account-phone" type="tel" value="+55 (11) 98765-4321"/>
+</div>
+</div>
+<!-- Form Save Actions (Hidden in view mode) -->
+<div class="hidden pt-4 flex items-center justify-end gap-3 border-t border-surface-container" id="save-actions">
+<button class="px-5 py-2.5 rounded-full border border-outline font-label-md text-label-md font-bold text-on-surface-variant hover:bg-surface-container transition-colors" onclick="toggleEditMode()" type="button">
+            Cancelar
+          </button>
+<button class="px-6 py-2.5 rounded-full bg-secondary text-on-secondary font-label-md text-label-md font-bold shadow-md hover:bg-secondary-container transition-all" type="submit">
+            Salvar Alterações
+          </button>
+</div>
+</form>
+</section>
+<!-- Suggestion Floating Banner / Modal Trigger -->
+<section class="mt-8 bg-surface-container-low rounded-xl p-5 border border-outline-variant/30 flex flex-col sm:flex-row items-center justify-between gap-4">
+<div class="flex items-center gap-4 text-center sm:text-left">
+<div class="w-12 h-12 rounded-full bg-tertiary-fixed text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-2xl" data-icon="share_location">share_location</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-primary">Conhece um refúgio incrível?</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Compartilhe um link da internet (Instagram, Google Maps ou site oficial) para catalogarmos na comunidade TerraCamp.</p>
+</div>
+</div>
+<button class="shrink-0 px-4 py-2.5 rounded-full bg-primary text-on-primary font-label-md text-label-md font-bold hover:bg-primary-container transition-colors active:scale-95 shadow-sm" type="button">
+        Cadastrar Agora
+      </button>
+</section>
+</main>
+<!-- BottomNavBar (Shared Component - Active: Perfil) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex items-center justify-around px-2 py-2 bg-surface shadow-[0_-4px_20px_rgba(17,28,22,0.06)]">
+<!-- Item 1: Explorar (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant gap-1 active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined text-2xl" data-icon="camping">camping</span>
+<span class="font-label-sm text-label-sm font-bold">Explorar</span>
+</a>
+<!-- Item 2: Países (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant gap-1 active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined text-2xl" data-icon="public">public</span>
+<span class="font-label-sm text-label-sm font-bold">Países</span>
+</a>
+<!-- Item 3: Salvos (Inactive) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant gap-1 active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined text-2xl" data-icon="favorite">favorite</span>
+<span class="font-label-sm text-label-sm font-bold">Salvos</span>
+</a>
+<!-- Item 4: Perfil (ACTIVE STATE MAPPED) -->
+<a class="flex flex-col items-center justify-center text-secondary font-bold gap-1 active:scale-95 transition-transform duration-150" href="#">
+<span class="material-symbols-outlined text-2xl" data-icon="person" data-weight="fill" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-label-sm text-label-sm font-bold">Perfil</span>
+</a>
+</nav>
+<!-- Interactive Logic for Tab Switching & Edit Mode -->
+<script>
+    function switchTab(tabName) {
+      const tabReviews = document.getElementById('tab-reviews');
+      const tabAccount = document.getElementById('tab-account');
+      const btnReviews = document.getElementById('tab-reviews-btn');
+      const btnAccount = document.getElementById('tab-account-btn');
+
+      if (tabName === 'reviews') {
+        tabReviews.classList.remove('hidden');
+        tabAccount.classList.add('hidden');
+        
+        btnReviews.classList.add('border-secondary', 'text-primary', 'font-bold');
+        btnReviews.classList.remove('border-transparent', 'text-on-surface-variant', 'font-semibold');
+        
+        btnAccount.classList.add('border-transparent', 'text-on-surface-variant', 'font-semibold');
+        btnAccount.classList.remove('border-secondary', 'text-primary', 'font-bold');
+      } else {
+        tabAccount.classList.remove('hidden');
+        tabReviews.classList.add('hidden');
+        
+        btnAccount.classList.add('border-secondary', 'text-primary', 'font-bold');
+        btnAccount.classList.remove('border-transparent', 'text-on-surface-variant', 'font-semibold');
+        
+        btnReviews.classList.add('border-transparent', 'text-on-surface-variant', 'font-semibold');
+        btnReviews.classList.remove('border-secondary', 'text-primary', 'font-bold');
+      }
+    }
+
+    let isEditing = false;
+    function toggleEditMode() {
+      isEditing = !isEditing;
+      const inputs = document.querySelectorAll('#profile-form input');
+      const saveActions = document.getElementById('save-actions');
+      const btnText = document.getElementById('edit-btn-text');
+
+      inputs.forEach(input => {
+        input.disabled = !isEditing;
+      });
+
+      if (isEditing) {
+        saveActions.classList.remove('hidden');
+        btnText.innerText = 'Visualizar';
+        inputs[0].focus();
+      } else {
+        saveActions.classList.add('hidden');
+        btnText.innerText = 'Editar Dados';
+      }
+    }
+  </script>
+</body></html>

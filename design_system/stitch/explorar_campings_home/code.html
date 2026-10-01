@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TerraCamp - Explorar Campings no Mundo</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS with plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "primary-fixed-dim": "#aecebe",
+            "tertiary-container": "#0b3c2a",
+            "surface-bright": "#fbf9f4",
+            "error-container": "#ffdad6",
+            "primary-container": "#1e3a2f",
+            "outline-variant": "#c1c8c3",
+            "surface": "#fbf9f4",
+            "surface-container-low": "#f5f3ee",
+            "on-error": "#ffffff",
+            "error": "#ba1a1a",
+            "on-secondary-fixed-variant": "#7f2b00",
+            "on-surface": "#1b1c19",
+            "surface-tint": "#486458",
+            "on-primary": "#ffffff",
+            "on-primary-fixed-variant": "#304c41",
+            "surface-container-lowest": "#ffffff",
+            "on-secondary": "#ffffff",
+            "surface-variant": "#e4e2dd",
+            "on-surface-variant": "#424844",
+            "on-tertiary-fixed": "#002114",
+            "on-tertiary-container": "#78a78f",
+            "secondary-fixed": "#ffdbce",
+            "inverse-on-surface": "#f2f1ec",
+            "on-tertiary": "#ffffff",
+            "on-error-container": "#93000a",
+            "surface-container-highest": "#e4e2dd",
+            "on-primary-container": "#86a496",
+            "secondary": "#a23f0f",
+            "on-secondary-fixed": "#370e00",
+            "surface-container": "#f0eee9",
+            "on-tertiary-fixed-variant": "#224f3c",
+            "secondary-fixed-dim": "#ffb598",
+            "outline": "#727974",
+            "secondary-container": "#fe8450",
+            "surface-dim": "#dbdad5",
+            "tertiary-fixed-dim": "#a1d1b8",
+            "on-background": "#1b1c19",
+            "inverse-primary": "#aecebe",
+            "primary": "#07241a",
+            "background": "#fbf9f4",
+            "tertiary-fixed": "#bceed3",
+            "on-primary-fixed": "#032017",
+            "inverse-surface": "#30312e",
+            "surface-container-high": "#eae8e3",
+            "tertiary": "#002517",
+            "primary-fixed": "#caeada",
+            "on-secondary-container": "#6c2400"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-md": "1rem",
+            "margin": "2rem",
+            "space-lg": "1.5rem",
+            "margin-mobile": "1rem",
+            "gutter-mobile": "0.75rem",
+            "space-sm": "0.5rem",
+            "gutter": "1rem",
+            "space-xl": "2.25rem",
+            "space-xs": "0.25rem"
+          },
+          "fontFamily": {
+            "display-lg": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "display-lg-mobile": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.03em", "fontWeight": "800" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "label-lg": ["14px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "label-sm": ["10px", { "lineHeight": "12px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+            "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+            "headline-lg": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "headline-md": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-background text-on-surface min-h-screen antialiased selection:bg-secondary-fixed selection:text-secondary flex flex-col pb-24">
+<!-- TopAppBar (from Shared Components JSON) -->
+<header class="sticky top-0 z-40 flex items-center justify-between w-full px-4 h-16 bg-surface dark:bg-primary shadow-sm">
+<div class="flex items-center gap-3">
+<button aria-label="Abrir mapa do mundo" class="w-10 h-10 rounded-full flex items-center justify-center text-primary dark:text-inverse-primary hover:bg-surface-container dark:hover:bg-primary-container transition-colors duration-150 active:scale-95" type="button">
+<span class="material-symbols-outlined" data-icon="explore">explore</span>
+</button>
+<div class="flex flex-col">
+<span class="font-display-lg-mobile text-display-lg-mobile font-extrabold text-primary dark:text-primary-fixed leading-none">TerraCamp</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant dark:text-outline-variant">Explore a vida selvagem</span>
+</div>
+</div>
+<!-- Right Cluster: Country Selector & Profile Avatar -->
+<div class="flex items-center gap-2">
+<!-- Country Dropdown Button -->
+<div class="relative">
+<button class="flex items-center gap-1.5 px-3 py-1.5 bg-surface-container hover:bg-surface-container-high rounded-full border border-outline-variant text-on-surface transition-colors duration-150 active:scale-95" id="country-dropdown-btn" onclick="toggleCountryDropdown()" type="button">
+<span class="text-sm">🇧🇷</span>
+<span class="font-label-md text-label-md font-bold text-primary">Brasil</span>
+<span class="material-symbols-outlined text-sm leading-none" data-icon="expand_more">expand_more</span>
+</button>
+<!-- Dropdown Menu -->
+<div class="hidden absolute right-0 mt-2 w-52 bg-surface-container-lowest rounded-xl shadow-[0px_6px_20px_rgba(30,58,47,0.12)] border border-outline-variant py-2 z-50 animate-in fade-in zoom-in-95" id="country-dropdown-menu">
+<div class="px-3 py-1.5 font-label-sm text-label-sm text-on-surface-variant font-semibold tracking-wider">LOCALIZAÇÃO</div>
+<button class="w-full text-left px-3 py-2 flex items-center gap-2.5 hover:bg-surface-container font-label-md text-label-md text-secondary font-bold" type="button">
+<span class="material-symbols-outlined text-lg" data-icon="my_location">my_location</span>
+            Perto de mim
+          </button>
+<div class="h-px bg-surface-variant my-1"></div>
+<button class="w-full text-left px-3 py-2 flex items-center justify-between hover:bg-surface-container font-label-md text-label-md text-on-surface bg-surface-container-low font-bold" type="button">
+<span class="flex items-center gap-2"><span>🇧🇷</span> Brasil</span>
+<span class="material-symbols-outlined text-base text-secondary" data-icon="check">check</span>
+</button>
+<button class="w-full text-left px-3 py-2 flex items-center justify-between hover:bg-surface-container font-label-md text-label-md text-on-surface" type="button">
+<span class="flex items-center gap-2"><span>🇨🇦</span> Canadá</span>
+</button>
+<button class="w-full text-left px-3 py-2 flex items-center justify-between hover:bg-surface-container font-label-md text-label-md text-on-surface" type="button">
+<span class="flex items-center gap-2"><span>🇳🇴</span> Noruega</span>
+</button>
+<button class="w-full text-left px-3 py-2 flex items-center justify-between hover:bg-surface-container font-label-md text-label-md text-on-surface" type="button">
+<span class="flex items-center gap-2"><span>🇵🇹</span> Portugal</span>
+</button>
+<button class="w-full text-left px-3 py-2 flex items-center justify-between hover:bg-surface-container font-label-md text-label-md text-on-surface" type="button">
+<span class="flex items-center gap-2"><span>🇨🇱</span> Chile</span>
+</button>
+<button class="w-full text-left px-3 py-2 flex items-center justify-between hover:bg-surface-container font-label-md text-label-md text-on-surface" type="button">
+<span class="flex items-center gap-2"><span>🇦🇷</span> Argentina</span>
+</button>
+</div>
+</div>
+<!-- Avatar Explorer -->
+<button aria-label="Perfil do aventureiro" class="relative w-10 h-10 rounded-full overflow-hidden ring-2 ring-primary-container active:scale-95 transition-transform duration-150" type="button">
+<img class="w-full h-full object-cover" data-alt="Close-up portrait of a cheerful outdoor explorer wearing a sun-faded brimmed trail hat and a deep forest green fleece jacket. Natural golden morning light illuminates the face with gentle shadows against a soft-focus mountainous wilderness backdrop. The style is warm, modern, and authentic, aligned with the tactile earth-toned visual identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCKuaLigeJH-p-KOMYnn6sBP9GU-MsItK2MeCXq-w9gS-NVlbHUkNRC-dYNIWyyFa-rY3i4OIy01bPbiavZurEZ8IiH_3xdYiId2o4Xil_tDSiIMC-hfz6zET--y58-GvF2KU8ptIWLkEUSaGcm9GD06FxTq_ixDZmgXHgzfijgkhqrkh8Isb7eBRr8QpSG4TZwVaxyBBZ0a9Y2yO91uIO8ECbOG109iY9wRf-nItIrs5VvWAohiijjA"/>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 w-full max-w-7xl mx-auto px-4 pt-4 pb-8 space-y-6">
+<!-- Greeting Banner -->
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-xs leading-none" data-icon="wb_sunny">wb_sunny</span>
+          Bom dia, Aventureiro
+        </span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-primary tracking-tight">Onde você vai acampar hoje?</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Descubra campings selvagens, glampings e refúgios com infraestrutura completa.</p>
+</div>
+<!-- Search Bar with Filter Button (Floating Search Pill Tier 2 Elevation) -->
+<section aria-label="Busca de campings" class="w-full">
+<div class="relative flex items-center w-full bg-surface-container-lowest rounded-full shadow-[0px_6px_20px_rgba(30,58,47,0.08),0px_2px_6px_rgba(30,58,47,0.04)] p-1.5 border border-surface-variant focus-within:ring-2 focus-within:ring-primary-container transition-all">
+<div class="flex items-center pl-3 pr-2 text-primary">
+<span class="material-symbols-outlined text-2xl text-secondary" data-icon="search">search</span>
+</div>
+<input class="w-full bg-transparent border-0 focus:ring-0 font-body-md text-body-md text-on-surface placeholder:text-outline py-2.5 px-0 outline-none" placeholder="Buscar por cidade, parque ou nome do camping..." type="text"/>
+<div class="h-6 w-px bg-surface-variant mx-1"></div>
+<button aria-label="Abrir filtros avançados" class="flex items-center gap-1.5 bg-primary-container text-on-primary hover:bg-primary font-label-md text-label-md px-4 py-2.5 rounded-full active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-lg" data-icon="tune">tune</span>
+<span class="hidden sm:inline">Filtros</span>
+</button>
+</div>
+</section>
+<!-- Quick Horizontal Filter Chips -->
+<section aria-label="Filtros rápidos" class="w-full overflow-x-auto no-scrollbar -mx-4 px-4 py-1">
+<div class="flex items-center gap-2 min-w-max">
+<!-- Selected Filter Chip -->
+<button class="h-9 px-4 rounded-full bg-primary-container text-on-primary font-label-md text-label-md flex items-center gap-2 shadow-[0px_2px_8px_rgba(30,58,47,0.05)] active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-base" data-icon="near_me">near_me</span>
+<span>Perto de você</span>
+</button>
+<!-- Unselected Filter Chips -->
+<button class="h-9 px-4 rounded-full bg-surface-container hover:bg-surface-container-high border border-outline-variant text-on-surface font-label-md text-label-md flex items-center gap-2 active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-base text-primary" data-icon="water">water</span>
+<span>Beira de Rio / Lago</span>
+</button>
+<button class="h-9 px-4 rounded-full bg-surface-container hover:bg-surface-container-high border border-outline-variant text-on-surface font-label-md text-label-md flex items-center gap-2 active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-base text-primary" data-icon="landscape">landscape</span>
+<span>Montanha</span>
+</button>
+<button class="h-9 px-4 rounded-full bg-surface-container hover:bg-surface-container-high border border-outline-variant text-on-surface font-label-md text-label-md flex items-center gap-2 active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-base text-primary" data-icon="pets">pets</span>
+<span>Pet Friendly</span>
+</button>
+<button class="h-9 px-4 rounded-full bg-surface-container hover:bg-surface-container-high border border-outline-variant text-on-surface font-label-md text-label-md flex items-center gap-2 active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-base text-primary" data-icon="rv_hookup">rv_hookup</span>
+<span>Motorhome</span>
+</button>
+<button class="h-9 px-4 rounded-full bg-surface-container hover:bg-surface-container-high border border-outline-variant text-on-surface font-label-md text-label-md flex items-center gap-2 active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-base text-primary" data-icon="wifi">wifi</span>
+<span>Com Wi-Fi</span>
+</button>
+</div>
+</section>
+<!-- Featured Campsites in Brazil Section -->
+<section aria-labelledby="featured-brazil-title" class="space-y-4">
+<div class="flex items-end justify-between">
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-label-sm text-label-sm font-bold text-secondary uppercase tracking-wider">Descobertas Recomendadas</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-primary" id="featured-brazil-title">Campings em Destaque no Brasil 🇧🇷</h2>
+</div>
+<a class="font-label-md text-label-md text-secondary hover:text-on-secondary-fixed-variant font-bold flex items-center gap-0.5" href="#">
+          Ver todos (142)
+          <span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+</a>
+</div>
+<!-- Bento-inspired Campsite Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Card 1: Camping Refúgio dos Cânions -->
+<article class="group bg-surface-container-lowest rounded-2xl overflow-hidden shadow-[0px_2px_8px_rgba(30,58,47,0.05),0px_1px_2px_rgba(30,58,47,0.03)] hover:shadow-[0px_6px_20px_rgba(30,58,47,0.08)] transition-all duration-300 flex flex-col border border-surface-variant/60">
+<!-- Card Image & Overlays -->
+<div class="relative aspect-[16/10] w-full overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A tranquil illuminated canvas bell tent pitched on a lush green cliff edge overlooking majestic Brazilian canyon gorges during golden hour sunset. Warm amber interior lighting emanates from inside the tent, while the deep misty valley below is shrouded in evergreen forest trees. Organic color palette of deep canopy greens, earthy sandstones, and glowing sunset ambers." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkmjC_qgBTJ84wwcq0RmTI97aWq2B5e55Crh2kwRbNVeFXJ5CpWKaskiwW4XNq5rDuOtnS5DyPt92CmarKT_t5cT-oGcMdjSZaUKH-92L9VZlYycy8wxCE8LiT-CkwXXbfACdogjFuRKiJk-bmdMXDllOmEpxLWO4mF0QDpu8jhwdERbP8lUA2rYDcRTbJpgnVInxoq4rSkucSmwceVCHklN0Mf6V4MvC0dlzbaD9guOYPmFph7jmeWQ"/>
+<!-- Price Badge Overlay -->
+<div class="absolute bottom-3 left-3 bg-secondary text-on-secondary px-3 py-1 rounded-full font-label-md text-label-md font-bold shadow-md flex items-center gap-1">
+<span>R$ 85</span>
+<span class="text-[10px] font-normal opacity-90">/noite</span>
+</div>
+<!-- Top Controls: Verified & Heart Toggle -->
+<div class="absolute top-3 inset-x-3 flex items-center justify-between">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-primary/80 backdrop-blur-sm text-primary-fixed font-label-sm text-label-sm border border-primary-fixed-dim/30">
+<span class="material-symbols-outlined text-xs leading-none text-tertiary-fixed" data-icon="verified">verified</span>
+                Verificado Online
+              </span>
+<button aria-label="Salvar Camping Refúgio dos Cânions" class="w-9 h-9 rounded-full bg-surface/90 backdrop-blur-sm hover:bg-surface text-secondary flex items-center justify-center shadow-md active:scale-90 transition-transform" type="button">
+<span class="material-symbols-outlined text-xl" data-icon="favorite" data-weight="fill" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</button>
+</div>
+</div>
+<!-- Card Body -->
+<div class="p-4 flex flex-col flex-1 justify-between gap-3">
+<div>
+<div class="flex items-center justify-between gap-2">
+<h3 class="font-headline-sm text-headline-sm text-primary group-hover:text-secondary transition-colors">Camping Refúgio dos Cânions</h3>
+<div class="flex items-center gap-1 bg-surface-container-high px-2 py-0.5 rounded-md">
+<span class="material-symbols-outlined text-amber-500 text-sm" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md text-label-md font-bold text-on-surface">4.9</span>
+<span class="font-body-sm text-body-sm text-outline">(128)</span>
+</div>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant font-body-sm text-body-sm mt-1">
+<span class="material-symbols-outlined text-base text-secondary" data-icon="location_on">location_on</span>
+<span>Praia Grande - SC</span>
+<span class="text-outline">•</span>
+<span>12 km do centro</span>
+</div>
+</div>
+<!-- Amenities Micro Badges -->
+<div class="flex flex-wrap items-center gap-1.5 pt-2 border-t border-surface-variant/40">
+<span class="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-surface-container font-label-sm text-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-xs text-primary" data-icon="fireplace">fireplace</span>
+                Fogueira permitida
+              </span>
+<span class="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-surface-container font-label-sm text-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-xs text-primary" data-icon="shower">shower</span>
+                Chuveiro quente
+              </span>
+<span class="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-surface-container font-label-sm text-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-xs text-primary" data-icon="pets">pets</span>
+                Pet Friendly
+              </span>
+</div>
+</div>
+</article>
+<!-- Card 2: Camping Cachoeira dos Cristais -->
+<article class="group bg-surface-container-lowest rounded-2xl overflow-hidden shadow-[0px_2px_8px_rgba(30,58,47,0.05),0px_1px_2px_rgba(30,58,47,0.03)] hover:shadow-[0px_6px_20px_rgba(30,58,47,0.08)] transition-all duration-300 flex flex-col border border-surface-variant/60">
+<div class="relative aspect-[16/10] w-full overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Expansive serene natural campsite nestled beside a crystal-clear natural freshwater river pool in Chapada dos Veadeiros, Brazil. High dynamic daylight highlights the smooth river pebbles and dense green cerrado vegetation. Modern lightweight dome camping tents are set up on sandy clearings under native shade trees with warm sunlight reflections on running water." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-eCRSohiCYo0a4SQl8QFzZyupx_C109VHAHreIkMdmeYbdU8WrXMykko2R1bc4d4CQ9Qdq6C-C8oip6TN7xZKpGrfFj6g-Dg9amlFBJN4K6pvVDH3oWNYMsCLCfr_8f51rveOQUJ6C25AUHuhgEo9Til3KE3c61M8HtIw_1uoXfehc7uLF8DC-qy59xG9sTmRruxWE9Y0FgfU7HcjkElgHUCCcGHK-E92xylH0HEpcNeE4WM13HWlSg"/>
+<div class="absolute bottom-3 left-3 bg-secondary text-on-secondary px-3 py-1 rounded-full font-label-md text-label-md font-bold shadow-md flex items-center gap-1">
+<span>R$ 65</span>
+<span class="text-[10px] font-normal opacity-90">/noite</span>
+</div>
+<div class="absolute top-3 inset-x-3 flex items-center justify-between">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-primary/80 backdrop-blur-sm text-primary-fixed font-label-sm text-label-sm border border-primary-fixed-dim/30">
+<span class="material-symbols-outlined text-xs leading-none text-tertiary-fixed" data-icon="verified">verified</span>
+                Verificado Online
+              </span>
+<button aria-label="Salvar Camping Cachoeira dos Cristais" class="w-9 h-9 rounded-full bg-surface/90 backdrop-blur-sm hover:bg-surface text-outline hover:text-secondary flex items-center justify-center shadow-md active:scale-90 transition-transform" type="button">
+<span class="material-symbols-outlined text-xl" data-icon="favorite">favorite</span>
+</button>
+</div>
+</div>
+<div class="p-4 flex flex-col flex-1 justify-between gap-3">
+<div>
+<div class="flex items-center justify-between gap-2">
+<h3 class="font-headline-sm text-headline-sm text-primary group-hover:text-secondary transition-colors">Camping Cachoeira dos Cristais</h3>
+<div class="flex items-center gap-1 bg-surface-container-high px-2 py-0.5 rounded-md">
+<span class="material-symbols-outlined text-amber-500 text-sm" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md text-label-md font-bold text-on-surface">4.8</span>
+<span class="font-body-sm text-body-sm text-outline">(94)</span>
+</div>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant font-body-sm text-body-sm mt-1">
+<span class="material-symbols-outlined text-base text-secondary" data-icon="location_on">location_on</span>
+<span>Alto Paraíso de Goiás - GO</span>
+<span class="text-outline">•</span>
+<span>Acesso ao rio</span>
+</div>
+</div>
+<div class="flex flex-wrap items-center gap-1.5 pt-2 border-t border-surface-variant/40">
+<span class="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-surface-container font-label-sm text-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-xs text-primary" data-icon="pool">pool</span>
+                Banho natural
+              </span>
+<span class="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-surface-container font-label-sm text-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-xs text-primary" data-icon="bolt">bolt</span>
+                Pontos de energia
+              </span>
+<span class="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-surface-container font-label-sm text-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-xs text-primary" data-icon="wifi">wifi</span>
+                Wi-Fi Starlink
+              </span>
+</div>
+</div>
+</article>
+<!-- Card 3: Eco Parque Pedra Baú -->
+<article class="group bg-surface-container-lowest rounded-2xl overflow-hidden shadow-[0px_2px_8px_rgba(30,58,47,0.05),0px_1px_2px_rgba(30,58,47,0.03)] hover:shadow-[0px_6px_20px_rgba(30,58,47,0.08)] transition-all duration-300 flex flex-col border border-surface-variant/60">
+<div class="relative aspect-[16/10] w-full overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="High-altitude alpine camping setting in Serra da Mantiqueira, Brazil, showing an expedition rooftop tent mounted on an overland 4x4 camper vehicle facing massive granite rock monoliths. The morning sky displays soft gradients of burnt orange and pale mist. Ground is carpeted with mountain moss and pine needles in a clean, organic wilderness photograph style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-8fqfv9NquZKMxI3QeLA9SIbONCAdkFA1po3fXqNgjpYyziKOxJ_xWc4YBoi61Tju2b1BsBrCcW5D-mCs2eZbhqW_vTBhMU3FcdZHYkoQjgtNCxY3LCZHTh3_EcU6pLZOPSWYb9SkurPxaC7XHw1acu0rMjwYpxJ7IAoB6sNSXPV5thXi_IJoXVVE5qtOkC-qZlyIoYEZnD-jO-j310MNEjbW2PTL5HYxyjT3oO3nykBCJakyD9fHhQ"/>
+<div class="absolute bottom-3 left-3 bg-secondary text-on-secondary px-3 py-1 rounded-full font-label-md text-label-md font-bold shadow-md flex items-center gap-1">
+<span>R$ 110</span>
+<span class="text-[10px] font-normal opacity-90">/noite</span>
+</div>
+<div class="absolute top-3 inset-x-3 flex items-center justify-between">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-primary/80 backdrop-blur-sm text-primary-fixed font-label-sm text-label-sm border border-primary-fixed-dim/30">
+<span class="material-symbols-outlined text-xs leading-none text-tertiary-fixed" data-icon="verified">verified</span>
+                Verificado Online
+              </span>
+<button aria-label="Salvar Eco Parque Pedra Baú" class="w-9 h-9 rounded-full bg-surface/90 backdrop-blur-sm hover:bg-surface text-outline hover:text-secondary flex items-center justify-center shadow-md active:scale-90 transition-transform" type="button">
+<span class="material-symbols-outlined text-xl" data-icon="favorite">favorite</span>
+</button>
+</div>
+</div>
+<div class="p-4 flex flex-col flex-1 justify-between gap-3">
+<div>
+<div class="flex items-center justify-between gap-2">
+<h3 class="font-headline-sm text-headline-sm text-primary group-hover:text-secondary transition-colors">Eco Camping Pedra do Baú</h3>
+<div class="flex items-center gap-1 bg-surface-container-high px-2 py-0.5 rounded-md">
+<span class="material-symbols-outlined text-amber-500 text-sm" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md text-label-md font-bold text-on-surface">4.95</span>
+<span class="font-body-sm text-body-sm text-outline">(210)</span>
+</div>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant font-body-sm text-body-sm mt-1">
+<span class="material-symbols-outlined text-base text-secondary" data-icon="location_on">location_on</span>
+<span>São Bento do Sapucaí - SP</span>
+<span class="text-outline">•</span>
+<span>Altitude 1.600m</span>
+</div>
+</div>
+<div class="flex flex-wrap items-center gap-1.5 pt-2 border-t border-surface-variant/40">
+<span class="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-surface-container font-label-sm text-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-xs text-primary" data-icon="rv_hookup">rv_hookup</span>
+                Vaga Motorhome
+              </span>
+<span class="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-surface-container font-label-sm text-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-xs text-primary" data-icon="local_cafe">local_cafe</span>
+                Cafeteria rústica
+              </span>
+<span class="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-surface-container font-label-sm text-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-xs text-primary" data-icon="hiking">hiking</span>
+                Trilha direta
+              </span>
+</div>
+</div>
+</article>
+</div>
+</section>
+<!-- Descubra por Países Section -->
+<section aria-labelledby="discover-countries-title" class="space-y-4 pt-4">
+<div class="flex items-end justify-between">
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-label-sm text-label-sm font-bold text-secondary uppercase tracking-wider">Mundo Selvagem</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-primary" id="discover-countries-title">Descubra por Países 🗺️</h2>
+</div>
+<a class="font-label-md text-label-md text-secondary hover:text-on-secondary-fixed-variant font-bold flex items-center gap-0.5" href="#">
+          Explorar mapa global
+          <span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+</a>
+</div>
+<!-- Horizontal Scrolling Country Cards -->
+<div class="overflow-x-auto no-scrollbar -mx-4 px-4 py-2">
+<div class="flex items-stretch gap-4 min-w-max">
+<!-- Country 1: Canadá -->
+<div class="relative w-64 h-36 rounded-2xl overflow-hidden group cursor-pointer shadow-[0px_2px_8px_rgba(30,58,47,0.05)] hover:shadow-[0px_6px_20px_rgba(30,58,47,0.12)] transition-all">
+<div class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-500" data-alt="Breathtaking panorama of the Canadian Rocky Mountains in Banff with turquoise glacial lake water, towering pine forests, and distant snow-capped peaks under crisp cool northern morning sunlight. Rich forest tones, slate greys, and crisp natural atmospheric balance." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDo03JT17haBISQ7X67JejT10kmTQ7QykUjm2ZQhG85HWy3k1S0nkkKbDGrTcvcXgonqmextXmdwnpmvt9TZRQ0dlSWD96vu5PcOiHhjiF50dYJ9N1XYwKaKoRdFoKVytjhOw9pLmjGEZpEL8SQqGjiqbQahlDYvbv5ur1hYa9CI0rWLoOkMePx5ya8UwW-tiYQkXviw0kj4RF8olv7CYK_DepgbgCF42nArtXksD6clV3DlnlleL-2kw')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent"></div>
+<div class="relative h-full p-4 flex flex-col justify-between text-on-primary">
+<div class="flex items-center justify-between">
+<span class="text-2xl p-1.5 bg-surface-container-lowest/20 backdrop-blur-md rounded-lg">🇨🇦</span>
+<span class="font-label-sm text-label-sm bg-primary-container/80 text-primary-fixed px-2.5 py-1 rounded-full">América do Norte</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm font-bold leading-tight">Canadá</h3>
+<p class="font-label-sm text-label-sm text-primary-fixed opacity-90 mt-0.5">384 campings registrados</p>
+</div>
+</div>
+</div>
+<!-- Country 2: Noruega -->
+<div class="relative w-64 h-36 rounded-2xl overflow-hidden group cursor-pointer shadow-[0px_2px_8px_rgba(30,58,47,0.05)] hover:shadow-[0px_6px_20px_rgba(30,58,47,0.12)] transition-all">
+<div class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-500" data-alt="Dramatic Norwegian fjord landscape featuring sheer dark mountain cliffs plunging into deep serene emerald waters, with cozy traditional red wooden rorbu cabins and a tiny wild camper tent pitched on an elevated plateau. Soft, moody Nordic daylight with authentic natural textures." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBsyUvSqB-ZzcHCwwdUMpLVcDxEjvrMirSOKWQwkxFjn48-sB-rtRhlyex5ArO_SIhha2knAe5VzjXZfIWWd5_DCMbfUfOsIgCsywwcVNeyZnQPMvWhEELhOe8SxgyMPGXaLLT58yDttGl3BseEhy-4-A71zmjVm4twKd4KoZ0Us8dzzh4u6gzIaB3zIuXXiaFb9JytHYHzqNGBzCkNe99C3YpTzX7jwcRgH_fnPPBW5LDS0Ki6jk2-TA')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent"></div>
+<div class="relative h-full p-4 flex flex-col justify-between text-on-primary">
+<div class="flex items-center justify-between">
+<span class="text-2xl p-1.5 bg-surface-container-lowest/20 backdrop-blur-md rounded-lg">🇳🇴</span>
+<span class="font-label-sm text-label-sm bg-primary-container/80 text-primary-fixed px-2.5 py-1 rounded-full">Escandinávia</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm font-bold leading-tight">Noruega</h3>
+<p class="font-label-sm text-label-sm text-primary-fixed opacity-90 mt-0.5">219 campings registrados</p>
+</div>
+</div>
+</div>
+<!-- Country 3: Portugal -->
+<div class="relative w-64 h-36 rounded-2xl overflow-hidden group cursor-pointer shadow-[0px_2px_8px_rgba(30,58,47,0.05)] hover:shadow-[0px_6px_20px_rgba(30,58,47,0.12)] transition-all">
+<div class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-500" data-alt="Rugged golden coastal cliffs of the Costa Vicentina in Portugal, meeting the deep blue Atlantic ocean with sea spray. A classic campervan is parked safely on a designated natural earth pitch surrounded by maritime pine shrubs in warm late afternoon sunlight with ember undertones." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB0haVBfEBGQWgoxauXxQRaCw2KckvFCxp9mlJMH-vOTPBDIsLLC1t2C0BHDUFlVz8LIn5y8R9pArBksWW9GguYfpM7j5xxcWzOGpWnQWz1I76QjoZanPi_IXEapb6azyHyF6o_h6lYUmz66a9XXDbg4ewj1A8LqSXWAw3zBPPEBIWwSul1rE0dWcY5HOaUMocuC2VPZjw2eAxYKA0xk46Hn9foELB-4FA_V24OYsdKJ67l0uR5rsz8FA')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent"></div>
+<div class="relative h-full p-4 flex flex-col justify-between text-on-primary">
+<div class="flex items-center justify-between">
+<span class="text-2xl p-1.5 bg-surface-container-lowest/20 backdrop-blur-md rounded-lg">🇵🇹</span>
+<span class="font-label-sm text-label-sm bg-primary-container/80 text-primary-fixed px-2.5 py-1 rounded-full">Europa</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm font-bold leading-tight">Portugal</h3>
+<p class="font-label-sm text-label-sm text-primary-fixed opacity-90 mt-0.5">178 campings registrados</p>
+</div>
+</div>
+</div>
+<!-- Country 4: Chile -->
+<div class="relative w-64 h-36 rounded-2xl overflow-hidden group cursor-pointer shadow-[0px_2px_8px_rgba(30,58,47,0.05)] hover:shadow-[0px_6px_20px_rgba(30,58,47,0.12)] transition-all">
+<div class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-500" data-alt="Iconic jagged granite peaks of Torres del Paine in Chilean Patagonia towering over a wind-swept golden steppe with grazing guanacos and a rustic trekking campsite basecamp. Clear southern hemisphere sunlight emphasizing deep shadows, wild earth tones, and pure mountainous expanses." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCQGO2csNScmAizSCsvQxhKxDeH3D0woHiOTE0zW4Es9R5FtqHFGWX3AB7pnolU64HSkcBxMxsuk7LYfifv6yoQ85UfEX3msnv6hOtOWLI9SNsGDwjbdPX9VSM0jXNoNN6t6PZtmhN6zxie9WLxtUkzrkfqDV418MUz855dTyz9vJQTgBnRH6anAPO88tZXOTwt2fQAB1-FLyHhDazhQP0MRzywvtWJk1dUQbrkU34u0s_dYQCM4Wtf9Q')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent"></div>
+<div class="relative h-full p-4 flex flex-col justify-between text-on-primary">
+<div class="flex items-center justify-between">
+<span class="text-2xl p-1.5 bg-surface-container-lowest/20 backdrop-blur-md rounded-lg">🇨🇱</span>
+<span class="font-label-sm text-label-sm bg-primary-container/80 text-primary-fixed px-2.5 py-1 rounded-full">América do Sul</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm font-bold leading-tight">Chile</h3>
+<p class="font-label-sm text-label-sm text-primary-fixed opacity-90 mt-0.5">145 campings registrados</p>
+</div>
+</div>
+</div>
+<!-- Country 5: Argentina -->
+<div class="relative w-64 h-36 rounded-2xl overflow-hidden group cursor-pointer shadow-[0px_2px_8px_rgba(30,58,47,0.05)] hover:shadow-[0px_6px_20px_rgba(30,58,47,0.12)] transition-all">
+<div class="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-500" data-alt="Spectacular view of Mount Fitz Roy in El Chaltén, Argentina, framed by native lenga beech forest in autumn. A cozy backpacker camp with orange dome tents on organic earth ground, catching the dramatic sunrise alpenglow on granite spires. Grounded wilderness exploration photography style." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCr0PSSRZEG8oGg98iVp3hKo2iG0VaA8oMC7SwVwUX0sa0-htKkFCpRSVPhbWCtyjECM8V28yZNE0A_SaqVhu-tj9zgGY-SLacZvFp5P6G0Pphv4lsnEypDyfSzIUhXcyJoak_GwXG9YO-HcvKpC-Qhl3aMqP1X7agOycjDdwrVxmThpc_DVmwxKklGg_Ve_I_kwDR38YcUGRtbmYFMXp5kqvf_h8XRejq-p1Dw9TVUnvnBkor_W5C1yw')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent"></div>
+<div class="relative h-full p-4 flex flex-col justify-between text-on-primary">
+<div class="flex items-center justify-between">
+<span class="text-2xl p-1.5 bg-surface-container-lowest/20 backdrop-blur-md rounded-lg">🇦🇷</span>
+<span class="font-label-sm text-label-sm bg-primary-container/80 text-primary-fixed px-2.5 py-1 rounded-full">América do Sul</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm font-bold leading-tight">Argentina</h3>
+<p class="font-label-sm text-label-sm text-primary-fixed opacity-90 mt-0.5">162 campings registrados</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Wilderness Community Banner (Tactile Callout) -->
+<section class="bg-gradient-to-r from-primary-container to-primary text-on-primary rounded-2xl p-6 relative overflow-hidden shadow-[0px_6px_20px_rgba(30,58,47,0.08)]">
+<div class="relative z-10 max-w-md space-y-2">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary text-on-secondary font-label-sm text-label-sm font-bold">
+<span class="material-symbols-outlined text-xs leading-none" data-icon="campaign">campaign</span>
+          Comunidade TerraCamp
+        </span>
+<h3 class="font-headline-md text-headline-md font-bold text-surface-bright">Tem um espaço para camping ou glamping?</h3>
+<p class="font-body-md text-body-md text-primary-fixed-dim">Cadastre sua propriedade selvagem e receba aventureiros responsáveis de todo o mundo.</p>
+<div class="pt-2">
+<button class="px-5 py-2.5 bg-secondary text-on-secondary hover:bg-on-secondary-fixed-variant rounded-full font-label-md text-label-md font-bold shadow-md active:scale-95 transition-all" type="button">
+            Cadastrar meu espaço
+          </button>
+</div>
+</div>
+<!-- Decorative background icon -->
+<span class="material-symbols-outlined absolute -right-6 -bottom-6 text-9xl text-white/5 pointer-events-none select-none" data-icon="forest">forest</span>
+</section>
+</main>
+<!-- BottomNavBar (from Shared Components JSON: Fixed bottom navigation with 'Explorar' ACTIVE) -->
+<nav aria-label="Navegação Principal" class="fixed bottom-0 left-0 w-full z-50 flex items-center justify-around px-2 py-2 bg-surface dark:bg-primary shadow-[0_-4px_20px_rgba(17,28,22,0.06)]">
+<!-- Tab 1: Explorar (ACTIVE) -->
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary-fixed font-bold gap-1 active:scale-95 transition-transform duration-150 py-1 px-3" href="#">
+<span class="material-symbols-outlined text-2xl" data-icon="camping" data-weight="fill" style="font-variation-settings: 'FILL' 1;">camping</span>
+<span class="font-label-sm text-label-sm font-bold">Explorar</span>
+</a>
+<!-- Tab 2: Países (INACTIVE) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant gap-1 hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors duration-150 active:scale-95 py-1 px-3" href="#">
+<span class="material-symbols-outlined text-2xl" data-icon="public">public</span>
+<span class="font-label-sm text-label-sm font-bold">Países</span>
+</a>
+<!-- Tab 3: Salvos (INACTIVE) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant gap-1 hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors duration-150 active:scale-95 py-1 px-3" href="#">
+<span class="material-symbols-outlined text-2xl" data-icon="favorite">favorite</span>
+<span class="font-label-sm text-label-sm font-bold">Salvos</span>
+</a>
+<!-- Tab 4: Perfil (INACTIVE) -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant gap-1 hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors duration-150 active:scale-95 py-1 px-3" href="#">
+<span class="material-symbols-outlined text-2xl" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm font-bold">Perfil</span>
+</a>
+</nav>
+<!-- Lightweight Micro-Interaction Script for Country Dropdown -->
+<script>
+    function toggleCountryDropdown() {
+      const menu = document.getElementById('country-dropdown-menu');
+      if (menu) {
+        menu.classList.toggle('hidden');
+      }
+    }
+
+    // Close dropdown on click outside
+    document.addEventListener('click', function(event) {
+      const dropdown = document.getElementById('country-dropdown-menu');
+      const btn = document.getElementById('country-dropdown-btn');
+      if (dropdown && btn && !btn.contains(event.target) && !dropdown.contains(event.target)) {
+        dropdown.classList.add('hidden');
+      }
+    });
+  </script>
+</body></html>

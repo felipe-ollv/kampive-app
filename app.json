@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "kampive-app",
+    "name": "Kampive",
     "slug": "kampive-app",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -10,7 +10,7 @@
     "splash": {
       "image": "./assets/splash-icon.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#fbf9f4"
     },
     "ios": {
       "supportsTablet": true
@@ -23,7 +23,28 @@
       "edgeToEdgeEnabled": true
     },
     "web": {
-      "favicon": "./assets/favicon.png"
-    }
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-font",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Permita que o Kampive acesse as fotos que você deseja compartilhar.",
+          "cameraPermission": false,
+          "microphonePermission": false
+        }
+      ],
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "Permita que o Kampive encontre a localização do camping que você está cadastrando."
+        }
+      ],
+      "expo-asset"
+    ],
+    "scheme": "kampive"
   }
 }

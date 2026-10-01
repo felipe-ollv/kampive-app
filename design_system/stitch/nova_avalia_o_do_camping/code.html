@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Avaliar Camping - TerraCamp</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "primary-fixed-dim": "#aecebe",
+            "tertiary-container": "#0b3c2a",
+            "surface-bright": "#fbf9f4",
+            "error-container": "#ffdad6",
+            "primary-container": "#1e3a2f",
+            "outline-variant": "#c1c8c3",
+            "surface": "#fbf9f4",
+            "surface-container-low": "#f5f3ee",
+            "on-error": "#ffffff",
+            "error": "#ba1a1a",
+            "on-secondary-fixed-variant": "#7f2b00",
+            "on-surface": "#1b1c19",
+            "surface-tint": "#486458",
+            "on-primary": "#ffffff",
+            "on-primary-fixed-variant": "#304c41",
+            "surface-container-lowest": "#ffffff",
+            "on-secondary": "#ffffff",
+            "surface-variant": "#e4e2dd",
+            "on-surface-variant": "#424844",
+            "on-tertiary-fixed": "#002114",
+            "on-tertiary-container": "#78a78f",
+            "secondary-fixed": "#ffdbce",
+            "inverse-on-surface": "#f2f1ec",
+            "on-tertiary": "#ffffff",
+            "on-error-container": "#93000a",
+            "surface-container-highest": "#e4e2dd",
+            "on-primary-container": "#86a496",
+            "secondary": "#a23f0f",
+            "on-secondary-fixed": "#370e00",
+            "surface-container": "#f0eee9",
+            "on-tertiary-fixed-variant": "#224f3c",
+            "secondary-fixed-dim": "#ffb598",
+            "outline": "#727974",
+            "secondary-container": "#fe8450",
+            "surface-dim": "#dbdad5",
+            "tertiary-fixed-dim": "#a1d1b8",
+            "on-background": "#1b1c19",
+            "inverse-primary": "#aecebe",
+            "primary": "#07241a",
+            "background": "#fbf9f4",
+            "tertiary-fixed": "#bceed3",
+            "on-primary-fixed": "#032017",
+            "inverse-surface": "#30312e",
+            "surface-container-high": "#eae8e3",
+            "tertiary": "#002517",
+            "primary-fixed": "#caeada",
+            "on-secondary-container": "#6c2400"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-md": "1rem",
+            "margin": "2rem",
+            "space-lg": "1.5rem",
+            "margin-mobile": "1rem",
+            "gutter-mobile": "0.75rem",
+            "space-sm": "0.5rem",
+            "gutter": "1rem",
+            "space-xl": "2.25rem",
+            "space-xs": "0.25rem"
+          },
+          "fontFamily": {
+            "display-lg": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "display-lg-mobile": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.03em", "fontWeight": "800" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "label-lg": ["14px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "label-sm": ["10px", { "lineHeight": "12px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+            "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+            "headline-lg": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "headline-md": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }]
+          }
+        },
+      },
+    }
+  </script>
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex flex-col items-center selection:bg-secondary-fixed selection:text-on-secondary-fixed">
+<!-- Content Container (Optimized for Mobile/Tablet Task Focus) -->
+<div class="w-full max-w-xl mx-auto flex flex-col min-h-screen bg-surface shadow-2xl relative">
+<!-- Sticky Header with Close Button -->
+<header class="sticky top-0 z-30 flex items-center justify-between px-margin-mobile py-4 bg-surface/95 backdrop-blur-md shadow-sm">
+<div class="flex items-center gap-3">
+<button aria-label="Fechar" class="w-10 h-10 rounded-full flex items-center justify-center bg-surface-container text-on-surface hover:bg-surface-variant transition-colors duration-150 active:scale-95" type="button">
+<span class="material-symbols-outlined text-[22px]" data-icon="close">close</span>
+</button>
+<div>
+<h1 class="font-headline-sm text-headline-sm text-primary tracking-tight">Avaliar Camping</h1>
+<p class="font-label-md text-label-md text-on-surface-variant">Camping Mirante da Mantiqueira</p>
+</div>
+</div>
+<div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface-variant font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px] text-secondary" data-icon="terrain">terrain</span>
+<span>Serra</span>
+</div>
+</header>
+<!-- Main Form Scroll Area -->
+<main class="flex-1 px-margin-mobile py-space-lg space-y-space-xl pb-36">
+<!-- Overall Star Rating Card -->
+<section class="bg-surface-container-lowest rounded-xl p-5 shadow-[0px_2px_8px_rgba(30,58,47,0.05),0px_1px_2px_rgba(30,58,47,0.03)] border border-surface-variant/40 space-y-4">
+<div class="text-center space-y-1">
+<span class="font-label-md text-label-md text-secondary font-bold uppercase tracking-wider">Como foi sua estadia?</span>
+<h2 class="font-headline-md text-headline-md text-primary font-bold">Classificação Geral</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Toque nas estrelas para avaliar sua experiência</p>
+</div>
+<!-- 5-Star Interactive Selector -->
+<div class="flex items-center justify-center gap-2 py-2" id="star-group">
+<button class="star-btn p-1 transition-transform duration-150 active:scale-90 focus:outline-none" data-value="1" type="button">
+<span class="material-symbols-outlined text-4xl text-[#fe8450]" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+</button>
+<button class="star-btn p-1 transition-transform duration-150 active:scale-90 focus:outline-none" data-value="2" type="button">
+<span class="material-symbols-outlined text-4xl text-[#fe8450]" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+</button>
+<button class="star-btn p-1 transition-transform duration-150 active:scale-90 focus:outline-none" data-value="3" type="button">
+<span class="material-symbols-outlined text-4xl text-[#fe8450]" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+</button>
+<button class="star-btn p-1 transition-transform duration-150 active:scale-90 focus:outline-none" data-value="4" type="button">
+<span class="material-symbols-outlined text-4xl text-[#fe8450]" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+</button>
+<button class="star-btn p-1 transition-transform duration-150 active:scale-90 focus:outline-none" data-value="5" type="button">
+<span class="material-symbols-outlined text-4xl text-[#fe8450]" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+</button>
+</div>
+<div class="text-center font-label-lg text-label-lg text-primary font-bold">
+          Excelente (5 de 5)
+        </div>
+<!-- Fast Highlight Chips -->
+<div class="pt-2 border-t border-surface-variant/50">
+<label class="block font-label-md text-label-md text-on-surface-variant mb-2.5">O que mais se destacou?</label>
+<div class="flex flex-wrap gap-2">
+<button class="highlight-chip flex items-center gap-1.5 px-3 py-2 rounded-full border border-surface-variant bg-primary-container text-white font-label-md text-label-md active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[16px]" data-icon="sparkles">arrow_back_ios_new</span>
+<span>Limpeza impecável</span>
+</button>
+<button class="highlight-chip flex items-center gap-1.5 px-3 py-2 rounded-full border border-surface-variant bg-primary-container text-white font-label-md text-label-md active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[16px]" data-icon="explore">explore</span>
+<span>Boa localização</span>
+</button>
+<button class="highlight-chip flex items-center gap-1.5 px-3 py-2 rounded-full border border-surface-variant bg-surface-container text-on-surface font-label-md text-label-md active:scale-95 transition-all hover:bg-surface-variant" type="button">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant" data-icon="handshake">handshake</span>
+<span>Recepção acolhedora</span>
+</button>
+<button class="highlight-chip flex items-center gap-1.5 px-3 py-2 rounded-full border border-surface-variant bg-surface-container text-on-surface font-label-md text-label-md active:scale-95 transition-all hover:bg-surface-variant" type="button">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant" data-icon="hot_tub">hot_tub</span>
+<span>Ducha quente</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Review Textarea Section -->
+<section class="space-y-2">
+<div class="flex items-center justify-between">
+<label class="font-headline-sm text-headline-sm text-primary" for="review-text">Seu relato da aventura</label>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Mín. 50 caracteres</span>
+</div>
+<div class="relative bg-surface-container rounded-xl p-3 border border-surface-variant/40 focus-within:ring-2 focus-within:ring-primary focus-within:bg-surface-container-lowest transition-all">
+<textarea class="w-full bg-transparent border-0 resize-none text-on-surface placeholder:text-outline font-body-md text-body-md focus:ring-0 focus:outline-none p-1" id="review-text" placeholder="Conte como foi sua experiência, dicas de barraca, melhores pontos de montagem e facilidades do local..." rows="5"></textarea>
+<div class="flex justify-between items-center pt-2 text-on-surface-variant font-label-sm text-label-sm border-t border-surface-variant/30">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="tips_and_updates">tips_and_updates</span>
+              Dica: Mencione se há tomadas próximas e abrigo de vento
+            </span>
+<span class="font-bold text-outline">184 / 1000</span>
+</div>
+</div>
+</section>
+<!-- Photo Upload Section -->
+<section class="space-y-3">
+<div class="flex items-center justify-between">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-primary">Fotos da sua visita</h3>
+<p class="font-label-md text-label-md text-secondary font-bold">Adicione até 3 fotos da sua visita (2/3 selecionadas)</p>
+</div>
+<span class="material-symbols-outlined text-secondary text-2xl" data-icon="add_photo_alternate">add_photo_alternate</span>
+</div>
+<!-- 3-Slot Photo Grid -->
+<div class="grid grid-cols-3 gap-gutter-mobile">
+<!-- Thumbnail 1: Tent View -->
+<div class="relative aspect-square rounded-xl overflow-hidden shadow-sm group border border-surface-variant/60">
+<img class="w-full h-full object-cover" data-alt="A warm sunset scene at a mountain campsite with an orange adventure tent pitched on a grassy plateau overlooking misty valleys. The golden hour lighting casts vibrant warm hues across the rugged terrain, captured in a clean, modern outdoor aesthetic consistent with deep forest greens and ember tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7Y9UBpgWD122Bq1Zn1boIgUVuwwJE_Q6wAxdX7i44k41ZYP3neDH62jdAHEhLE1t7iLWWCAb2Aw_K2UWizisfKZbbuI2V0oViaZ-zv4a2O6pf49CO2zTD_28mwrCSFuz7x7hmyfZK-RCQUOoDycS6HFtnFCt88csWIunKUs1EFPLf4byuFmLp4dAkQINY_cx2UGW7LRJV-zFP2xHqGnkrtJiDR_aiHr-R1HBbMb66EE4EyhH0fGpMqQ"/>
+<div class="absolute inset-0 bg-primary/20 pointer-events-none"></div>
+<button aria-label="Remover foto da barraca" class="absolute top-1.5 right-1.5 w-6 h-6 rounded-full bg-inverse-surface/80 text-inverse-on-surface flex items-center justify-center backdrop-blur-sm active:scale-90 transition-all hover:bg-inverse-surface" type="button">
+<span class="material-symbols-outlined text-[14px]" data-icon="close">close</span>
+</button>
+<span class="absolute bottom-1.5 left-1.5 px-1.5 py-0.5 rounded bg-primary/80 text-white font-label-sm text-label-sm">Barraca</span>
+</div>
+<!-- Thumbnail 2: Campfire / Lake -->
+<div class="relative aspect-square rounded-xl overflow-hidden shadow-sm group border border-surface-variant/60">
+<img class="w-full h-full object-cover" data-alt="A serene twilight campsite near a calm wilderness lake with glowing campfire embers in the foreground. Deep forest pines line the distant shore under an early evening starlit sky, creating a peaceful, tactile outdoor adventure atmosphere with warm amber sparks and deep canopy greens." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_ymDAuE4G6DFQZ-Ez185-xGZqoyFP51WWJ9sGLm1xkL4TPUz6VKac4iC2sGTI_Tzdz_vKyr_-mkws_kHziet6l6lh2TNVndoyHcy3tqsfgDcsrQO_pTV80Cy92hMKLBUxwkt7KBd9UjwwqzkzczWcQmyvUIKX00nIAXFJj11GusbyIrHPxlrPkCrz0GRKP3lkrlnUd3asrtEarYWt4CQKbxQs9sK6n_P0YebqTHc4z4nz1dtTD7nSiA"/>
+<div class="absolute inset-0 bg-primary/20 pointer-events-none"></div>
+<button aria-label="Remover foto da fogueira" class="absolute top-1.5 right-1.5 w-6 h-6 rounded-full bg-inverse-surface/80 text-inverse-on-surface flex items-center justify-center backdrop-blur-sm active:scale-90 transition-all hover:bg-inverse-surface" type="button">
+<span class="material-symbols-outlined text-[14px]" data-icon="close">close</span>
+</button>
+<span class="absolute bottom-1.5 left-1.5 px-1.5 py-0.5 rounded bg-primary/80 text-white font-label-sm text-label-sm">Fogueira</span>
+</div>
+<!-- Slot 3: Add Photo Dotted Slot -->
+<button class="relative aspect-square rounded-xl border-2 border-dashed border-outline-variant bg-surface-container-low hover:bg-surface-container transition-colors flex flex-col items-center justify-center text-center p-2 group active:scale-95" type="button">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest group-hover:bg-primary-container group-hover:text-white flex items-center justify-center text-on-surface-variant transition-colors mb-1">
+<span class="material-symbols-outlined text-[20px]" data-icon="add">add</span>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-bold">+ Adicionar</span>
+<span class="font-body-sm text-[10px] text-on-surface-variant leading-tight mt-0.5">JPG ou PNG</span>
+</button>
+</div>
+</section>
+<!-- Informational Notice Box -->
+<section class="p-3.5 rounded-xl bg-surface-container-high/70 border border-surface-variant flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary text-[20px] mt-0.5 flex-shrink-0" data-icon="info">info</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Suas fotos e relato ajudam a manter o cadastro do camping atualizado para outros viajantes.
+        </p>
+</section>
+</main>
+<!-- Bottom Action Dock (Sticky Primary Button) -->
+<div class="fixed bottom-0 left-0 w-full z-40 bg-surface/95 backdrop-blur-md shadow-[0_-8px_32px_rgba(17,28,22,0.08)] py-3 px-margin-mobile flex justify-center">
+<div class="w-full max-w-xl">
+<button class="w-full h-12 bg-secondary hover:bg-[#c95b2a] text-on-secondary rounded-full font-label-lg text-label-lg font-bold flex items-center justify-center gap-2 shadow-[0px_6px_20px_rgba(30,58,47,0.08)] active:scale-[0.98] transition-all" type="submit">
+<span class="material-symbols-outlined text-[20px]" data-icon="rate_review">rate_review</span>
+<span>Publicar Avaliação</span>
+</button>
+</div>
+</div>
+</div>
+<script>
+    // Micro-interactions for interactive star rating
+    const starButtons = document.querySelectorAll('.star-btn');
+    starButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const val = parseInt(btn.getAttribute('data-value'), 10);
+        starButtons.forEach(s => {
+          const sVal = parseInt(s.getAttribute('data-value'), 10);
+          const icon = s.querySelector('.material-symbols-outlined');
+          if (sVal <= val) {
+            icon.classList.remove('text-outline-variant');
+            icon.classList.add('text-[#fe8450]');
+            icon.setAttribute('data-weight', 'fill');
+            icon.style.fontVariationSettings = "'FILL' 1";
+          } else {
+            icon.classList.remove('text-[#fe8450]');
+            icon.classList.add('text-outline-variant');
+            icon.removeAttribute('data-weight');
+            icon.style.fontVariationSettings = "'FILL' 0";
+          }
+        });
+      });
+    });
+
+    // Toggle highlight tags
+    const highlightChips = document.querySelectorAll('.highlight-chip');
+    highlightChips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        const isSelected = chip.classList.contains('bg-primary-container');
+        if (isSelected) {
+          chip.classList.remove('bg-primary-container', 'text-white');
+          chip.classList.add('bg-surface-container', 'text-on-surface');
+        } else {
+          chip.classList.add('bg-primary-container', 'text-white');
+          chip.classList.remove('bg-surface-container', 'text-on-surface');
+        }
+      });
+    });
+  </script>
+</body></html>

@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Criar Conta de Aventureiro - TerraCamp</title>
+<!-- Google Fonts: Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "inverse-primary": "#aecebe",
+            "secondary-fixed": "#ffdbce",
+            "secondary": "#a23f0f",
+            "primary-fixed-dim": "#aecebe",
+            "surface-dim": "#dbdad5",
+            "on-primary-fixed-variant": "#304c41",
+            "on-primary": "#ffffff",
+            "outline-variant": "#c1c8c3",
+            "background": "#fbf9f4",
+            "surface-container-high": "#eae8e3",
+            "on-tertiary-container": "#78a78f",
+            "surface-tint": "#486458",
+            "primary": "#07241a",
+            "on-primary-container": "#86a496",
+            "on-surface": "#1b1c19",
+            "surface-container-highest": "#e4e2dd",
+            "on-tertiary-fixed-variant": "#224f3c",
+            "surface-container-lowest": "#ffffff",
+            "tertiary-container": "#0b3c2a",
+            "surface-bright": "#fbf9f4",
+            "outline": "#727974",
+            "secondary-container": "#fe8450",
+            "on-tertiary": "#ffffff",
+            "on-primary-fixed": "#032017",
+            "primary-container": "#1e3a2f",
+            "on-surface-variant": "#424844",
+            "inverse-surface": "#30312e",
+            "secondary-fixed-dim": "#ffb598",
+            "surface-container": "#f0eee9",
+            "on-tertiary-fixed": "#002114",
+            "on-secondary-fixed-variant": "#7f2b00",
+            "surface-variant": "#e4e2dd",
+            "on-error-container": "#93000a",
+            "surface-container-low": "#f5f3ee",
+            "error-container": "#ffdad6",
+            "tertiary-fixed": "#bceed3",
+            "tertiary-fixed-dim": "#a1d1b8",
+            "on-error": "#ffffff",
+            "inverse-on-surface": "#f2f1ec",
+            "surface": "#fbf9f4",
+            "on-background": "#1b1c19",
+            "on-secondary-fixed": "#370e00",
+            "error": "#ba1a1a",
+            "on-secondary": "#ffffff",
+            "primary-fixed": "#caeada",
+            "tertiary": "#002517",
+            "on-secondary-container": "#6c2400"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin-mobile": "1rem",
+            "gutter": "1rem",
+            "space-xs": "0.25rem",
+            "space-sm": "0.5rem",
+            "space-lg": "1.5rem",
+            "gutter-mobile": "0.75rem",
+            "space-md": "1rem",
+            "margin": "2rem",
+            "space-xl": "2.25rem"
+          },
+          "fontFamily": {
+            "label-sm": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "display-lg-mobile": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "display-lg": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "label-sm": ["10px", { "lineHeight": "12px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+            "headline-lg": ["28px", { "lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }],
+            "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "display-lg-mobile": ["32px", { "lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "headline-sm": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "label-lg": ["14px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+            "display-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.03em", "fontWeight": "800" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "headline-md": ["22px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "700" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      line-height: 1;
+      display: inline-block;
+    }
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover, 
+    input:-webkit-autofill:focus {
+      -webkit-box-shadow: 0 0 0px 1000px #f0eee9 inset;
+      transition: background-color 5000s ease-in-out 0s;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex justify-center selection:bg-secondary-fixed selection:text-on-secondary-fixed">
+<!-- Mobile Viewport Container -->
+<div class="w-full max-w-md bg-surface min-h-screen flex flex-col relative pb-10">
+<!-- Top App Bar (Task-Focused Header with Back Button and Brand Title) -->
+<header class="sticky top-0 z-40 flex items-center justify-between w-full px-4 h-16 bg-surface shadow-sm">
+<button aria-label="Voltar" class="w-10 h-10 rounded-full flex items-center justify-center text-primary hover:bg-surface-container active:scale-95 transition-transform duration-150" type="button">
+<span class="material-symbols-outlined text-[24px]">arrow_back</span>
+</button>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[22px]" style="font-variation-settings: 'FILL' 1;">explore</span>
+<span class="font-headline-sm text-headline-sm font-extrabold text-primary tracking-tight">TerraCamp</span>
+</div>
+<div class="w-10 flex justify-end">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 px-4 pt-4 pb-8 space-y-6">
+<!-- Hero Header Section -->
+<section class="space-y-2">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">terrain</span>
+<span>Passaporte Outdoor</span>
+</div>
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-primary tracking-tight font-extrabold">
+          Junte-se à comunidade de exploradores selvagens
+        </h1>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+          Salve refúgios intocados, avalie pontos de acampamento e cadastre novos destinos autênticos no mapa colaborativo TerraCamp.
+        </p>
+</section>
+<!-- Profile Photo Upload -->
+<section class="flex flex-col items-center justify-center pt-2">
+<div class="relative group">
+<div class="w-24 h-24 rounded-full bg-surface-container-high border-2 border-dashed border-outline flex flex-col items-center justify-center overflow-hidden cursor-pointer transition-all duration-200 hover:border-primary-container shadow-sm" id="avatar-preview-container">
+<span class="material-symbols-outlined text-outline-variant text-[36px] group-hover:text-primary transition-colors" id="avatar-icon">add_a_photo</span>
+<img class="hidden w-full h-full object-cover" data-alt="A close-up portrait photograph of an adventurous outdoor explorer smiling gently in warm golden morning light amidst deep green pine trees and mist, captured with high-contrast earth tones and cinematic nature tones." id="avatar-preview-img" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwwylfnWxdkgmkXzQ7f8b6xZL3QyxnVFeeWgTbAqoS0kfZ5-Xl7GuehirK_YKLxrakxe9tIAL7h1OrkUfT04J_AyyhhZwKZ6FdkuWZj5BDYHulUQ1r-ruB9UfDbA94DFTknDRGA-u1U9jTGfcd7BpMqL0mwHrv9T5kQUeh-9DXI2Lg6LKxiACQ8YDCagaN1yavDpu3T2PBc7AD6p6AHLPP6hB5HO3zdwLzlyB6Dg-jEV-XyVtTm7a83A"/>
+</div>
+<label class="absolute -bottom-1 -right-1 w-9 h-9 rounded-full bg-primary-container text-on-primary flex items-center justify-center cursor-pointer shadow-md hover:bg-primary active:scale-95 transition-transform duration-150" for="avatar-input">
+<span class="material-symbols-outlined text-[18px]">photo_camera</span>
+<input accept="image/*" class="sr-only" id="avatar-input" type="file"/>
+</label>
+</div>
+<p class="mt-2.5 font-label-md text-label-md text-on-surface-variant font-medium">
+          Adicionar Foto de Perfil <span class="text-outline font-normal">(Opcional)</span>
+</p>
+</section>
+<!-- Registration Form -->
+<form class="space-y-4" id="signup-form" onsubmit="event.preventDefault();">
+<!-- Input: Full Name -->
+<div class="space-y-1.5">
+<label class="block font-label-md text-label-md text-on-surface font-semibold" for="fullname">
+            Nome Completo
+          </label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3.5 text-outline text-[20px] pointer-events-none">person</span>
+<input class="w-full h-12 pl-11 pr-4 bg-surface-container rounded-lg border-0 text-on-surface placeholder:text-outline font-body-md text-body-md focus:ring-2 focus:ring-primary-container focus:bg-surface-container-low transition-all duration-150" id="fullname" name="fullname" placeholder="ex: Lucas Silveira" required="" type="text"/>
+</div>
+</div>
+<!-- Input: Email -->
+<div class="space-y-1.5">
+<label class="block font-label-md text-label-md text-on-surface font-semibold" for="email">
+            E-mail
+          </label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3.5 text-outline text-[20px] pointer-events-none">mail</span>
+<input class="w-full h-12 pl-11 pr-4 bg-surface-container rounded-lg border-0 text-on-surface placeholder:text-outline font-body-md text-body-md focus:ring-2 focus:ring-primary-container focus:bg-surface-container-low transition-all duration-150" id="email" name="email" placeholder="seu.email@exemplo.com" required="" type="email"/>
+</div>
+</div>
+<!-- Input: Password with Toggle -->
+<div class="space-y-1.5">
+<div class="flex items-center justify-between">
+<label class="block font-label-md text-label-md text-on-surface font-semibold" for="password">
+              Senha
+            </label>
+<span class="font-body-sm text-body-sm text-outline">Mín. 8 dígitos</span>
+</div>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3.5 text-outline text-[20px] pointer-events-none">lock</span>
+<input class="w-full h-12 pl-11 pr-12 bg-surface-container rounded-lg border-0 text-on-surface placeholder:text-outline font-body-md text-body-md focus:ring-2 focus:ring-primary-container focus:bg-surface-container-low transition-all duration-150" id="password" name="password" placeholder="Crie uma senha forte" required="" type="password"/>
+<button aria-label="Alternar visibilidade da senha" class="absolute right-3 w-8 h-8 rounded-full flex items-center justify-center text-outline hover:text-on-surface active:scale-95 transition-transform" id="toggle-password" type="button">
+<span class="material-symbols-outlined text-[20px]" id="password-eye-icon">visibility</span>
+</button>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1 pt-0.5">
+<span class="material-symbols-outlined text-[14px] text-primary-container">shield</span>
+            Use letras, números e símbolos para segurança em trilhas remotas.
+          </p>
+</div>
+<!-- Country / Residence Selector -->
+<div class="space-y-1.5">
+<label class="block font-label-md text-label-md text-on-surface font-semibold" for="country-select">
+            País de Origem / Residência
+          </label>
+<div class="relative">
+<div class="w-full h-12 px-3.5 bg-surface-container rounded-lg flex items-center justify-between cursor-pointer focus-within:ring-2 focus-within:ring-primary-container">
+<div class="flex items-center gap-2.5">
+<span class="text-xl leading-none">🇧🇷</span>
+<select class="w-full bg-transparent border-0 text-on-surface font-body-md text-body-md font-medium focus:ring-0 cursor-pointer pl-0 pr-8 py-0" id="country-select">
+<option selected="" value="BR">Brasil (América do Sul)</option>
+<option value="PT">Portugal (Europa)</option>
+<option value="AR">Argentina (Patagônia / Andes)</option>
+<option value="CL">Chile (Atacama / Lagos)</option>
+<option value="US">Estados Unidos (North America)</option>
+<option value="CA">Canadá (Wilderness)</option>
+<option value="OTHER">Outro país aventureiro...</option>
+</select>
+</div>
+<span class="material-symbols-outlined text-outline text-[20px] pointer-events-none">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Camping Experience Level (Chips) -->
+<div class="space-y-2 pt-1">
+<div class="flex items-center justify-between">
+<label class="block font-label-md text-label-md text-on-surface font-semibold">
+              Nível de Experiência
+            </label>
+<span class="font-label-sm text-label-sm text-secondary uppercase font-bold tracking-wider">Perfil Outdoor</span>
+</div>
+<div aria-label="Nível de Experiência" class="grid grid-cols-3 gap-2" id="experience-selector" role="radiogroup">
+<!-- Chip: Iniciante -->
+<button aria-checked="false" class="exp-chip flex flex-col items-center justify-center p-2.5 rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant hover:bg-surface-container transition-all duration-150 text-center gap-1 active:scale-95" data-level="iniciante" role="radio" type="button">
+<span class="material-symbols-outlined text-[20px]">wb_sunny</span>
+<span class="font-label-md text-label-md font-semibold">Iniciante</span>
+<span class="font-label-sm text-label-sm text-outline opacity-80">Campings estruturados</span>
+</button>
+<!-- Chip: Selvagem / Trekker (Selected by Default) -->
+<button aria-checked="true" class="exp-chip flex flex-col items-center justify-center p-2.5 rounded-lg border-2 border-primary-container bg-primary-container text-on-primary transition-all duration-150 text-center gap-1 active:scale-95 shadow-sm" data-level="trekker" role="radio" type="button">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">hiking</span>
+<span class="font-label-md text-label-md font-bold">Selvagem</span>
+<span class="font-label-sm text-label-sm text-primary-fixed-dim">Mochilão e trilhas</span>
+</button>
+<!-- Chip: Vanlife -->
+<button aria-checked="false" class="exp-chip flex flex-col items-center justify-center p-2.5 rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant hover:bg-surface-container transition-all duration-150 text-center gap-1 active:scale-95" data-level="vanlife" role="radio" type="button">
+<span class="material-symbols-outlined text-[20px]">rv_hookup</span>
+<span class="font-label-md text-label-md font-semibold">Vanlife</span>
+<span class="font-label-sm text-label-sm text-outline opacity-80">Motorhome &amp; overland</span>
+</button>
+</div>
+</div>
+<!-- Regenerative Tourism & Terms Consent Checkbox -->
+<div class="pt-2">
+<label class="flex items-start gap-3 cursor-pointer group">
+<div class="relative flex items-center pt-0.5">
+<input class="w-5 h-5 rounded text-primary-container bg-surface-container border-outline focus:ring-primary-container focus:ring-offset-0 cursor-pointer" id="terms" name="terms" required="" type="checkbox"/>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant group-hover:text-on-surface leading-snug">
+              Concordo com os <a class="font-semibold text-primary underline underline-offset-2" href="#">Termos de Uso</a> e as <a class="font-semibold text-primary underline underline-offset-2" href="#">Diretrizes de Turismo Regenerativo</a> (Leave No Trace, fogueiras responsáveis e respeito à fauna).
+            </span>
+</label>
+</div>
+<!-- Primary CTA Button (Terracotta / Ember Sunset CTA) -->
+<div class="pt-3">
+<button class="w-full h-12 bg-secondary text-on-secondary rounded-full font-label-lg text-label-lg font-bold flex items-center justify-center gap-2 shadow-sm hover:opacity-95 active:scale-[0.98] transition-all duration-150 cursor-pointer" type="submit">
+<span>Criar Minha Conta</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</form>
+<!-- Social Login Divider -->
+<div class="relative flex items-center justify-center pt-2">
+<div class="w-full border-t border-outline-variant"></div>
+<span class="absolute px-3 bg-surface font-label-md text-label-md text-outline">
+          ou cadastre-se com
+        </span>
+</div>
+<!-- Social Logins -->
+<div class="grid grid-cols-2 gap-3 pt-1">
+<!-- Google -->
+<button class="h-12 px-4 rounded-lg bg-surface-container border border-outline-variant flex items-center justify-center gap-2 font-label-md text-label-md text-on-surface hover:bg-surface-container-high active:scale-95 transition-all duration-150" type="button">
+<svg class="w-4 h-4" viewbox="0 0 24 24">
+<path d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.8-2.4 3.65v3.03h3.88c2.27-2.09 3.66-5.17 3.66-9.12z" fill="#4285F4"></path>
+<path d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.03c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.13C3.27 21.39 7.35 24 12 24z" fill="#34A853"></path>
+<path d="M5.28 14.29c-.25-.72-.38-1.49-.38-2.29s.13-1.57.38-2.29V6.57H1.25C.45 8.16 0 9.98 0 12s.45 3.84 1.25 5.43l4.03-3.14z" fill="#FBBC05"></path>
+<path d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.35 0 3.27 2.61 1.25 6.57l4.03 3.14c.95-2.83 3.6-4.96 6.72-4.96z" fill="#EA4335"></path>
+</svg>
+<span>Google</span>
+</button>
+<!-- Apple -->
+<button class="h-12 px-4 rounded-lg bg-surface-container border border-outline-variant flex items-center justify-center gap-2 font-label-md text-label-md text-on-surface hover:bg-surface-container-high active:scale-95 transition-all duration-150" type="button">
+<svg class="w-4 h-4 fill-current text-primary" viewbox="0 0 170 170">
+<path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.75 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.35.13-9.16-1.9-14.42-6.08-3.69-3.08-7.7-7.94-12.04-14.58-6.19-9.5-10.98-20.2-14.38-32.08-3.4-11.89-5.11-23.01-5.11-33.37 0-14.28 3.59-26.04 10.77-35.29 7.18-9.24 16.14-13.97 26.89-14.19 5.3 0 10.94 1.34 16.92 4.02 5.98 2.68 9.77 4.07 11.36 4.17 1.83-.1 5.86-1.57 12.08-4.4 6.23-2.83 11.75-4.14 16.57-3.92 12.38.77 22.25 5.37 29.62 13.8-10.8 6.54-16.08 15.54-15.85 27.01.23 8.94 3.73 16.42 10.49 22.45 6.76 6.03 14.67 9.53 23.73 10.51-2.22 6.88-4.8 13.57-7.75 20.08zM119.22 31.97c0-7.22 2.61-14.03 7.84-20.44 5.23-6.41 11.7-10.51 19.4-12.31.25 1.5.38 2.87.38 4.12 0 7.23-2.73 14.2-8.19 20.91-5.46 6.71-12.03 10.77-19.72 12.18-.1-.97-.21-2.46-.21-4.46z"></path>
+</svg>
+<span>Apple</span>
+</button>
+</div>
+<!-- Footer Link: Already have an account? -->
+<footer class="text-center pt-4 pb-2">
+<p class="font-body-md text-body-md text-on-surface-variant">
+          Já tem uma conta de aventureiro? 
+          <a class="font-bold text-secondary hover:underline underline-offset-4 ml-1" href="#">
+            Entrar
+          </a>
+</p>
+</footer>
+</main>
+</div>
+<!-- Micro-interactions Script -->
+<script>
+    // Password Visibility Toggle
+    const togglePasswordBtn = document.getElementById('toggle-password');
+    const passwordInput = document.getElementById('password');
+    const eyeIcon = document.getElementById('password-eye-icon');
+
+    if (togglePasswordBtn && passwordInput && eyeIcon) {
+      togglePasswordBtn.addEventListener('click', () => {
+        const isPassword = passwordInput.type === 'password';
+        passwordInput.type = isPassword ? 'text' : 'password';
+        eyeIcon.textContent = isPassword ? 'visibility_off' : 'visibility';
+      });
+    }
+
+    // Experience Chips Single-Selection Logic
+    const expChips = document.querySelectorAll('.exp-chip');
+    expChips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        expChips.forEach(c => {
+          c.setAttribute('aria-checked', 'false');
+          c.className = 'exp-chip flex flex-col items-center justify-center p-2.5 rounded-lg border border-outline-variant bg-surface-container-low text-on-surface-variant hover:bg-surface-container transition-all duration-150 text-center gap-1 active:scale-95';
+          const subText = c.querySelector('span:last-child');
+          if (subText) subText.className = 'font-label-sm text-label-sm text-outline opacity-80';
+          const title = c.querySelector('span:nth-child(2)');
+          if (title) title.className = 'font-label-md text-label-md font-semibold';
+          const icon = c.querySelector('.material-symbols-outlined');
+          if (icon) icon.style.fontVariationSettings = "'FILL' 0";
+        });
+
+        // Set active chip
+        chip.setAttribute('aria-checked', 'true');
+        chip.className = 'exp-chip flex flex-col items-center justify-center p-2.5 rounded-lg border-2 border-primary-container bg-primary-container text-on-primary transition-all duration-150 text-center gap-1 active:scale-95 shadow-sm';
+        const activeSubText = chip.querySelector('span:last-child');
+        if (activeSubText) activeSubText.className = 'font-label-sm text-label-sm text-primary-fixed-dim';
+        const activeTitle = chip.querySelector('span:nth-child(2)');
+        if (activeTitle) activeTitle.className = 'font-label-md text-label-md font-bold';
+        const activeIcon = chip.querySelector('.material-symbols-outlined');
+        if (activeIcon) activeIcon.style.fontVariationSettings = "'FILL' 1";
+      });
+    });
+
+    // Avatar Upload Preview Simulation
+    const avatarInput = document.getElementById('avatar-input');
+    const avatarImg = document.getElementById('avatar-preview-img');
+    const avatarIcon = document.getElementById('avatar-icon');
+    const avatarContainer = document.getElementById('avatar-preview-container');
+
+    if (avatarInput && avatarImg && avatarIcon && avatarContainer) {
+      avatarContainer.addEventListener('click', () => avatarInput.click());
+      avatarInput.addEventListener('change', function(e) {
+        if (this.files && this.files[0]) {
+          const reader = new FileReader();
+          reader.onload = function(evt) {
+            avatarImg.src = evt.target.result;
+            avatarImg.classList.remove('hidden');
+            avatarIcon.classList.add('hidden');
+            avatarContainer.classList.remove('border-dashed');
+            avatarContainer.classList.add('border-solid', 'border-primary-container');
+          }
+          reader.readAsDataURL(this.files[0]);
+        }
+      });
+    }
+  </script>
+</body></html>
