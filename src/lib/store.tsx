@@ -1,5 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { createContext, useContext, useEffect, useRef, useState, type ReactNode } from 'react';
+import { initialNotifications, type AppNotification } from '../data/notifications';
 
 export type Review = {
   id: string;
@@ -29,6 +30,7 @@ type Data = {
   spaces: Space[];
   profile: Profile;
   notifications: boolean;
+  inbox: AppNotification[];
 };
 const initial: Data = {
   saved: [],
@@ -36,6 +38,7 @@ const initial: Data = {
   spaces: [],
   profile: { name: 'Explorador', country: 'Brasil', outdoor: 'Selvagem' },
   notifications: false,
+  inbox: initialNotifications,
 };
 type Store = Data & {
   ready: boolean;
@@ -45,6 +48,8 @@ type Store = Data & {
   addSpace: (space: Omit<Space, 'id'>) => void;
   setProfile: (profile: Profile) => void;
   setNotifications: (value: boolean) => void;
+  setNotificationRead: (id: string, read: boolean) => void;
+  markAllNotificationsRead: () => void;
   signedIn: boolean;
   setSignedIn: (value: boolean) => void;
 };
@@ -107,6 +112,13 @@ export function StoreProvider({ children }: { children: ReactNode }) {
       setData((d) => ({ ...d, spaces: [{ ...space, id: `${Date.now()}` }, ...d.spaces] })),
     setProfile: (profile) => setData((d) => ({ ...d, profile })),
     setNotifications: (notifications) => setData((d) => ({ ...d, notifications })),
+    setNotificationRead: (id, read) =>
+      setData((d) => ({
+        ...d,
+        inbox: d.inbox.map((item) => (item.id === id ? { ...item, read } : item)),
+      })),
+    markAllNotificationsRead: () =>
+      setData((d) => ({ ...d, inbox: d.inbox.map((item) => ({ ...item, read: true })) })),
   };
   return <Context.Provider value={value}>{children}</Context.Provider>;
 }

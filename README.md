@@ -17,6 +17,7 @@ No Xcode 27, inicie um iPhone no Device Hub. O script `postinstall` aplica a com
 
 - Explorar: busca por nome, cidade, região ou país; filtros combináveis; favoritos.
 - Países e Salvos: destinos por país e lista persistida de favoritos.
+- Notificações: central demonstrativa com contador de não lidas, filtros por leitura, marcação individual e em lote. O estado de leitura é persistido no dispositivo; não há envio ou recebimento de push conectado.
 - Detalhes: galeria expansível, comodidades, contatos demonstrativos, mapa da região e avaliações.
 - Nova avaliação: nota de 1 a 5, comentário e até 3 fotos.
 - Cadastrar camping: categoria, localização, contatos obrigatórios, comodidades e fotos.
