@@ -1,225 +1,234 @@
 import { Link, router } from 'expo-router';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Pressable, View } from 'react-native';
-import { C, CTA, Input, Page, Pill, SIcon, TopBar, type SymbolName } from '../../components/stitch';
-import { Check, Notice, Photo, T } from '../../components/ui';
+import * as Linking from 'expo-linking';
+import { CTA, Input, Page, TopBar, ToggleChip } from '../../components/stitch';
+import { Check, Notice, T } from '../../components/ui';
 import { Dialog, isEmail } from '../../components/forms';
-import { pickProfilePhoto, Social } from '../../components/stitch-forms';
-import { useStore } from '../../lib/store';
-const experiences: { name: string; text: string; icon: SymbolName }[] = [
-  { name: 'Iniciante', text: 'Campings estruturados', icon: 'wb_sunny' },
-  { name: 'Selvagem', text: 'Mochilão e trilhas', icon: 'hiking' },
-  { name: 'Vanlife', text: 'Motorhome & overland', icon: 'rv_hookup' },
-];
+import { Social } from '../../components/stitch-forms';
+import { api, errorMessage, type LegalDocument } from '../../lib/api';
+import { useCountries } from '../../hooks/use-countries';
+
 export default function Register() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [country, setCountry] = useState('Brasil');
-  const [countries, setCountries] = useState(false);
-  const [outdoor, setOutdoor] = useState('Selvagem');
-  const [photo, setPhoto] = useState('');
+  const [countryUuid, setCountryUuid] = useState<string>();
+  const [selectingCountry, setSelectingCountry] = useState(false);
   const [terms, setTerms] = useState(false);
+  const [documents, setDocuments] = useState<LegalDocument[]>([]);
+  const [loadingDocs, setLoadingDocs] = useState(true);
+  const [docsError, setDocsError] = useState('');
+  const [revision, setRevision] = useState(0);
   const [error, setError] = useState('');
-  const [dialog, setDialog] = useState('');
+  const [busy, setBusy] = useState(false);
+  const lock = useRef(false);
   const [success, setSuccess] = useState(false);
-  const { setProfile, setSignedIn } = useStore();
-  function submit() {
-    if (name.trim().length < 3 || !isEmail(email) || password.length < 8 || !terms) {
-      setError(
-        'Informe nome, e-mail válido, senha com pelo menos 8 caracteres e aceite as diretrizes.',
-      );
+  const countries = useCountries();
+  useEffect(() => {
+    let active = true;
+    setLoadingDocs(true);
+    setDocsError('');
+    setTerms(false);
+    api
+      .documents()
+      .then((result) => {
+        if (active) setDocuments(result);
+      })
+      .catch((e) => {
+        if (active) setDocsError(errorMessage(e));
+      })
+      .finally(() => {
+        if (active) setLoadingDocs(false);
+      });
+    return () => {
+      active = false;
+    };
+  }, [revision]);
+  const legalReady =
+    documents.length === 2 &&
+    ['terms_of_use', 'privacy_policy'].every((type) => documents.some((d) => d.type === type));
+  async function submit() {
+    if (lock.current) return;
+    if (
+      name.trim().length < 3 ||
+      name.trim().length > 150 ||
+      !isEmail(email.trim()) ||
+      password.length < 15 ||
+      password.length > 128 ||
+      !terms ||
+      !legalReady
+    ) {
+      setError('Confira nome, e-mail, senha de 15 a 128 caracteres e aceite os documentos.');
       return;
     }
-    setProfile({ name: name.trim(), country, outdoor, photo });
-    setSignedIn(true);
-    setSuccess(true);
+    lock.current = true;
+    setBusy(true);
+    setError('');
+    try {
+      await api.register({
+        name: name.trim(),
+        email: email.trim(),
+        password,
+        countryUuid,
+        acceptedDocumentUuids: documents.map((d) => d.uuid),
+      });
+      setPassword('');
+      setSuccess(true);
+    } catch (e) {
+      setError(errorMessage(e));
+    } finally {
+      lock.current = false;
+      setBusy(false);
+    }
+  }
+  async function openDocument(document: LegalDocument) {
+    if (!document.contentUrl.startsWith('https://')) {
+      setError('Este documento não está disponível em um endereço seguro.');
+      return;
+    }
+    try {
+      await Linking.openURL(document.contentUrl);
+    } catch {
+      setError('Não foi possível abrir o documento.');
+    }
   }
   return (
     <Page top={16} header={<TopBar mode="register" />}>
       <View className="gap-3">
-        <Pill icon="terrain" color="#370e00" background={C.peach}>
-          Passaporte Outdoor
-        </Pill>
         <T
           accessibilityRole="header"
-          className="font-display text-[32px] leading-[38px] tracking-tight text-primary"
+          className="font-display text-[32px] leading-[38px] text-primary"
         >
           Junte-se à comunidade de exploradores selvagens
         </T>
-        <T className="text-sm leading-6 text-ink-variant">
-          Salve refúgios intocados, avalie pontos de acampamento e cadastre novos destinos
-          autênticos no mapa colaborativo Kampive.
-        </T>
-      </View>
-      <View className="items-center gap-3 py-2">
-        <Pressable
-          accessibilityRole="button"
-          accessibilityLabel="Adicionar foto de perfil"
-          onPress={() =>
-            pickProfilePhoto(setPhoto, () => setError('Não foi possível selecionar a foto.'))
-          }
-          className="relative h-24 w-24 items-center justify-center rounded-full border-2 border-dashed border-ink-muted bg-surface-high"
-        >
-          {photo ? (
-            <Photo uri={photo} className="h-full w-full rounded-full" />
-          ) : (
-            <SIcon name="add_a_photo" size={32} color={C.border} />
-          )}
-          <View className="absolute -bottom-1 -right-1 h-9 w-9 items-center justify-center rounded-full bg-[#1e3a2f]">
-            <SIcon name="photo_camera" size={20} color="#fff" />
-          </View>
-        </Pressable>
-        <T className="text-xs">
-          Adicionar Foto de Perfil <T className="text-xs text-ink-muted">(Opcional)</T>
+        <T className="text-sm text-ink-variant">
+          Crie sua conta para começar sua jornada no Kampive.
         </T>
       </View>
       <View className="gap-4">
         <Input
-          label="Nome Completo"
-          icon="person"
-          placeholder="ex: Lucas Silveira"
+          label="Nome completo"
           value={name}
           onChangeText={setName}
+          maxLength={150}
+          autoComplete="name"
         />
         <Input
           label="E-mail"
-          icon="mail"
-          placeholder="seu.email@exemplo.com"
-          autoCapitalize="none"
-          keyboardType="email-address"
           value={email}
           onChangeText={setEmail}
+          autoCapitalize="none"
+          keyboardType="email-address"
+          autoComplete="email"
+          maxLength={254}
         />
-        <View className="gap-2">
-          <Input
-            label="Senha"
-            hint="Mín. 8 dígitos"
-            icon="lock"
-            placeholder="Crie uma senha forte"
-            value={password}
-            onChangeText={setPassword}
-            password
-          />
-          <View className="flex-row items-center gap-1">
-            <SIcon name="shield" size={14} />
-            <T className="flex-1 text-xs leading-4 text-ink-variant">
-              Use letras, números e símbolos para segurança em trilhas remotas.
-            </T>
-          </View>
-        </View>
-        <View className="gap-2">
-          <T className="font-medium text-xs">País de Origem / Residência</T>
-          <Pressable
-            accessibilityRole="button"
-            onPress={() => setCountries(!countries)}
-            className="min-h-12 flex-row items-center gap-3 rounded-lg bg-surface-container px-4"
-          >
-            <T className="text-xl">
-              {country === 'Brasil' ? '🇧🇷' : country === 'Portugal' ? '🇵🇹' : '🇦🇷'}
-            </T>
-            <T className="flex-1 text-sm">
-              {country}
-              {country === 'Brasil' ? ' (América do Sul)' : ''}
-            </T>
-            <SIcon name="expand_more" size={18} color={C.outline} />
-          </Pressable>
-          {countries && (
-            <View className="gap-2">
-              {['Brasil', 'Argentina', 'Portugal'].map((c) => (
-                <Pressable
-                  key={c}
-                  accessibilityRole="button"
-                  onPress={() => {
-                    setCountry(c);
-                    setCountries(false);
-                  }}
-                  className="rounded-lg bg-white p-3"
-                >
-                  <T>{c}</T>
-                </Pressable>
-              ))}
-            </View>
-          )}
-        </View>
-      </View>
-      <View className="gap-3">
-        <View className="flex-row items-center justify-between">
-          <T className="font-medium text-xs">Nível de Experiência</T>
-          <T className="font-bold text-[10px] tracking-wider text-secondary">PERFIL OUTDOOR</T>
-        </View>
-        <View className="flex-row gap-2">
-          {experiences.map((e) => (
-            <Pressable
-              key={e.name}
-              accessibilityRole="radio"
-              accessibilityState={{ checked: outdoor === e.name }}
-              onPress={() => setOutdoor(e.name)}
-              className="flex-1 items-center gap-1 rounded-lg border p-3"
-              style={{
-                backgroundColor: outdoor === e.name ? C.forest : C.low,
-                borderColor: outdoor === e.name ? C.primary : C.border,
-              }}
+        <Input
+          label="Senha"
+          hint="15 a 128 caracteres"
+          value={password}
+          onChangeText={setPassword}
+          password
+          maxLength={128}
+          autoComplete="new-password"
+        />
+        <T className="text-xs text-ink-variant">Use uma frase longa e exclusiva para sua conta.</T>
+        <Pressable
+          accessibilityRole="button"
+          onPress={() => setSelectingCountry(!selectingCountry)}
+          className="min-h-12 rounded-lg bg-surface-container p-3"
+        >
+          <T>
+            País (opcional):{' '}
+            {countries.data?.items.find((c) => c.uuid === countryUuid)?.name || 'Selecionar'}
+          </T>
+        </Pressable>
+        {selectingCountry && (
+          <View className="gap-2">
+            <ToggleChip
+              icon="public"
+              selected={!countryUuid}
+              onPress={() => setCountryUuid(undefined)}
             >
-              <SIcon name={e.icon} size={22} color={outdoor === e.name ? '#fff' : C.primary} />
-              <T
-                className="font-semibold text-xs"
-                style={{ color: outdoor === e.name ? '#fff' : C.text }}
+              Não informar
+            </ToggleChip>
+            {countries.loading && <T>Carregando países...</T>}
+            {countries.error ? (
+              <>
+                <Notice error>{countries.error}</Notice>
+                <CTA title="Tentar novamente" onPress={() => void countries.reload()} />
+              </>
+            ) : null}
+            {!countries.loading && !countries.error && !countries.data?.items.length && (
+              <T>Nenhum país disponível no momento.</T>
+            )}
+            {countries.data?.items.map((c) => (
+              <ToggleChip
+                icon="public"
+                key={c.uuid}
+                selected={c.uuid === countryUuid}
+                onPress={() => {
+                  setCountryUuid(c.uuid);
+                  setSelectingCountry(false);
+                }}
               >
-                {e.name}
-              </T>
-              <T
-                className="text-center font-semibold text-[10px] leading-3 tracking-[.4px]"
-                style={{ color: outdoor === e.name ? '#aecebe' : C.outline }}
-              >
-                {e.text}
+                {c.name}
+              </ToggleChip>
+            ))}
+            {countries.data && countries.data.page + 1 < countries.data.totalPages && (
+              <CTA title="Mais países" disabled={countries.loading} onPress={countries.loadMore} />
+            )}
+          </View>
+        )}
+      </View>
+      {loadingDocs && <T>Carregando documentos...</T>}
+      {docsError ? <Notice error>{docsError}</Notice> : null}
+      {!loadingDocs && !docsError && !legalReady && (
+        <Notice>
+          O cadastro estará disponível assim que os termos e a política de privacidade forem
+          publicados.
+        </Notice>
+      )}
+      {(!legalReady || docsError) && !loadingDocs && (
+        <CTA title="Atualizar documentos" outline onPress={() => setRevision((n) => n + 1)} />
+      )}
+      {legalReady && !loadingDocs && !docsError && (
+        <View className="gap-3">
+          {documents.map((document) => (
+            <Pressable
+              key={document.uuid}
+              accessibilityRole="link"
+              onPress={() => void openDocument(document)}
+            >
+              <T className="text-secondary underline">
+                {document.type === 'terms_of_use' ? 'Termos de Uso' : 'Política de Privacidade'} ·
+                versão {document.version}
               </T>
             </Pressable>
           ))}
+          <Check checked={terms} onChange={() => setTerms(!terms)}>
+            Li e aceito os Termos de Uso e a Política de Privacidade.
+          </Check>
         </View>
-      </View>
-      <Check checked={terms} onChange={() => setTerms(!terms)}>
-        Concordo com os{' '}
-        <T
-          className="text-xs underline"
-          onPress={() =>
-            setDialog(
-              'Termos demonstrativos: respeite as comunidades, leve seu lixo e proteja a fauna. O cadastro desta prévia é apenas local.',
-            )
-          }
-        >
-          Termos de Uso
-        </T>{' '}
-        e as{' '}
-        <T
-          className="text-xs underline"
-          onPress={() =>
-            setDialog(
-              'Leave No Trace: não deixe rastros, faça fogueiras apenas em locais permitidos e respeite a fauna.',
-            )
-          }
-        >
-          Diretrizes de Turismo Regenerativo
-        </T>{' '}
-        (Leave No Trace, fogueiras responsáveis e respeito à fauna).
-      </Check>
-      {error !== '' && <Notice error>{error}</Notice>}
-      <CTA title="Criar Minha Conta" onPress={submit} />
+      )}
+      {error ? <Notice error>{error}</Notice> : null}
+      <CTA
+        title={busy ? 'Criando conta...' : 'Criar Minha Conta'}
+        disabled={busy || success || loadingDocs || !legalReady || !terms || !!docsError}
+        onPress={() => void submit()}
+      />
       <Social register />
-      <T className="py-6 text-center text-sm text-ink-variant">
-        Já tem uma conta de aventureiro?{' '}
-        <Link href="/login" className="font-bold text-secondary">
+      <T className="text-center">
+        Já tem uma conta?{' '}
+        <Link href="/login" className="text-secondary">
           Entrar
         </Link>
       </T>
-      {dialog !== '' && (
-        <Dialog title="Diretrizes da comunidade" text={dialog} onClose={() => setDialog('')} />
-      )}
       {success && (
         <Dialog
-          title="Perfil de demonstração criado"
-          text="Seu perfil foi salvo neste dispositivo. Nenhuma conta real foi criada e sua senha não foi armazenada."
-          onClose={() => router.replace('/profile')}
+          title="Conta criada"
+          text="Sua conta foi criada. Entre com seu e-mail e senha para continuar."
+          onClose={() => router.replace('/login')}
         />
       )}
     </Page>

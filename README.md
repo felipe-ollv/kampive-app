@@ -21,8 +21,8 @@ No Xcode 27, inicie um iPhone no Device Hub. O script `postinstall` aplica a com
 - Detalhes: galeria expansível, comodidades, contatos demonstrativos, mapa da região e avaliações.
 - Nova avaliação: nota de 1 a 5, comentário e até 3 fotos.
 - Cadastrar camping: categoria, localização, contatos obrigatórios, comodidades e fotos.
-- Perfil: avaliações locais, favoritos, espaços, edição do nome e preferência de notificações.
-- Login e cadastro: formulários e navegação demonstrativos, sem autenticação real.
+- Perfil: consulta dos dados da conta autenticada e logout. Edição depende dos próximos endpoints.
+- Login e cadastro: integração com autenticação da API, sessão e proteção CSRF.
 
 ## Organização
 
@@ -34,9 +34,9 @@ No Xcode 27, inicie um iPhone no Device Hub. O script `postinstall` aplica a com
 
 ## Escopo do protótipo
 
-Nenhuma conta é criada e nenhuma senha é armazenada. Login social, SMS, recuperação de senha, contatos oficiais, publicação de avaliações e curadoria aguardam integração com backend. Os fluxos explicam esse estado ao usuário.
+Login e cadastro utilizam a API. Senhas não são persistidas pelo app. Login social, SMS, recuperação de senha, contatos oficiais, publicação de avaliações e curadoria aguardam integração com backend.
 
-Favoritos, perfil, avaliações, rascunhos e preferência de notificações ficam apenas neste dispositivo. As fotos selecionadas são URIs locais (ou temporárias na web), não uploads permanentes. A sessão de demonstração dura apenas enquanto o app está aberto; “Lembrar de mim” é ilustrativo.
+Favoritos, avaliações, rascunhos e leitura de notificações continuam demonstrativos e locais ao dispositivo. As fotos selecionadas são URIs locais (ou temporárias na web), não uploads permanentes. O perfil autenticado vem da API; a sessão é administrada pelo servidor.
 
 As imagens do Stitch são empacotadas localmente em `assets/stitch`, com suas URLs de origem em `sources.json`. A fonte Material Symbols tem licença incluída na mesma pasta. Nomes, preços, notas e verificações são dados demonstrativos; fotos dos formulários são exemplos removíveis. Avaliações aceitam comentários entre 50 e 1.000 caracteres. A localização é solicitada somente ao tocar em “Usar minha localização atual”; sempre é possível digitar o endereço.
 
@@ -50,3 +50,21 @@ npx expo export --platform android --platform ios --platform web
 ```
 
 A exportação valida os bundles, não substitui teste em dispositivo. Permissões de localização, seletor de fotos, teclado e áreas seguras precisam de validação final em iOS/Android.
+
+## API HTTPS local e simulador iOS
+
+A API está em `https://localhost:8443`, disponibilizada pelo gateway do repositório irmão `kampive-infra`. Siga o README desse repositório para subir o Docker, exportar o certificado público da CA local e instalá-lo no simulador. Nunca desabilite a validação TLS. A chave privada da CA permanece no volume Docker e não deve ser compartilhada.
+
+A configuração padrão já usa esse endereço. Para alterá-lo, copie `.env.example` para `.env.local`, ajuste `EXPO_PUBLIC_API_URL` e reinicie o Expo. Essa variável é pública: não coloque credenciais nela. Execute `npm start` e abra o app no simulador com o certificado instalado.
+
+O cliente usa cookies de sessão com `credentials: include` e obtém um token CSRF atualizado antes de cada escrita. Escritas são serializadas e não são repetidas automaticamente. Credenciais, cookies e tokens não são gravados no AsyncStorage. O backend configura o cookie como Secure e HttpOnly; não foi introduzido JWT ou JWE.
+
+Países e continentes usam o catálogo real, com filtros e paginação. Um banco sem dados apresenta uma lista vazia. Cadastro exige os dois documentos legais vigentes publicados no banco (termos e privacidade), provisionados manualmente; sem eles o formulário não permite criar uma conta. Campings e os demais módulos ainda não integrados continuam identificados como demonstração.
+
+A conexão HTTPS e a consulta do catálogo foram verificadas no simulador iOS. O fluxo completo de login com cookies ainda precisa de validação em dispositivo com uma conta e documentos legais de teste. Autenticação no navegador exige configuração própria de origem/CORS e cookies; o encaminhamento do frontend web não está configurado. Android e aparelhos físicos também exigem endereço acessível e confiança no certificado, ainda não configurados nesta etapa.
+
+Testes do cliente HTTP:
+
+```sh
+npm run test:api
+```

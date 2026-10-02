@@ -1,26 +1,32 @@
 import { Link, router } from 'expo-router';
 import { useState } from 'react';
 import { Pressable, View } from 'react-native';
-import { C, Input, Page, Pill, SIcon, TopBar } from '../../components/stitch';
-import { Check, Notice, T } from '../../components/ui';
+import { C, Input, Page, SIcon, TopBar } from '../../components/stitch';
+import { Notice, T } from '../../components/ui';
 import { Dialog, isEmail } from '../../components/forms';
 import { Social } from '../../components/stitch-forms';
-import { useStore } from '../../lib/store';
+import { useAuth } from '../../lib/auth';
+import { errorMessage } from '../../lib/api';
 export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [remember, setRemember] = useState(false);
   const [error, setError] = useState('');
   const [dialog, setDialog] = useState('');
-  const { setSignedIn } = useStore();
-  function submit() {
-    if (!isEmail(email) || !password) {
-      setError('Preencha um e-mail válido e sua senha para testar o fluxo.');
+  const { login, busy } = useAuth();
+  async function submit() {
+    if (busy) return;
+    if (!isEmail(email.trim()) || !password) {
+      setError('Preencha um e-mail válido e sua senha.');
       return;
     }
-    setDialog(
-      'Prévia do layout: nenhuma senha foi enviada ou armazenada. Continue para explorar o perfil demonstrativo.',
-    );
+    setError('');
+    try {
+      await login(email, password);
+      setPassword('');
+      router.replace('/profile');
+    } catch (e) {
+      setError(errorMessage(e));
+    }
   }
   return (
     <Page texture top={12} gap={24}>
@@ -58,16 +64,9 @@ export default function Login() {
           onChangeText={setPassword}
         />
         <View className="flex-row items-center justify-between">
-          <Check compact checked={remember} onChange={() => setRemember(!remember)}>
-            Lembrar de mim
-          </Check>
           <Pressable
             accessibilityRole="button"
-            onPress={() =>
-              setDialog(
-                'A recuperação de senha estará disponível quando a autenticação for conectada.',
-              )
-            }
+            onPress={() => setDialog('A recuperação de senha estará disponível em breve.')}
           >
             <T className="font-bold text-xs text-secondary underline">Esqueceu a senha?</T>
           </Pressable>
@@ -76,9 +75,13 @@ export default function Login() {
         <Pressable
           accessibilityRole="button"
           onPress={submit}
+          disabled={busy}
+          accessibilityState={{ disabled: busy, busy }}
           className="min-h-12 flex-row items-center justify-center gap-2 rounded-full bg-secondary px-6 py-3"
         >
-          <T className="font-bold text-sm text-white">Entrar no Kampive</T>
+          <T className="font-bold text-sm text-white">
+            {busy ? 'Entrando...' : 'Entrar no Kampive'}
+          </T>
           <SIcon name="arrow_forward" size={20} color="#fff" />
         </Pressable>
       </View>
@@ -110,19 +113,7 @@ export default function Login() {
           Autenticação segura e criptografada Kampive
         </T>
       </View>
-      {dialog !== '' && (
-        <Dialog
-          title="Kampive · Demonstração"
-          text={dialog}
-          onClose={() => {
-            if (dialog.startsWith('Prévia')) {
-              setSignedIn(true);
-              router.replace('/profile');
-            }
-            setDialog('');
-          }}
-        />
-      )}
+      {dialog !== '' && <Dialog title="Kampive" text={dialog} onClose={() => setDialog('')} />}
     </Page>
   );
 }

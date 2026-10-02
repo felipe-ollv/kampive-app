@@ -5,12 +5,15 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { CampsiteCard } from '../../components/campsite-card';
 import { CountryCard } from '../../components/country-card';
 import { C, CTA, Page, SIcon, ToggleChip, TopBar, type SymbolName } from '../../components/stitch';
-import { Empty, T } from '../../components/ui';
-import { countries, filterCampsites, filters } from '../../data/campsites';
+import { Empty, Notice, T } from '../../components/ui';
+import { filterCampsites, filters } from '../../data/campsites';
+import { useCountries } from '../../hooks/use-countries';
 const icons: SymbolName[] = ['near_me', 'water', 'landscape', 'pets', 'rv_hookup', 'wifi'];
 export default function Explore() {
   const { country: param } = useLocalSearchParams<{ country?: string }>();
   const country = param || 'Brasil';
+  const catalog = useCountries();
+  const countries = catalog.data?.items || [];
   const [query, setQuery] = useState('');
   const [filter, setFilter] = useState('Perto de você');
   const [selecting, setSelecting] = useState(false);
@@ -28,19 +31,21 @@ export default function Explore() {
     >
       {selecting && (
         <View className="gap-2 rounded-xl border border-line bg-white p-3">
-          {['Brasil', ...countries.map((c) => c.name)].map((name) => (
+          {!countries.length && <T>Nenhum país disponível no momento.</T>}
+          <CTA title="Ver todos os países" outline onPress={() => router.navigate('/countries')} />
+          {countries.map((c) => (
             <Pressable
-              key={name}
+              key={c.uuid}
               accessibilityRole="button"
               onPress={() => {
-                router.setParams({ country: name });
+                router.setParams({ country: c.name, countryUuid: c.uuid });
                 setSelecting(false);
                 setFilter('Perto de você');
               }}
               className="flex-row justify-between p-2"
             >
-              <T>{name}</T>
-              {name === country && <SIcon name="check" size={18} />}
+              <T>{c.name}</T>
+              {c.name === country && <SIcon name="check" size={18} />}
             </Pressable>
           ))}
         </View>
@@ -126,6 +131,7 @@ export default function Explore() {
         ))}
       </ScrollView>
       <View className="gap-4">
+        <Notice>Os campings abaixo são exemplos para explorar o app.</Notice>
         <View className="flex-row items-end justify-between gap-5">
           <View className="flex-1">
             <T className="font-bold text-[10px] leading-3 uppercase tracking-[0.4px] text-secondary">
@@ -148,7 +154,7 @@ export default function Explore() {
             className="w-[78px] flex-row items-center gap-1"
           >
             <T className="flex-1 font-bold text-xs leading-4 text-secondary">
-              {all ? 'Ver destaques' : 'Ver todos (142)'}
+              {all ? 'Ver destaques' : 'Ver todos'}
             </T>
             <SIcon name="chevron_right" size={16} color={C.secondary} />
           </Pressable>
@@ -177,19 +183,27 @@ export default function Explore() {
             onPress={() => router.navigate('/countries')}
             className="w-32 flex-row items-center gap-1"
           >
-            <T className="flex-1 font-bold text-xs leading-4 text-secondary">
-              Mapa global
-            </T>
+            <T className="flex-1 font-bold text-xs leading-4 text-secondary">Mapa global</T>
             <SIcon name="chevron_right" size={16} color={C.secondary} />
           </Pressable>
         </View>
+        {catalog.loading && <T>Carregando países...</T>}
+        {catalog.error ? (
+          <>
+            <Notice error>{catalog.error}</Notice>
+            <CTA title="Tentar novamente" onPress={() => void catalog.reload()} />
+          </>
+        ) : null}
+        {!catalog.loading && !catalog.error && !countries.length && (
+          <T>Nenhum país disponível no momento.</T>
+        )}
         <ScrollView
           horizontal
           showsHorizontalScrollIndicator={false}
           contentContainerStyle={{ gap: 16, paddingVertical: 8 }}
         >
           {countries.map((c) => (
-            <CountryCard key={c.name} country={c} />
+            <CountryCard key={c.uuid} country={c} />
           ))}
         </ScrollView>
       </View>

@@ -50,8 +50,6 @@ type Store = Data & {
   setNotifications: (value: boolean) => void;
   setNotificationRead: (id: string, read: boolean) => void;
   markAllNotificationsRead: () => void;
-  signedIn: boolean;
-  setSignedIn: (value: boolean) => void;
 };
 const Context = createContext<Store | null>(null);
 const key = 'kampive.layout.v1';
@@ -59,7 +57,6 @@ export function StoreProvider({ children }: { children: ReactNode }) {
   const [data, setData] = useState(initial);
   const [ready, setReady] = useState(false);
   const [storageError, setStorageError] = useState(false);
-  const [signedIn, setSignedIn] = useState(false);
   const writes = useRef(Promise.resolve());
   useEffect(() => {
     AsyncStorage.getItem(key)
@@ -88,8 +85,6 @@ export function StoreProvider({ children }: { children: ReactNode }) {
     ...data,
     ready,
     storageError,
-    signedIn,
-    setSignedIn,
     toggleSaved: (id) =>
       setData((d) => ({
         ...d,

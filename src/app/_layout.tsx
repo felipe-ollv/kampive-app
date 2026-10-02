@@ -9,6 +9,7 @@ import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { ActivityIndicator, View } from 'react-native';
 import { StoreProvider, useStore } from '../lib/store';
+import { AuthProvider } from '../lib/auth';
 import { colors } from '../theme/tokens';
 import { Notice } from '../components/ui';
 export default function Layout() {
@@ -27,9 +28,11 @@ export default function Layout() {
       </View>
     );
   return (
-    <StoreProvider>
-      <Navigation />
-    </StoreProvider>
+    <AuthProvider>
+      <StoreProvider>
+        <Navigation />
+      </StoreProvider>
+    </AuthProvider>
   );
 }
 function Navigation() {

@@ -14,7 +14,7 @@ import {
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import Svg, { Path } from 'react-native-svg';
 import { symbols } from '../data/symbols';
-import { stitchImages } from '../data/stitch-images';
+import { useAuth } from '../lib/auth';
 import { Photo, T } from './ui';
 export const C = {
   primary: '#07241a',
@@ -149,6 +149,7 @@ export function TopBar({
   country?: string;
   onCountry?: () => void;
 }) {
+  const { user } = useAuth();
   if (mode === 'login')
     return (
       <View className="h-18 flex-row items-center justify-between">
@@ -207,7 +208,13 @@ export function TopBar({
           onPress={() => router.navigate('/profile')}
           className="h-10 w-10 overflow-hidden rounded-full border-2 border-primary p-0.5"
         >
-          <Photo uri={stitchImages.home[0]} className="h-full w-full rounded-full" />
+          {user?.photoUrl?.startsWith('https://') ? (
+            <Photo uri={user.photoUrl} className="h-full w-full rounded-full" />
+          ) : (
+            <View className="flex-1 items-center justify-center">
+              <SIcon name="person" size={22} />
+            </View>
+          )}
         </Pressable>
       </View>
     </View>
@@ -303,8 +310,10 @@ export function CTA({
   outline = false,
   color = C.secondary,
   compact = false,
+  disabled = false,
 }: {
   title: string;
+  disabled?: boolean;
   onPress: () => void;
   icon?: SymbolName;
   outline?: boolean;
@@ -315,8 +324,11 @@ export function CTA({
     <Pressable
       accessibilityRole="button"
       onPress={onPress}
+      disabled={disabled}
+      accessibilityState={{ disabled }}
       className={`flex-row items-center justify-center gap-2 rounded-full px-5 ${compact ? 'min-h-9 py-2' : 'min-h-12 py-3'}`}
       style={{
+        opacity: disabled ? 0.5 : 1,
         backgroundColor: outline ? 'transparent' : color,
         borderWidth: outline ? 1 : 0,
         borderColor: C.primary,
