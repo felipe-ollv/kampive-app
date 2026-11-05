@@ -1,4 +1,5 @@
-import { useState, type ReactNode } from 'react';
+import { useTranslation } from '../lib/i18n';
+import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { router } from 'expo-router';
 import {
   KeyboardAvoidingView,
@@ -9,12 +10,14 @@ import {
   TextInput,
   View,
   type TextInputProps,
+  type ScrollViewProps,
   type ViewStyle,
 } from 'react-native';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import Svg, { Path } from 'react-native-svg';
 import { symbols } from '../data/symbols';
 import { useAuth } from '../lib/auth';
+import { profilePhoto } from '../lib/profile';
 import { Photo, T } from './ui';
 export const C = {
   primary: '#07241a',
@@ -71,10 +74,11 @@ export function SIcon({
   );
 }
 export function Back({ close = false }: { close?: boolean }) {
+  const { t } = useTranslation();
   return (
     <RoundButton
       icon={close ? 'close' : 'arrow_back'}
-      label={close ? 'Fechar' : 'Voltar'}
+      label={close ? t('Fechar') : t('Voltar')}
       onPress={() => (router.canGoBack() ? router.back() : router.replace('/'))}
     />
   );
@@ -149,6 +153,7 @@ export function TopBar({
   country?: string;
   onCountry?: () => void;
 }) {
+  const { t } = useTranslation();
   const { user } = useAuth();
   if (mode === 'login')
     return (
@@ -173,7 +178,7 @@ export function TopBar({
     <View className="h-16 flex-row items-center justify-between border-b border-line/50 bg-surface px-4">
       <Pressable
         accessibilityRole="link"
-        accessibilityLabel="Kampive, início"
+        accessibilityLabel={t('Kampive, início')}
         onPress={() => router.navigate('/')}
         className="flex-row items-center gap-3"
       >
@@ -184,7 +189,7 @@ export function TopBar({
           <T className="font-display text-[30px] leading-8 tracking-tight text-primary">Kampive</T>
           {mode === 'home' && (
             <T className="font-bold text-[10px] leading-3 tracking-[0.4px] text-ink-variant">
-              Encontrar. Acampar. Viver.
+              {t('Encontrar. Acampar. Viver.')}
             </T>
           )}
         </View>
@@ -193,7 +198,7 @@ export function TopBar({
         {mode === 'home' && (
           <Pressable
             accessibilityRole="button"
-            accessibilityLabel="Selecionar país"
+            accessibilityLabel={t('Selecionar país')}
             onPress={onCountry}
             className="flex-row items-center gap-1.5 rounded-full border border-[#c1c8c3] bg-surface-container px-3 py-1.5"
           >
@@ -204,12 +209,15 @@ export function TopBar({
         )}
         <Pressable
           accessibilityRole="link"
-          accessibilityLabel="Abrir perfil"
+          accessibilityLabel={t('Abrir perfil')}
           onPress={() => router.navigate('/profile')}
           className="h-10 w-10 overflow-hidden rounded-full border-2 border-primary p-0.5"
         >
-          {user?.photoUrl?.startsWith('https://') ? (
-            <Photo uri={user.photoUrl} className="h-full w-full rounded-full" />
+          {profilePhoto(user?.photoUrl || null) ? (
+            <Photo
+              uri={profilePhoto(user?.photoUrl || null)!}
+              className="h-full w-full rounded-full"
+            />
           ) : (
             <View className="flex-1 items-center justify-center">
               <SIcon name="person" size={22} />
@@ -228,6 +236,8 @@ export function Page({
   gap = 24,
   top = 24,
   texture = false,
+  onScroll,
+  scrollResetKey,
 }: {
   children: ReactNode;
   header?: ReactNode;
@@ -236,7 +246,13 @@ export function Page({
   gap?: number;
   top?: number;
   texture?: boolean;
+  onScroll?: ScrollViewProps['onScroll'];
+  scrollResetKey?: string;
 }) {
+  const scroll = useRef<ScrollView>(null);
+  useEffect(() => {
+    if (scrollResetKey !== undefined) scroll.current?.scrollTo({ y: 0, animated: false });
+  }, [scrollResetKey]);
   return (
     <SafeAreaView edges={['top', 'left', 'right']} className="flex-1 bg-surface">
       {texture && <Topography />}
@@ -246,6 +262,9 @@ export function Page({
       >
         {header}
         <ScrollView
+          ref={scroll}
+          onScroll={onScroll}
+          scrollEventThrottle={onScroll ? 100 : undefined}
           showsVerticalScrollIndicator={false}
           keyboardShouldPersistTaps="handled"
           contentContainerStyle={{
@@ -280,29 +299,6 @@ export function Dock({ children }: { children: ReactNode }) {
     </View>
   );
 }
-export function Pill({
-  children,
-  icon,
-  color = C.forest,
-  background = C.container,
-}: {
-  children: ReactNode;
-  icon?: SymbolName;
-  color?: string;
-  background?: string;
-}) {
-  return (
-    <View
-      className="self-start flex-row items-center gap-1.5 rounded-full px-3 py-1"
-      style={{ backgroundColor: background }}
-    >
-      {icon && <SIcon name={icon} size={14} color={color} />}
-      <T className="font-semibold text-xs leading-4" style={{ color }}>
-        {children}
-      </T>
-    </View>
-  );
-}
 export function CTA({
   title,
   onPress,
@@ -315,7 +311,7 @@ export function CTA({
   title: string;
   disabled?: boolean;
   onPress: () => void;
-  icon?: SymbolName;
+  icon?: SymbolName | null;
   outline?: boolean;
   color?: string;
   compact?: boolean;
@@ -335,7 +331,7 @@ export function CTA({
         ...(outline ? {} : cardShadow),
       }}
     >
-      {icon !== 'arrow_forward' && (
+      {icon != null && icon !== 'arrow_forward' && (
         <SIcon name={icon} size={compact ? 16 : 20} color={outline ? C.primary : '#fff'} />
       )}
       <T
@@ -386,6 +382,7 @@ export function Input({
   hint,
   ...props
 }: TextInputProps & { label?: string; icon?: SymbolName; password?: boolean; hint?: string }) {
+  const { t } = useTranslation();
   const [show, setShow] = useState(false);
   const [focused, setFocused] = useState(false);
   return (
@@ -403,18 +400,25 @@ export function Input({
         {icon && <SIcon name={icon} size={21} color={C.outline} />}
         <TextInput
           {...props}
-          onFocus={() => setFocused(true)}
-          onBlur={() => setFocused(false)}
+          contextMenuHidden={false}
+          onFocus={(event) => {
+            setFocused(true);
+            props.onFocus?.(event);
+          }}
+          onBlur={(event) => {
+            setFocused(false);
+            props.onBlur?.(event);
+          }}
           accessibilityLabel={props.accessibilityLabel || label}
           placeholderTextColor={C.outline}
-          secureTextEntry={password && !show}
+          secureTextEntry={password ? !show : props.secureTextEntry}
           autoCapitalize={password ? 'none' : props.autoCapitalize}
           className="min-h-12 min-w-0 flex-1 font-jakarta text-sm leading-5 text-ink"
         />
         {password && (
           <Pressable
             accessibilityRole="button"
-            accessibilityLabel={show ? 'Ocultar senha' : 'Mostrar senha'}
+            accessibilityLabel={show ? t('Ocultar senha') : t('Mostrar senha')}
             hitSlop={12}
             onPress={() => setShow(!show)}
           >
@@ -452,28 +456,6 @@ export function ToggleChip({
         {children}
       </T>
     </Pressable>
-  );
-}
-export function GoogleMark() {
-  return (
-    <Svg width={20} height={20} viewBox="0 0 48 48">
-      <Path
-        fill="#FFC107"
-        d="M43.6 20.5H42V20H24v8h11.3A12 12 0 1 1 32 14.7l5.7-5.7A20 20 0 1 0 44 24c0-1.2-.1-2.4-.4-3.5Z"
-      />
-      <Path
-        fill="#FF3D00"
-        d="m6.3 14.7 6.6 4.8A12 12 0 0 1 32 14.7l5.7-5.7A20 20 0 0 0 6.3 14.7Z"
-      />
-      <Path
-        fill="#4CAF50"
-        d="M24 44c5.2 0 10-2 13.5-5.2l-6.2-5.2A12 12 0 0 1 12.7 28l-6.6 5.1A20 20 0 0 0 24 44Z"
-      />
-      <Path
-        fill="#1976D2"
-        d="M43.6 20.5H42V20H24v8h11.3a12 12 0 0 1-4 5.6l6.2 5.2A20 20 0 0 0 44 24c0-1.2-.1-2.4-.4-3.5Z"
-      />
-    </Svg>
   );
 }
 function Topography() {

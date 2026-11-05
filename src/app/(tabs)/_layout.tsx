@@ -1,3 +1,4 @@
+import { useTranslation } from '../../lib/i18n';
 import { Tabs } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { C, SIcon, type SymbolName } from '../../components/stitch';
@@ -10,9 +11,9 @@ const tabs: { name: string; title: string; icon: SymbolName }[] = [
   { name: 'profile', title: 'Perfil', icon: 'person' },
 ];
 export default function TabsLayout() {
+  const { t: translateTab } = useTranslation();
   const insets = useSafeAreaInsets();
-  const { inbox } = useStore();
-  const unreadCount = inbox.filter((item) => !item.read).length;
+  const { unreadCount } = useStore();
   return (
     <Tabs
       screenOptions={{
@@ -45,7 +46,7 @@ export default function TabsLayout() {
           key={t.name}
           name={t.name}
           options={{
-            title: t.title,
+            title: translateTab(t.title),
             tabBarBadge: t.name === 'notifications' && unreadCount > 0 ? unreadCount : undefined,
             tabBarBadgeStyle: { backgroundColor: C.secondary, color: '#fff', fontSize: 10 },
             tabBarIcon: ({ color }) => <SIcon name={t.icon} color={color} size={24} />,

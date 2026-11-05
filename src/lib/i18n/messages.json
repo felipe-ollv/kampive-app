@@ -1,0 +1,2367 @@
+{
+  "Defina seu país no perfil para informar a diária.": {
+    "en": "Set your country in your profile to enter the nightly rate.",
+    "es": "Define tu país en el perfil para indicar la tarifa por noche.",
+    "fr": "Définissez votre pays dans votre profil pour indiquer le tarif par nuit."
+  },
+  "Não foi possível identificar a moeda do seu país. Tente novamente mais tarde.": {
+    "en": "Unable to identify your country’s currency. Please try again later.",
+    "es": "No se pudo identificar la moneda de tu país. Inténtalo más tarde.",
+    "fr": "Impossible d’identifier la devise de votre pays. Réessayez plus tard."
+  },
+  "A análise foi concluída. A equipe não adicionou uma mensagem complementar.": {
+    "en": "The review is complete. The team did not add a further message.",
+    "es": "El análisis ha finalizado. El equipo no añadió un mensaje adicional.",
+    "fr": "L’examen est terminé. L’équipe n’a pas ajouté de message complémentaire."
+  },
+  "A confirmação ainda está pendente. Abra o link recebido e toque em Confirmar e-mail.": {
+    "en": "Confirmation is still pending. Open the link you received and tap Confirm email.",
+    "es": "La confirmación sigue pendiente. Abre el enlace recibido y toca Confirmar correo.",
+    "fr": "La confirmation est en attente. Ouvrez le lien reçu et appuyez sur Confirmer l’e-mail."
+  },
+  "A conta vinculada ao link já pode participar da comunidade Kampive.": {
+    "en": "The account linked to this link can now participate in the Kampive community.",
+    "es": "La cuenta asociada a este enlace ya puede participar en la comunidad Kampive.",
+    "fr": "Le compte associé à ce lien peut désormais participer à la communauté Kampive."
+  },
+  "A indicação foi aceita. O camping ainda não está disponível no catálogo público.": {
+    "en": "The suggestion was accepted. The campsite is not yet available in the public catalog.",
+    "es": "La sugerencia fue aceptada. El camping aún no está disponible en el catálogo público.",
+    "fr": "La suggestion a été acceptée. Le camping n’est pas encore disponible dans le catalogue public."
+  },
+  "A recuperação por e-mail está temporariamente indisponível. Tente novamente mais tarde.": {
+    "en": "Email recovery is temporarily unavailable. Please try again later.",
+    "es": "La recuperación por correo no está disponible temporalmente. Inténtalo más tarde.",
+    "fr": "La récupération par e-mail est temporairement indisponible. Réessayez plus tard."
+  },
+  "A senha deve ter de 8 a 128 caracteres, pelo menos uma letra maiúscula e um número.": {
+    "en": "Your password must contain 8–128 characters, at least one uppercase letter and one number.",
+    "es": "La contraseña debe tener entre 8 y 128 caracteres, al menos una mayúscula y un número.",
+    "fr": "Le mot de passe doit contenir entre 8 et 128 caractères, au moins une majuscule et un chiffre."
+  },
+  "A sessão de segurança expirou. Tente novamente.": {
+    "en": "Your security session expired. Please try again.",
+    "es": "La sesión de seguridad ha caducado. Inténtalo de nuevo.",
+    "fr": "Votre session de sécurité a expiré. Réessayez."
+  },
+  "Abra um camping para solicitar seu vínculo.": {
+    "en": "Open a campsite to request ownership verification.",
+    "es": "Abre un camping para solicitar la verificación de propiedad.",
+    "fr": "Ouvrez un camping pour demander la vérification de propriété."
+  },
+  "Abrindo foto...": {
+    "en": "Opening photo...",
+    "es": "Abriendo foto...",
+    "fr": "Ouverture de la photo…"
+  },
+  "Abrindo...": {
+    "en": "Opening...",
+    "es": "Abriendo...",
+    "fr": "Ouverture…"
+  },
+  "Abrir filtros avançados": {
+    "en": "Open advanced filters",
+    "es": "Abrir filtros avanzados",
+    "fr": "Ouvrir les filtres avancés"
+  },
+  "Abrir link": {
+    "en": "Open link",
+    "es": "Abrir enlace",
+    "fr": "Ouvrir le lien"
+  },
+  "Abrir perfil": {
+    "en": "Open profile",
+    "es": "Abrir perfil",
+    "fr": "Ouvrir le profil"
+  },
+  "Acesse seus refúgios salvos, acompanhe suas avaliações e explore campings pelo mundo.": {
+    "en": "Access your saved getaways, track your reviews and explore campsites around the world.",
+    "es": "Accede a tus destinos guardados, sigue tus reseñas y explora campings por el mundo.",
+    "fr": "Retrouvez vos destinations enregistrées, suivez vos avis et explorez les campings du monde entier."
+  },
+  "Acompanhar solicitação": {
+    "en": "Track request",
+    "es": "Seguir solicitud",
+    "fr": "Suivre la demande"
+  },
+  "Acompanhe suas indicações de campings e seus pedidos de vínculo de proprietário.": {
+    "en": "Track your campsite suggestions and ownership verification requests.",
+    "es": "Sigue tus sugerencias de campings y solicitudes de verificación de propiedad.",
+    "fr": "Suivez vos suggestions de campings et vos demandes de vérification de propriété."
+  },
+  "Adicione até 3 fotos da sua visita (": {
+    "en": "Add up to 3 photos of your visit (",
+    "es": "Añade hasta 3 fotos de tu visita (",
+    "fr": "Ajoutez jusqu’à 3 photos de votre visite ("
+  },
+  "Adicione no máximo 9 fotos diferentes.": {
+    "en": "Add no more than 9 different photos.",
+    "es": "Añade como máximo 9 fotos diferentes.",
+    "fr": "Ajoutez au maximum 9 photos différentes."
+  },
+  "Adicione sua foto": {
+    "en": "Add your photo",
+    "es": "Añade tu foto",
+    "fr": "Ajoutez votre photo"
+  },
+  "Aguarde a operação atual.": {
+    "en": "Wait for the current operation.",
+    "es": "Espera a que termine la operación actual.",
+    "fr": "Attendez la fin de l’opération en cours."
+  },
+  "Aguarde...": {
+    "en": "Please wait...",
+    "es": "Espera...",
+    "fr": "Veuillez patienter…"
+  },
+  "Ainda não tem uma conta de aventureiro?": {
+    "en": "Don’t have an adventurer account yet?",
+    "es": "¿Aún no tienes una cuenta de aventurero?",
+    "fr": "Vous n’avez pas encore de compte aventurier ?"
+  },
+  "Ainda sem avaliações": {
+    "en": "No reviews yet",
+    "es": "Aún no hay reseñas",
+    "fr": "Aucun avis pour le moment"
+  },
+  "Altitude em metros (opcional)": {
+    "en": "Altitude in meters (optional)",
+    "es": "Altitud en metros (opcional)",
+    "fr": "Altitude en mètres (facultatif)"
+  },
+  "Ambiente natural": {
+    "en": "Natural surroundings",
+    "es": "Entorno natural",
+    "fr": "Environnement naturel"
+  },
+  "Ampliar galeria": {
+    "en": "Expand gallery",
+    "es": "Ampliar galería",
+    "fr": "Agrandir la galerie"
+  },
+  "Analisada em": {
+    "en": "Reviewed on",
+    "es": "Revisada el",
+    "fr": "Examinée le"
+  },
+  "Ao salvar, sua avaliação voltará para análise e ficará fora da nota do camping até ser aprovada novamente.": {
+    "en": "After saving, your review will be reviewed again and excluded from the campsite rating until approved.",
+    "es": "Al guardar, tu reseña volverá a revisión y no contará en la puntuación hasta que se apruebe de nuevo.",
+    "fr": "Après enregistrement, votre avis sera réexaminé et exclu de la note du camping jusqu’à sa nouvelle approbation."
+  },
+  "Aplicar filtros": {
+    "en": "Apply filters",
+    "es": "Aplicar filtros",
+    "fr": "Appliquer les filtres"
+  },
+  "Apresentação (opcional)": {
+    "en": "About you (optional)",
+    "es": "Presentación (opcional)",
+    "fr": "Présentation (facultatif)"
+  },
+  "Arquivado": {
+    "en": "Archived",
+    "es": "Archivado",
+    "fr": "Archivé"
+  },
+  "Arquivar camping": {
+    "en": "Archive campsite",
+    "es": "Archivar camping",
+    "fr": "Archiver le camping"
+  },
+  "Arquivar este camping? Ele deixará de aparecer na busca e não poderá ser editado.": {
+    "en": "Archive this campsite? It will no longer appear in search and cannot be edited.",
+    "es": "¿Archivar este camping? Dejará de aparecer en las búsquedas y no podrá editarse.",
+    "fr": "Archiver ce camping ? Il n’apparaîtra plus dans les recherches et ne pourra plus être modifié."
+  },
+  "As categorias ainda não estão disponíveis. O cadastro será liberado após sua configuração.": {
+    "en": "Categories are not available yet. Registration will be enabled once they are configured.",
+    "es": "Las categorías aún no están disponibles. El registro se habilitará cuando estén configuradas.",
+    "fr": "Les catégories ne sont pas encore disponibles. L’inscription sera activée après leur configuration."
+  },
+  "As fotos precisam de links HTTPS válidos, sem credenciais ou fragmentos.": {
+    "en": "Photos require valid HTTPS links without credentials or fragments.",
+    "es": "Las fotos requieren enlaces HTTPS válidos, sin credenciales ni fragmentos.",
+    "fr": "Les photos nécessitent des liens HTTPS valides, sans identifiants ni fragments."
+  },
+  "As fotos ultrapassam o limite de envio. Escolha arquivos de até 10 MB.": {
+    "en": "The photos exceed the upload limit. Choose files up to 10 MB.",
+    "es": "Las fotos superan el límite de envío. Elige archivos de hasta 10 MB.",
+    "fr": "Les photos dépassent la limite d’envoi. Choisissez des fichiers de 10 Mo maximum."
+  },
+  "As senhas não coincidem.": {
+    "en": "Passwords do not match.",
+    "es": "Las contraseñas no coinciden.",
+    "fr": "Les mots de passe ne correspondent pas."
+  },
+  "As senhas não coincidem. Confira a confirmação da senha.": {
+    "en": "Passwords do not match. Check the password confirmation.",
+    "es": "Las contraseñas no coinciden. Revisa la confirmación.",
+    "fr": "Les mots de passe ne correspondent pas. Vérifiez la confirmation."
+  },
+  "Atualizando perfil...": {
+    "en": "Updating profile...",
+    "es": "Actualizando perfil...",
+    "fr": "Mise à jour du profil…"
+  },
+  "Atualizando solicitação...": {
+    "en": "Updating request...",
+    "es": "Actualizando solicitud...",
+    "fr": "Mise à jour de la demande…"
+  },
+  "Atualizar documentos": {
+    "en": "Refresh documents",
+    "es": "Actualizar documentos",
+    "fr": "Actualiser les documents"
+  },
+  "Atualize seus favoritos antes de alterar a lista.": {
+    "en": "Refresh your favorites before changing the list.",
+    "es": "Actualiza tus favoritos antes de modificar la lista.",
+    "fr": "Actualisez vos favoris avant de modifier la liste."
+  },
+  "Autenticação segura e criptografada Kampive": {
+    "en": "Secure, encrypted Kampive authentication",
+    "es": "Autenticación segura y cifrada de Kampive",
+    "fr": "Authentification Kampive sécurisée et chiffrée"
+  },
+  "Avaliar Camping": {
+    "en": "Review Campsite",
+    "es": "Valorar camping",
+    "fr": "Évaluer le camping"
+  },
+  "Avaliar camping": {
+    "en": "Review campsite",
+    "es": "Valorar camping",
+    "fr": "Évaluer le camping"
+  },
+  "Avaliação atualizada": {
+    "en": "Review updated",
+    "es": "Reseña actualizada",
+    "fr": "Avis mis à jour"
+  },
+  "Avaliação enviada": {
+    "en": "Review submitted",
+    "es": "Reseña enviada",
+    "fr": "Avis envoyé"
+  },
+  "Avaliação excluída.": {
+    "en": "Review deleted.",
+    "es": "Reseña eliminada.",
+    "fr": "Avis supprimé."
+  },
+  "Avaliação não encontrada.": {
+    "en": "Review not found.",
+    "es": "Reseña no encontrada.",
+    "fr": "Avis introuvable."
+  },
+  "Avaliações da Comunidade": {
+    "en": "Community Reviews",
+    "es": "Reseñas de la comunidad",
+    "fr": "Avis de la communauté"
+  },
+  "Bairro": {
+    "en": "Neighborhood",
+    "es": "Barrio",
+    "fr": "Quartier"
+  },
+  "Barraca": {
+    "en": "Tent",
+    "es": "Tienda de campaña",
+    "fr": "Tente"
+  },
+  "Bom": {
+    "en": "Good",
+    "es": "Bueno",
+    "fr": "Bien"
+  },
+  "Boa tarde, Aventureiro": {
+    "en": "Good afternoon, Adventurer",
+    "es": "Buenas tardes, Aventurero",
+    "fr": "Bon après-midi, Aventurier"
+  },
+  "Boa noite, Aventureiro": {
+    "en": "Good evening, Adventurer",
+    "es": "Buenas noches, Aventurero",
+    "fr": "Bonsoir, Aventurier"
+  },
+  "Bom dia, Aventureiro": {
+    "en": "Good morning, Adventurer",
+    "es": "Buenos días, aventurero",
+    "fr": "Bonjour, aventurier"
+  },
+  "Brasil": {
+    "en": "Brazil",
+    "es": "Brasil",
+    "fr": "Brésil"
+  },
+  "Busca global": {
+    "en": "Global search",
+    "es": "Búsqueda global",
+    "fr": "Recherche mondiale"
+  },
+  "Busca por nome, cidade ou país, em todo o catálogo.": {
+    "en": "Search the entire catalog by name, city or country.",
+    "es": "Busca por nombre, ciudad o país en todo el catálogo.",
+    "fr": "Recherchez par nom, ville ou pays dans tout le catalogue."
+  },
+  "Buscar campings": {
+    "en": "Search campsites",
+    "es": "Buscar campings",
+    "fr": "Rechercher des campings"
+  },
+  "Buscar cidade": {
+    "en": "Search city",
+    "es": "Buscar ciudad",
+    "fr": "Rechercher une ville"
+  },
+  "Buscar país": {
+    "en": "Search country",
+    "es": "Buscar país",
+    "fr": "Rechercher un pays"
+  },
+  "Buscar por cidade, país ou camping...": {
+    "en": "Search by city, country or campsite...",
+    "es": "Buscar por ciudad, país o camping...",
+    "fr": "Rechercher par ville, pays ou camping…"
+  },
+  "CEP / código postal": {
+    "en": "ZIP / postal code",
+    "es": "Código postal",
+    "fr": "Code postal"
+  },
+  "Cadastrar camping": {
+    "en": "Register campsite",
+    "es": "Registrar camping",
+    "fr": "Inscrire un camping"
+  },
+  "Cadastro recebido": {
+    "en": "Registration received",
+    "es": "Registro recibido",
+    "fr": "Inscription reçue"
+  },
+  "Camping arquivado.": {
+    "en": "Campsite archived.",
+    "es": "Camping archivado.",
+    "fr": "Camping archivé."
+  },
+  "Camping enviado para análise. Ele será exibido após aprovação.": {
+    "en": "Campsite submitted for review. It will be displayed after approval.",
+    "es": "Camping enviado a revisión. Se mostrará después de la aprobación.",
+    "fr": "Camping soumis à examen. Il sera affiché après approbation."
+  },
+  "Camping não encontrado": {
+    "en": "Campsite not found",
+    "es": "Camping no encontrado",
+    "fr": "Camping introuvable"
+  },
+  "Campings": {
+    "en": "Campsites",
+    "es": "Campings",
+    "fr": "Campings"
+  },
+  "Campings Salvos": {
+    "en": "Saved Campsites",
+    "es": "Campings guardados",
+    "fr": "Campings enregistrés"
+  },
+  "Campings e contribuições já enviados permanecerão associados a “Conta excluída”. Registros de aceite dos termos serão preservados.": {
+    "en": "Previously submitted campsites and contributions will remain linked to “Deleted account”. Records of acceptance of the terms will be retained.",
+    "es": "Los campings y aportaciones enviados seguirán asociados a «Cuenta eliminada». Se conservarán los registros de aceptación de los términos.",
+    "fr": "Les campings et contributions déjà envoyés resteront associés à « Compte supprimé ». Les preuves d’acceptation des conditions seront conservées."
+  },
+  "Cancelar": {
+    "en": "Cancel",
+    "es": "Cancelar",
+    "fr": "Annuler"
+  },
+  "Capa selecionada": {
+    "en": "Cover selected",
+    "es": "Portada seleccionada",
+    "fr": "Couverture sélectionnée"
+  },
+  "Carregando avaliação...": {
+    "en": "Loading review...",
+    "es": "Cargando reseña...",
+    "fr": "Chargement de l’avis…"
+  },
+  "Carregando avaliações...": {
+    "en": "Loading reviews...",
+    "es": "Cargando reseñas...",
+    "fr": "Chargement des avis…"
+  },
+  "Carregando camping salvo...": {
+    "en": "Loading saved campsite...",
+    "es": "Cargando camping guardado...",
+    "fr": "Chargement du camping enregistré…"
+  },
+  "Carregando camping...": {
+    "en": "Loading campsite...",
+    "es": "Cargando camping...",
+    "fr": "Chargement du camping…"
+  },
+  "Carregando campings...": {
+    "en": "Loading campsites...",
+    "es": "Cargando campings...",
+    "fr": "Chargement des campings…"
+  },
+  "Carregando comodidades...": {
+    "en": "Loading amenities...",
+    "es": "Cargando servicios...",
+    "fr": "Chargement des équipements…"
+  },
+  "Carregando conta...": {
+    "en": "Loading account...",
+    "es": "Cargando cuenta...",
+    "fr": "Chargement du compte…"
+  },
+  "Carregando documentos...": {
+    "en": "Loading documents...",
+    "es": "Cargando documentos...",
+    "fr": "Chargement des documents…"
+  },
+  "Carregando favoritos...": {
+    "en": "Loading favorites...",
+    "es": "Cargando favoritos...",
+    "fr": "Chargement des favoris…"
+  },
+  "Carregando informações do camping...": {
+    "en": "Loading campsite information...",
+    "es": "Cargando información del camping...",
+    "fr": "Chargement des informations du camping…"
+  },
+  "Carregando mais campings...": {
+    "en": "Loading more campsites...",
+    "es": "Cargando más campings...",
+    "fr": "Chargement de campings supplémentaires…"
+  },
+  "Carregando notificações...": {
+    "en": "Loading notifications...",
+    "es": "Cargando notificaciones...",
+    "fr": "Chargement des notifications…"
+  },
+  "Carregando países...": {
+    "en": "Loading countries...",
+    "es": "Cargando países...",
+    "fr": "Chargement des pays…"
+  },
+  "Carregando perfil...": {
+    "en": "Loading profile...",
+    "es": "Cargando perfil...",
+    "fr": "Chargement du profil…"
+  },
+  "Carregando seus campings...": {
+    "en": "Loading your campsites...",
+    "es": "Cargando tus campings...",
+    "fr": "Chargement de vos campings…"
+  },
+  "Carregando solicitações...": {
+    "en": "Loading requests...",
+    "es": "Cargando solicitudes...",
+    "fr": "Chargement des demandes…"
+  },
+  "Carregando sua avaliação...": {
+    "en": "Loading your review...",
+    "es": "Cargando tu reseña...",
+    "fr": "Chargement de votre avis…"
+  },
+  "Carregando...": {
+    "en": "Loading...",
+    "es": "Cargando...",
+    "fr": "Chargement…"
+  },
+  "Carregar mais": {
+    "en": "Load more",
+    "es": "Cargar más",
+    "fr": "Charger plus"
+  },
+  "Carregar mais países": {
+    "en": "Load more countries",
+    "es": "Cargar más países",
+    "fr": "Charger plus de pays"
+  },
+  "Carregar mais salvos": {
+    "en": "Load more saved campsites",
+    "es": "Cargar más guardados",
+    "fr": "Charger plus de campings enregistrés"
+  },
+  "Categoria": {
+    "en": "Category",
+    "es": "Categoría",
+    "fr": "Catégorie"
+  },
+  "Chalé": {
+    "en": "Chalet",
+    "es": "Cabaña",
+    "fr": "Chalet"
+  },
+  "Cidade": {
+    "en": "City",
+    "es": "Ciudad",
+    "fr": "Ville"
+  },
+  "Classificação Geral": {
+    "en": "Overall Rating",
+    "es": "Puntuación general",
+    "fr": "Note générale"
+  },
+  "Como chegar / observações (opcional)": {
+    "en": "Directions / notes (optional)",
+    "es": "Cómo llegar / observaciones (opcional)",
+    "fr": "Itinéraire / remarques (facultatif)"
+  },
+  "Como foi sua estadia?": {
+    "en": "How was your stay?",
+    "es": "¿Cómo fue tu estancia?",
+    "fr": "Comment s’est passé votre séjour ?"
+  },
+  "Como podemos verificar seu vínculo? *": {
+    "en": "How can we verify your ownership? *",
+    "es": "¿Cómo podemos verificar tu propiedad? *",
+    "fr": "Comment vérifier votre propriété ? *"
+  },
+  "Como seu estado não foi informado, estamos mostrando todos os destinos.": {
+    "en": "Your state is not specified, so we are showing all destinations.",
+    "es": "Como no indicaste tu región, mostramos todos los destinos.",
+    "fr": "Votre région n’étant pas renseignée, nous affichons toutes les destinations."
+  },
+  "Como você acampou?": {
+    "en": "How did you camp?",
+    "es": "¿Cómo acampaste?",
+    "fr": "Comment avez-vous campé ?"
+  },
+  "Comodidades": {
+    "en": "Amenities",
+    "es": "Servicios",
+    "fr": "Équipements"
+  },
+  "Complemento": {
+    "en": "Address line 2",
+    "es": "Complemento de dirección",
+    "fr": "Complément d’adresse"
+  },
+  "Comunidade Kampive": {
+    "en": "Kampive Community",
+    "es": "Comunidad Kampive",
+    "fr": "Communauté Kampive"
+  },
+  "Confira nome, e-mail e aceite os documentos.": {
+    "en": "Check your name and email, and accept the documents.",
+    "es": "Revisa el nombre y el correo y acepta los documentos.",
+    "fr": "Vérifiez votre nom et votre e-mail, puis acceptez les documents."
+  },
+  "Confira o formato dos valores numéricos.": {
+    "en": "Check the format of the numeric values.",
+    "es": "Revisa el formato de los valores numéricos.",
+    "fr": "Vérifiez le format des valeurs numériques."
+  },
+  "Confira os dados informados e as opções selecionadas.": {
+    "en": "Check the information and selected options.",
+    "es": "Revisa los datos y las opciones seleccionadas.",
+    "fr": "Vérifiez les informations et les options sélectionnées."
+  },
+  "Confira os estilos de viagem selecionados.": {
+    "en": "Check the selected travel styles.",
+    "es": "Revisa los estilos de viaje seleccionados.",
+    "fr": "Vérifiez les styles de voyage sélectionnés."
+  },
+  "Confira os links das fotos.": {
+    "en": "Check the photo links.",
+    "es": "Revisa los enlaces de las fotos.",
+    "fr": "Vérifiez les liens des photos."
+  },
+  "Confira os valores.": {
+    "en": "Check the values.",
+    "es": "Revisa los valores.",
+    "fr": "Vérifiez les valeurs."
+  },
+  "Confirmando...": {
+    "en": "Confirming...",
+    "es": "Confirmando...",
+    "fr": "Confirmation…"
+  },
+  "Confirmar arquivamento": {
+    "en": "Confirm archive",
+    "es": "Confirmar archivo",
+    "fr": "Confirmer l’archivage"
+  },
+  "Confirmar e-mail": {
+    "en": "Confirm email",
+    "es": "Confirmar correo",
+    "fr": "Confirmer l’e-mail"
+  },
+  "Confirmar exclusão": {
+    "en": "Confirm deletion",
+    "es": "Confirmar eliminación",
+    "fr": "Confirmer la suppression"
+  },
+  "Confirmar nova senha": {
+    "en": "Confirm new password",
+    "es": "Confirmar nueva contraseña",
+    "fr": "Confirmer le nouveau mot de passe"
+  },
+  "Confirmar senha": {
+    "en": "Confirm password",
+    "es": "Confirmar contraseña",
+    "fr": "Confirmer le mot de passe"
+  },
+  "Confirme seu e-mail": {
+    "en": "Confirm your email",
+    "es": "Confirma tu correo",
+    "fr": "Confirmez votre e-mail"
+  },
+  "Confirme seu e-mail para avaliar, indicar e reivindicar campings. O link vale 24 horas.": {
+    "en": "Confirm your email to review, suggest and claim campsites. The link is valid for 24 hours.",
+    "es": "Confirma tu correo para valorar, sugerir y reclamar campings. El enlace es válido durante 24 horas.",
+    "fr": "Confirmez votre e-mail pour évaluer, suggérer et revendiquer des campings. Le lien est valable 24 heures."
+  },
+  "Confirme seu e-mail para continuar. Acesse a verificação pelo aviso no topo do app.": {
+    "en": "Confirm your email to continue. Use the banner at the top of the app.",
+    "es": "Confirma tu correo para continuar. Usa el aviso en la parte superior de la app.",
+    "fr": "Confirmez votre e-mail pour continuer. Utilisez le bandeau en haut de l’application."
+  },
+  "Confirme seu e-mail para participar da comunidade. Toque aqui.": {
+    "en": "Confirm your email to join the community. Tap here.",
+    "es": "Confirma tu correo para participar en la comunidad. Toca aquí.",
+    "fr": "Confirmez votre e-mail pour rejoindre la communauté. Appuyez ici."
+  },
+  "Conhece um camping ou glamping?": {
+    "en": "Know a campsite or glamping site?",
+    "es": "¿Conoces un camping o glamping?",
+    "fr": "Vous connaissez un camping ou un glamping ?"
+  },
+  "Conhece um camping? Envie uma indicação para nossa equipe analisar.": {
+    "en": "Know a campsite? Send a suggestion for our team to review.",
+    "es": "¿Conoces un camping? Envía una sugerencia para que nuestro equipo la revise.",
+    "fr": "Vous connaissez un camping ? Envoyez une suggestion à notre équipe."
+  },
+  "Consultar minhas solicitações": {
+    "en": "View my requests",
+    "es": "Consultar mis solicitudes",
+    "fr": "Consulter mes demandes"
+  },
+  "Conta criada": {
+    "en": "Account created",
+    "es": "Cuenta creada",
+    "fr": "Compte créé"
+  },
+  "Contato": {
+    "en": "Contact",
+    "es": "Contacto",
+    "fr": "Contact"
+  },
+  "Conte como foi sua experiência, dicas de barraca, melhores pontos de montagem e facilidades do local...": {
+    "en": "Tell us about your experience, tent tips, the best pitches and local facilities...",
+    "es": "Cuéntanos tu experiencia, consejos para la tienda, las mejores parcelas y las instalaciones...",
+    "fr": "Racontez votre expérience, vos conseils pour la tente, les meilleurs emplacements et les équipements…"
+  },
+  "Conte um pouco sobre você e suas viagens": {
+    "en": "Tell us a little about yourself and your travels",
+    "es": "Cuéntanos un poco sobre ti y tus viajes",
+    "fr": "Parlez-nous de vous et de vos voyages"
+  },
+  "Conte um pouco sobre você na sua apresentação.": {
+    "en": "Tell us a little about yourself in your bio.",
+    "es": "Cuéntanos un poco sobre ti en tu presentación.",
+    "fr": "Parlez-nous de vous dans votre présentation."
+  },
+  "Continuar no app": {
+    "en": "Continue in the app",
+    "es": "Continuar en la app",
+    "fr": "Continuer dans l’application"
+  },
+  "Criando conta...": {
+    "en": "Creating account...",
+    "es": "Creando cuenta...",
+    "fr": "Création du compte…"
+  },
+  "Criar Minha Conta": {
+    "en": "Create My Account",
+    "es": "Crear mi cuenta",
+    "fr": "Créer mon compte"
+  },
+  "Criar conta": {
+    "en": "Create account",
+    "es": "Crear cuenta",
+    "fr": "Créer un compte"
+  },
+  "Criar nova conta no Kampive": {
+    "en": "Create a new Kampive account",
+    "es": "Crear una nueva cuenta en Kampive",
+    "fr": "Créer un compte Kampive"
+  },
+  "Crie sua conta para começar sua jornada no Kampive.": {
+    "en": "Create your account to start your Kampive journey.",
+    "es": "Crea tu cuenta para comenzar tu aventura en Kampive.",
+    "fr": "Créez votre compte pour commencer votre aventure Kampive."
+  },
+  "Dados do camping": {
+    "en": "Campsite details",
+    "es": "Datos del camping",
+    "fr": "Informations du camping"
+  },
+  "Dados enviados": {
+    "en": "Submitted information",
+    "es": "Datos enviados",
+    "fr": "Informations envoyées"
+  },
+  "Dados verificados pela Kampive": {
+    "en": "Verified by Kampive",
+    "es": "Datos verificados por Kampive",
+    "fr": "Informations vérifiées par Kampive"
+  },
+  "Definir nova senha": {
+    "en": "Set a new password",
+    "es": "Definir nueva contraseña",
+    "fr": "Définir un nouveau mot de passe"
+  },
+  "Descrição": {
+    "en": "Description",
+    "es": "Descripción",
+    "fr": "Description"
+  },
+  "Descrição não informada.": {
+    "en": "No description provided.",
+    "es": "Sin descripción.",
+    "fr": "Aucune description fournie."
+  },
+  "Descubra campings selvagens, glampings e refúgios com infraestrutura completa.": {
+    "en": "Discover wild campsites, glamping sites and fully equipped getaways.",
+    "es": "Descubre campings salvajes, glampings y refugios con todos los servicios.",
+    "fr": "Découvrez des campings sauvages, des glampings et des refuges tout équipés."
+  },
+  "Descubra por Países": {
+    "en": "Discover by Country",
+    "es": "Descubre por países",
+    "fr": "Découvrez par pays"
+  },
+  "Deseja excluir sua conta?": {
+    "en": "Delete your account?",
+    "es": "¿Quieres eliminar tu cuenta?",
+    "fr": "Supprimer votre compte ?"
+  },
+  "Detalhes da solicitação": {
+    "en": "Request details",
+    "es": "Detalles de la solicitud",
+    "fr": "Détails de la demande"
+  },
+  "Detalhes do camping": {
+    "en": "Campsite details",
+    "es": "Detalles del camping",
+    "fr": "Détails du camping"
+  },
+  "Dica: Mencione se há tomadas próximas e abrigo de vento": {
+    "en": "Tip: Mention nearby outlets and wind shelter",
+    "es": "Consejo: Indica si hay enchufes cerca y protección del viento",
+    "fr": "Conseil : mentionnez les prises à proximité et les abris contre le vent"
+  },
+  "Digital & Contato": {
+    "en": "Online & Contact",
+    "es": "En línea y contacto",
+    "fr": "En ligne et contact"
+  },
+  "Digite EXCLUIR para confirmar": {
+    "en": "Type EXCLUIR to confirm",
+    "es": "Escribe EXCLUIR para confirmar",
+    "fr": "Saisissez EXCLUIR pour confirmer"
+  },
+  "Digite o nome da cidade": {
+    "en": "Enter the city name",
+    "es": "Escribe el nombre de la ciudad",
+    "fr": "Saisissez le nom de la ville"
+  },
+  "Digite sua senha secreta": {
+    "en": "Enter your password",
+    "es": "Escribe tu contraseña",
+    "fr": "Saisissez votre mot de passe"
+  },
+  "Diária": {
+    "en": "Per night",
+    "es": "Por noche",
+    "fr": "Par nuit"
+  },
+  "E-mail confirmado": {
+    "en": "Email confirmed",
+    "es": "Correo confirmado",
+    "fr": "E-mail confirmé"
+  },
+  "E-mail ou senha inválidos.": {
+    "en": "Invalid email or password.",
+    "es": "Correo o contraseña incorrectos.",
+    "fr": "E-mail ou mot de passe incorrect."
+  },
+  "Editar avaliação": {
+    "en": "Edit review",
+    "es": "Editar reseña",
+    "fr": "Modifier l’avis"
+  },
+  "Editar perfil": {
+    "en": "Edit profile",
+    "es": "Editar perfil",
+    "fr": "Modifier le profil"
+  },
+  "Em análise": {
+    "en": "Under review",
+    "es": "En revisión",
+    "fr": "En cours d’examen"
+  },
+  "Encontrar. Acampar. Viver.": {
+    "en": "Find. Camp. Live.",
+    "es": "Encuentra. Acampa. Vive.",
+    "fr": "Trouvez. Campez. Vivez."
+  },
+  "Endereço": {
+    "en": "Address",
+    "es": "Dirección",
+    "fr": "Adresse"
+  },
+  "Entendi": {
+    "en": "Got it",
+    "es": "Entendido",
+    "fr": "Compris"
+  },
+  "Entrando...": {
+    "en": "Signing in...",
+    "es": "Iniciando sesión...",
+    "fr": "Connexion…"
+  },
+  "Entrar": {
+    "en": "Sign in",
+    "es": "Iniciar sesión",
+    "fr": "Se connecter"
+  },
+  "Entrar na minha conta": {
+    "en": "Sign in to my account",
+    "es": "Entrar en mi cuenta",
+    "fr": "Me connecter à mon compte"
+  },
+  "Entrar no Kampive": {
+    "en": "Sign in to Kampive",
+    "es": "Entrar en Kampive",
+    "fr": "Se connecter à Kampive"
+  },
+  "Entrar novamente": {
+    "en": "Sign in again",
+    "es": "Volver a iniciar sesión",
+    "fr": "Se reconnecter"
+  },
+  "Entre na sua conta para cadastrar um camping ou gerenciar um vínculo aprovado.": {
+    "en": "Sign in to register a campsite or manage approved ownership.",
+    "es": "Inicia sesión para registrar un camping o gestionar una propiedad aprobada.",
+    "fr": "Connectez-vous pour inscrire un camping ou gérer une propriété approuvée."
+  },
+  "Entre na sua conta para consultar seu perfil.": {
+    "en": "Sign in to view your profile.",
+    "es": "Inicia sesión para consultar tu perfil.",
+    "fr": "Connectez-vous pour consulter votre profil."
+  },
+  "Entre na sua conta para indicar um camping.": {
+    "en": "Sign in to suggest a campsite.",
+    "es": "Inicia sesión para sugerir un camping.",
+    "fr": "Connectez-vous pour suggérer un camping."
+  },
+  "Entre na sua conta para salvar campings.": {
+    "en": "Sign in to save campsites.",
+    "es": "Inicia sesión para guardar campings.",
+    "fr": "Connectez-vous pour enregistrer des campings."
+  },
+  "Entre na sua conta para solicitar a verificação.": {
+    "en": "Sign in to request verification.",
+    "es": "Inicia sesión para solicitar la verificación.",
+    "fr": "Connectez-vous pour demander la vérification."
+  },
+  "Entre novamente com sua nova senha. Os acessos anteriores foram encerrados.": {
+    "en": "Sign in again with your new password. Previous sessions have been closed.",
+    "es": "Inicia sesión con tu nueva contraseña. Las sesiones anteriores se cerraron.",
+    "fr": "Reconnectez-vous avec votre nouveau mot de passe. Les sessions précédentes ont été fermées."
+  },
+  "Entre para acessar os campings salvos na sua conta.": {
+    "en": "Sign in to access your saved campsites.",
+    "es": "Inicia sesión para acceder a tus campings guardados.",
+    "fr": "Connectez-vous pour accéder à vos campings enregistrés."
+  },
+  "Entre para avaliar este camping.": {
+    "en": "Sign in to review this campsite.",
+    "es": "Inicia sesión para valorar este camping.",
+    "fr": "Connectez-vous pour évaluer ce camping."
+  },
+  "Entre para consultar suas notificações.": {
+    "en": "Sign in to view your notifications.",
+    "es": "Inicia sesión para consultar tus notificaciones.",
+    "fr": "Connectez-vous pour consulter vos notifications."
+  },
+  "Entre para editar seu perfil.": {
+    "en": "Sign in to edit your profile.",
+    "es": "Inicia sesión para editar tu perfil.",
+    "fr": "Connectez-vous pour modifier votre profil."
+  },
+  "Entre para gerenciar seus campings.": {
+    "en": "Sign in to manage your campsites.",
+    "es": "Inicia sesión para gestionar tus campings.",
+    "fr": "Connectez-vous pour gérer vos campings."
+  },
+  "Enviada em": {
+    "en": "Submitted on",
+    "es": "Enviada el",
+    "fr": "Envoyée le"
+  },
+  "Enviando...": {
+    "en": "Submitting...",
+    "es": "Enviando...",
+    "fr": "Envoi…"
+  },
+  "Enviar avaliação": {
+    "en": "Submit review",
+    "es": "Enviar reseña",
+    "fr": "Envoyer l’avis"
+  },
+  "Enviar confirmação": {
+    "en": "Send confirmation",
+    "es": "Enviar confirmación",
+    "fr": "Envoyer la confirmation"
+  },
+  "Enviar indicação": {
+    "en": "Submit suggestion",
+    "es": "Enviar sugerencia",
+    "fr": "Envoyer la suggestion"
+  },
+  "Enviar para análise": {
+    "en": "Submit for review",
+    "es": "Enviar a revisión",
+    "fr": "Soumettre à examen"
+  },
+  "Escolha fotos de até 2 MB e 16 megapixels.": {
+    "en": "Choose photos up to 2 MB and 16 megapixels.",
+    "es": "Elige fotos de hasta 2 MB y 16 megapíxeles.",
+    "fr": "Choisissez des photos de 2 Mo et 16 mégapixels maximum."
+  },
+  "Escolha um camping para avaliar.": {
+    "en": "Choose a campsite to review.",
+    "es": "Elige un camping para valorar.",
+    "fr": "Choisissez un camping à évaluer."
+  },
+  "Escolha uma foto de até 2 MB e 16 megapixels.": {
+    "en": "Choose a photo up to 2 MB and 16 megapixels.",
+    "es": "Elige una foto de hasta 2 MB y 16 megapíxeles.",
+    "fr": "Choisissez une photo de 2 Mo et 16 mégapixels maximum."
+  },
+  "Escolher foto": {
+    "en": "Choose photo",
+    "es": "Elegir foto",
+    "fr": "Choisir une photo"
+  },
+  "Esqueci minha senha": {
+    "en": "Forgot my password",
+    "es": "Olvidé mi contraseña",
+    "fr": "Mot de passe oublié"
+  },
+  "Esta ação não pode ser desfeita.": {
+    "en": "This action cannot be undone.",
+    "es": "Esta acción no se puede deshacer.",
+    "fr": "Cette action est irréversible."
+  },
+  "Este camping ainda não tem avaliações publicadas.": {
+    "en": "This campsite has no published reviews yet.",
+    "es": "Este camping aún no tiene reseñas publicadas.",
+    "fr": "Ce camping n’a pas encore d’avis publiés."
+  },
+  "Este camping está arquivado.": {
+    "en": "This campsite is archived.",
+    "es": "Este camping está archivado.",
+    "fr": "Ce camping est archivé."
+  },
+  "Este camping está publicado. Você pode arquivá-lo para removê-lo da busca.": {
+    "en": "This campsite is published. You can archive it to remove it from search.",
+    "es": "Este camping está publicado. Puedes archivarlo para retirarlo de las búsquedas.",
+    "fr": "Ce camping est publié. Vous pouvez l’archiver pour le retirer des recherches."
+  },
+  "Este camping não está disponível para solicitação de vínculo. Atualize os detalhes.": {
+    "en": "Ownership verification is unavailable for this campsite. Refresh the details.",
+    "es": "La verificación de propiedad no está disponible para este camping. Actualiza los detalles.",
+    "fr": "La vérification de propriété n’est pas disponible pour ce camping. Actualisez les détails."
+  },
+  "Este camping é seu?": {
+    "en": "Is this your campsite?",
+    "es": "¿Este camping es tuyo?",
+    "fr": "Ce camping vous appartient ?"
+  },
+  "Este documento não está disponível em um endereço seguro.": {
+    "en": "This document is not available at a secure address.",
+    "es": "Este documento no está disponible en una dirección segura.",
+    "fr": "Ce document n’est pas disponible à une adresse sécurisée."
+  },
+  "Este link é inválido, expirou ou já foi utilizado.": {
+    "en": "This link is invalid, expired or has already been used.",
+    "es": "Este enlace no es válido, ha caducado o ya se ha utilizado.",
+    "fr": "Ce lien est invalide, a expiré ou a déjà été utilisé."
+  },
+  "Estilos de viagem": {
+    "en": "Travel styles",
+    "es": "Estilos de viaje",
+    "fr": "Styles de voyage"
+  },
+  "Excelente": {
+    "en": "Excellent",
+    "es": "Excelente",
+    "fr": "Excellent"
+  },
+  "Excluindo...": {
+    "en": "Deleting...",
+    "es": "Eliminando...",
+    "fr": "Suppression…"
+  },
+  "Excluir avaliação": {
+    "en": "Delete review",
+    "es": "Eliminar reseña",
+    "fr": "Supprimer l’avis"
+  },
+  "Excluir conta": {
+    "en": "Delete account",
+    "es": "Eliminar cuenta",
+    "fr": "Supprimer le compte"
+  },
+  "Excluir esta avaliação?": {
+    "en": "Delete this review?",
+    "es": "¿Eliminar esta reseña?",
+    "fr": "Supprimer cet avis ?"
+  },
+  "Excluir minha conta definitivamente": {
+    "en": "Permanently delete my account",
+    "es": "Eliminar mi cuenta definitivamente",
+    "fr": "Supprimer définitivement mon compte"
+  },
+  "Experimente outro filtro ou volte quando houver novos campings publicados.": {
+    "en": "Try a different filter or return when new campsites are published.",
+    "es": "Prueba otro filtro o vuelve cuando se publiquen nuevos campings.",
+    "fr": "Essayez un autre filtre ou revenez quand de nouveaux campings seront publiés."
+  },
+  "Explorar": {
+    "en": "Explore",
+    "es": "Explorar",
+    "fr": "Explorer"
+  },
+  "Explorar refúgios": {
+    "en": "Explore getaways",
+    "es": "Explorar refugios",
+    "fr": "Explorer les destinations"
+  },
+  "Explore os campings": {
+    "en": "Explore campsites",
+    "es": "Explora los campings",
+    "fr": "Explorez les campings"
+  },
+  "Fechar": {
+    "en": "Close",
+    "es": "Cerrar",
+    "fr": "Fermer"
+  },
+  "Fechar galeria": {
+    "en": "Close gallery",
+    "es": "Cerrar galería",
+    "fr": "Fermer la galerie"
+  },
+  "Filtros ativos:": {
+    "en": "Active filters:",
+    "es": "Filtros activos:",
+    "fr": "Filtres actifs :"
+  },
+  "Foto anterior": {
+    "en": "Previous photo",
+    "es": "Foto anterior",
+    "fr": "Photo précédente"
+  },
+  "Fotos (": {
+    "en": "Photos (",
+    "es": "Fotos (",
+    "fr": "Photos ("
+  },
+  "Fotos da sua visita": {
+    "en": "Photos of your visit",
+    "es": "Fotos de tu visita",
+    "fr": "Photos de votre visite"
+  },
+  "Gerenciar camping": {
+    "en": "Manage campsite",
+    "es": "Gestionar camping",
+    "fr": "Gérer le camping"
+  },
+  "Guarde seus próximos destinos": {
+    "en": "Save your next destinations",
+    "es": "Guarda tus próximos destinos",
+    "fr": "Enregistrez vos prochaines destinations"
+  },
+  "Há um valor numérico fora do intervalo permitido.": {
+    "en": "A numeric value is outside the allowed range.",
+    "es": "Un valor numérico está fuera del intervalo permitido.",
+    "fr": "Une valeur numérique dépasse les limites autorisées."
+  },
+  "Imagem indisponível": {
+    "en": "Image unavailable",
+    "es": "Imagen no disponible",
+    "fr": "Image indisponible"
+  },
+  "Indicar camping": {
+    "en": "Suggest campsite",
+    "es": "Sugerir camping",
+    "fr": "Suggérer un camping"
+  },
+  "Indicar um camping": {
+    "en": "Suggest a campsite",
+    "es": "Sugerir un camping",
+    "fr": "Suggérer un camping"
+  },
+  "Indicação aceita": {
+    "en": "Suggestion accepted",
+    "es": "Sugerencia aceptada",
+    "fr": "Suggestion acceptée"
+  },
+  "Indicação de camping": {
+    "en": "Campsite suggestion",
+    "es": "Sugerencia de camping",
+    "fr": "Suggestion de camping"
+  },
+  "Indicação recebida": {
+    "en": "Suggestion received",
+    "es": "Sugerencia recibida",
+    "fr": "Suggestion reçue"
+  },
+  "Indique um camping com o perfil no Instagram, a localização no Google Maps e o nome. Você não precisa ser o proprietário; nossa equipe cuida do cadastro e da validação.": {
+    "en": "Suggest a campsite with its Instagram profile, Google Maps location and name. You don’t need to be the owner; our team handles registration and verification.",
+    "es": "Sugiere un camping con su perfil de Instagram, ubicación en Google Maps y nombre. No necesitas ser el propietario; nuestro equipo se encarga del registro y la verificación.",
+    "fr": "Suggérez un camping avec son profil Instagram, sa localisation Google Maps et son nom. Vous n’avez pas besoin d’être propriétaire ; notre équipe s’occupe de l’inscription et de la vérification."
+  },
+  "Indique um lugar para nossa equipe cadastrar e validar as informações.": {
+    "en": "Suggest a place for our team to register and verify.",
+    "es": "Sugiere un lugar para que nuestro equipo lo registre y verifique.",
+    "fr": "Suggérez un lieu à inscrire et à vérifier par notre équipe."
+  },
+  "Informações para verificar o vínculo": {
+    "en": "Ownership verification information",
+    "es": "Información para verificar la propiedad",
+    "fr": "Informations pour vérifier la propriété"
+  },
+  "Informe a URL HTTPS do perfil do camping no Instagram.": {
+    "en": "Enter the HTTPS URL of the campsite’s Instagram profile.",
+    "es": "Introduce la URL HTTPS del perfil de Instagram del camping.",
+    "fr": "Saisissez l’URL HTTPS du profil Instagram du camping."
+  },
+  "Informe a diária e a moeda juntas, ou deixe ambas vazias.": {
+    "en": "Enter both the nightly rate and currency, or leave both empty.",
+    "es": "Indica el precio por noche y la moneda, o deja ambos vacíos.",
+    "fr": "Indiquez le tarif par nuit et la devise, ou laissez les deux vides."
+  },
+  "Informe como podemos entrar em contato e verificar que você é proprietário. Envie documentos apenas quando nossa equipe solicitar.": {
+    "en": "Tell us how to contact you and verify your ownership. Only send documents when requested by our team.",
+    "es": "Indica cómo contactarte y verificar que eres propietario. Envía documentos solo cuando nuestro equipo los solicite.",
+    "fr": "Indiquez comment vous contacter et vérifier votre propriété. N’envoyez de documents qu’à la demande de notre équipe."
+  },
+  "Informe latitude e longitude juntas.": {
+    "en": "Enter both latitude and longitude.",
+    "es": "Introduce la latitud y la longitud juntas.",
+    "fr": "Saisissez la latitude et la longitude ensemble."
+  },
+  "Informe o e-mail da sua conta para solicitar um link de recuperação.": {
+    "en": "Enter your account email to request a recovery link.",
+    "es": "Introduce el correo de tu cuenta para solicitar un enlace de recuperación.",
+    "fr": "Saisissez l’e-mail de votre compte pour demander un lien de récupération."
+  },
+  "Informe o nome do camping (de 3 a 180 caracteres).": {
+    "en": "Enter the campsite name (3–180 characters).",
+    "es": "Introduce el nombre del camping (entre 3 y 180 caracteres).",
+    "fr": "Saisissez le nom du camping (de 3 à 180 caractères)."
+  },
+  "Informe um contato e como podemos verificar seu vínculo.": {
+    "en": "Provide contact details and how we can verify your ownership.",
+    "es": "Indica un contacto y cómo podemos verificar tu propiedad.",
+    "fr": "Indiquez un contact et comment nous pouvons vérifier votre propriété."
+  },
+  "Informe um e-mail válido.": {
+    "en": "Enter a valid email.",
+    "es": "Introduce un correo válido.",
+    "fr": "Saisissez un e-mail valide."
+  },
+  "Informe um link HTTPS de localização do Google Maps.": {
+    "en": "Enter a Google Maps HTTPS location link.",
+    "es": "Introduce un enlace HTTPS de ubicación de Google Maps.",
+    "fr": "Saisissez un lien de localisation HTTPS de Google Maps."
+  },
+  "Informe um nome de 3 a 180 caracteres e selecione a categoria.": {
+    "en": "Enter a name with 3–180 characters and select a category.",
+    "es": "Introduce un nombre de 3 a 180 caracteres y selecciona la categoría.",
+    "fr": "Saisissez un nom de 3 à 180 caractères et sélectionnez la catégorie."
+  },
+  "Informe um nome entre 3 e 150 caracteres.": {
+    "en": "Enter a name with 3–150 characters.",
+    "es": "Introduce un nombre de 3 a 150 caracteres.",
+    "fr": "Saisissez un nom de 3 à 150 caractères."
+  },
+  "Infraestrutura & Comodidades": {
+    "en": "Facilities & Amenities",
+    "es": "Instalaciones y servicios",
+    "fr": "Installations et équipements"
+  },
+  "JPG ou PNG": {
+    "en": "JPG or PNG",
+    "es": "JPG o PNG",
+    "fr": "JPG ou PNG"
+  },
+  "Junte-se à comunidade de exploradores selvagens": {
+    "en": "Join the community of outdoor explorers",
+    "es": "Únete a la comunidad de exploradores",
+    "fr": "Rejoignez la communauté des explorateurs"
+  },
+  "Já confirmei meu e-mail": {
+    "en": "I have confirmed my email",
+    "es": "Ya confirmé mi correo",
+    "fr": "J’ai confirmé mon e-mail"
+  },
+  "Já tem uma conta?": {
+    "en": "Already have an account?",
+    "es": "¿Ya tienes una cuenta?",
+    "fr": "Vous avez déjà un compte ?"
+  },
+  "Kampive — Explore a vida ao ar livre. Carregando.": {
+    "en": "Kampive — Explore the outdoors. Loading.",
+    "es": "Kampive — Explora la vida al aire libre. Cargando.",
+    "fr": "Kampive — Explorez la vie en plein air. Chargement."
+  },
+  "Kampive, início": {
+    "en": "Kampive, home",
+    "es": "Kampive, inicio",
+    "fr": "Kampive, accueil"
+  },
+  "Latitude (opcional, −90 a 90)": {
+    "en": "Latitude (optional, −90 to 90)",
+    "es": "Latitud (opcional, de −90 a 90)",
+    "fr": "Latitude (facultatif, de −90 à 90)"
+  },
+  "Li e aceito os Termos de Uso e a Política de Privacidade.": {
+    "en": "I have read and accept the Terms of Use and Privacy Policy.",
+    "es": "He leído y acepto los Términos de uso y la Política de privacidad.",
+    "fr": "J’ai lu et j’accepte les Conditions d’utilisation et la Politique de confidentialité."
+  },
+  "Lida": {
+    "en": "Read",
+    "es": "Leída",
+    "fr": "Lue"
+  },
+  "Lidas": {
+    "en": "Read",
+    "es": "Leídas",
+    "fr": "Lues"
+  },
+  "Limpar filtros": {
+    "en": "Clear filters",
+    "es": "Limpiar filtros",
+    "fr": "Effacer les filtres"
+  },
+  "Link da localização no Google Maps *": {
+    "en": "Google Maps location link *",
+    "es": "Enlace de ubicación en Google Maps *",
+    "fr": "Lien de localisation Google Maps *"
+  },
+  "Localização": {
+    "en": "Location",
+    "es": "Ubicación",
+    "fr": "Localisation"
+  },
+  "Localização não informada": {
+    "en": "Location not provided",
+    "es": "Ubicación no indicada",
+    "fr": "Localisation non renseignée"
+  },
+  "Longitude (opcional, −180 a 180)": {
+    "en": "Longitude (optional, −180 to 180)",
+    "es": "Longitud (opcional, de −180 a 180)",
+    "fr": "Longitude (facultatif, de −180 à 180)"
+  },
+  "Mais avaliações": {
+    "en": "More reviews",
+    "es": "Más reseñas",
+    "fr": "Plus d’avis"
+  },
+  "Mais cidades": {
+    "en": "More cities",
+    "es": "Más ciudades",
+    "fr": "Plus de villes"
+  },
+  "Mais países": {
+    "en": "More countries",
+    "es": "Más países",
+    "fr": "Plus de pays"
+  },
+  "Manter minha conta": {
+    "en": "Keep my account",
+    "es": "Conservar mi cuenta",
+    "fr": "Conserver mon compte"
+  },
+  "Mapa global": {
+    "en": "Global map",
+    "es": "Mapa global",
+    "fr": "Carte mondiale"
+  },
+  "Marcar como lida": {
+    "en": "Mark as read",
+    "es": "Marcar como leída",
+    "fr": "Marquer comme lue"
+  },
+  "Marcar como não lida": {
+    "en": "Mark as unread",
+    "es": "Marcar como no leída",
+    "fr": "Marquer comme non lue"
+  },
+  "Marcar todas como lidas": {
+    "en": "Mark all as read",
+    "es": "Marcar todas como leídas",
+    "fr": "Tout marquer comme lu"
+  },
+  "Meus campings": {
+    "en": "My campsites",
+    "es": "Mis campings",
+    "fr": "Mes campings"
+  },
+  "Minhas avaliações": {
+    "en": "My reviews",
+    "es": "Mis reseñas",
+    "fr": "Mes avis"
+  },
+  "Minhas solicitações": {
+    "en": "My requests",
+    "es": "Mis solicitudes",
+    "fr": "Mes demandes"
+  },
+  "Mostrar senha": {
+    "en": "Show password",
+    "es": "Mostrar contraseña",
+    "fr": "Afficher le mot de passe"
+  },
+  "Motorhome": {
+    "en": "Motorhome",
+    "es": "Autocaravana",
+    "fr": "Camping-car"
+  },
+  "Muitas tentativas. Aguarde um minuto antes de tentar novamente.": {
+    "en": "Too many attempts. Wait a minute before trying again.",
+    "es": "Demasiados intentos. Espera un minuto antes de volver a intentarlo.",
+    "fr": "Trop de tentatives. Attendez une minute avant de réessayer."
+  },
+  "Muito bom": {
+    "en": "Very good",
+    "es": "Muy bueno",
+    "fr": "Très bien"
+  },
+  "Mundo Selvagem": {
+    "en": "Wild World",
+    "es": "Mundo salvaje",
+    "fr": "Monde sauvage"
+  },
+  "Mín. 50 caracteres": {
+    "en": "Min. 50 characters",
+    "es": "Mín. 50 caracteres",
+    "fr": "Min. 50 caractères"
+  },
+  "Mínimo de 8 caracteres, uma letra maiúscula (A–Z) e um número.": {
+    "en": "At least 8 characters, one uppercase letter (A–Z) and one number.",
+    "es": "Mínimo 8 caracteres, una mayúscula (A–Z) y un número.",
+    "fr": "Au moins 8 caractères, une majuscule (A–Z) et un chiffre."
+  },
+  "Nenhum camping encontrado": {
+    "en": "No campsites found",
+    "es": "No se encontraron campings",
+    "fr": "Aucun camping trouvé"
+  },
+  "Nenhum estilo selecionado": {
+    "en": "No styles selected",
+    "es": "Ningún estilo seleccionado",
+    "fr": "Aucun style sélectionné"
+  },
+  "Nenhum país disponível no momento.": {
+    "en": "No countries available at the moment.",
+    "es": "No hay países disponibles por el momento.",
+    "fr": "Aucun pays disponible pour le moment."
+  },
+  "Nenhum país encontrado": {
+    "en": "No countries found",
+    "es": "No se encontraron países",
+    "fr": "Aucun pays trouvé"
+  },
+  "Nenhum país encontrado.": {
+    "en": "No countries found.",
+    "es": "No se encontraron países.",
+    "fr": "Aucun pays trouvé."
+  },
+  "Nenhuma cidade encontrada.": {
+    "en": "No cities found.",
+    "es": "No se encontraron ciudades.",
+    "fr": "Aucune ville trouvée."
+  },
+  "Nenhuma comodidade informada.": {
+    "en": "No amenities listed.",
+    "es": "No se indican servicios.",
+    "fr": "Aucun équipement renseigné."
+  },
+  "Nenhuma notificação nesta categoria.": {
+    "en": "No notifications in this category.",
+    "es": "No hay notificaciones en esta categoría.",
+    "fr": "Aucune notification dans cette catégorie."
+  },
+  "Nome": {
+    "en": "Name",
+    "es": "Nombre",
+    "fr": "Nom"
+  },
+  "Nome completo": {
+    "en": "Full name",
+    "es": "Nombre completo",
+    "fr": "Nom complet"
+  },
+  "Nome do camping": {
+    "en": "Campsite name",
+    "es": "Nombre del camping",
+    "fr": "Nom du camping"
+  },
+  "Nome do camping *": {
+    "en": "Campsite name *",
+    "es": "Nombre del camping *",
+    "fr": "Nom du camping *"
+  },
+  "Nome ou código do país": {
+    "en": "Country name or code",
+    "es": "Nombre o código del país",
+    "fr": "Nom ou code du pays"
+  },
+  "Nossa equipe analisará as informações e entrará em contato. A gestão será liberada somente após a aprovação do vínculo.": {
+    "en": "Our team will review the information and contact you. Management access is granted only after ownership approval.",
+    "es": "Nuestro equipo revisará la información y te contactará. La gestión se habilitará solo tras aprobar la propiedad.",
+    "fr": "Notre équipe examinera les informations et vous contactera. L’accès à la gestion sera accordé après validation de la propriété."
+  },
+  "Nossa equipe vai revisar sua indicação, cadastrar o camping e validar os dados antes de publicá-lo. A indicação não cria um vínculo de propriedade.": {
+    "en": "Our team will review your suggestion, register the campsite and verify the information before publishing. A suggestion does not establish ownership.",
+    "es": "Nuestro equipo revisará tu sugerencia, registrará el camping y verificará los datos antes de publicarlo. La sugerencia no otorga la propiedad.",
+    "fr": "Notre équipe examinera votre suggestion, inscrira le camping et vérifiera les informations avant publication. Une suggestion ne confère aucun droit de propriété."
+  },
+  "Nossa equipe vai validar os dados antes de publicar o camping. Este cadastro não cria um vínculo de propriedade nem libera acesso à gestão.": {
+    "en": "Our team will verify the information before publishing the campsite. Registration does not establish ownership or grant management access.",
+    "es": "Nuestro equipo verificará los datos antes de publicar el camping. El registro no otorga la propiedad ni acceso a la gestión.",
+    "fr": "Notre équipe vérifiera les informations avant publication. L’inscription ne confère ni propriété ni accès à la gestion."
+  },
+  "Notificações": {
+    "en": "Notifications",
+    "es": "Notificaciones",
+    "fr": "Notifications"
+  },
+  "Nova senha": {
+    "en": "New password",
+    "es": "Nueva contraseña",
+    "fr": "Nouveau mot de passe"
+  },
+  "Não aprovada": {
+    "en": "Not approved",
+    "es": "No aprobada",
+    "fr": "Non approuvée"
+  },
+  "Não encontramos este conteúdo.": {
+    "en": "We couldn’t find this content.",
+    "es": "No encontramos este contenido.",
+    "fr": "Nous n’avons pas trouvé ce contenu."
+  },
+  "Não foi possível abrir a foto. Tente novamente.": {
+    "en": "Couldn’t open the photo. Please try again.",
+    "es": "No se pudo abrir la foto. Inténtalo de nuevo.",
+    "fr": "Impossible d’ouvrir la photo. Réessayez."
+  },
+  "Não foi possível abrir as fotos. Verifique as permissões do dispositivo.": {
+    "en": "Couldn’t open the photos. Check your device permissions.",
+    "es": "No se pudieron abrir las fotos. Revisa los permisos del dispositivo.",
+    "fr": "Impossible d’ouvrir les photos. Vérifiez les autorisations de l’appareil."
+  },
+  "Não foi possível abrir o documento.": {
+    "en": "Couldn’t open the document.",
+    "es": "No se pudo abrir el documento.",
+    "fr": "Impossible d’ouvrir le document."
+  },
+  "Não foi possível abrir o link.": {
+    "en": "Couldn’t open the link.",
+    "es": "No se pudo abrir el enlace.",
+    "fr": "Impossible d’ouvrir le lien."
+  },
+  "Não foi possível cadastrar com esses dados. Confira-os ou tente entrar na sua conta.": {
+    "en": "Couldn’t register with this information. Check it or try signing in.",
+    "es": "No se pudo registrar con estos datos. Revísalos o intenta iniciar sesión.",
+    "fr": "Impossible de s’inscrire avec ces informations. Vérifiez-les ou essayez de vous connecter."
+  },
+  "Não foi possível concluir. Tente novamente.": {
+    "en": "Couldn’t complete the operation. Please try again.",
+    "es": "No se pudo completar la operación. Inténtalo de nuevo.",
+    "fr": "Impossible de terminer l’opération. Réessayez."
+  },
+  "Não foi possível conectar. Verifique sua conexão e tente novamente.": {
+    "en": "Couldn’t connect. Check your connection and try again.",
+    "es": "No se pudo conectar. Comprueba tu conexión e inténtalo de nuevo.",
+    "fr": "Impossible de se connecter. Vérifiez votre connexion et réessayez."
+  },
+  "Não foi possível confirmar a gravação. Confira Meus campings antes de tentar novamente.": {
+    "en": "Couldn’t confirm the save. Check My campsites before trying again.",
+    "es": "No se pudo confirmar el guardado. Revisa Mis campings antes de intentarlo de nuevo.",
+    "fr": "Impossible de confirmer l’enregistrement. Consultez Mes campings avant de réessayer."
+  },
+  "Não foi possível confirmar o recebimento. Consulte Minhas solicitações antes de tentar novamente.": {
+    "en": "Couldn’t confirm receipt. Check My requests before trying again.",
+    "es": "No se pudo confirmar la recepción. Consulta Mis solicitudes antes de intentarlo de nuevo.",
+    "fr": "Impossible de confirmer la réception. Consultez Mes demandes avant de réessayer."
+  },
+  "Não foi possível confirmar o recebimento. Seu cadastro pode ter sido enviado; evite reenviá-lo agora.": {
+    "en": "Couldn’t confirm receipt. Your registration may have been sent; avoid resubmitting it now.",
+    "es": "No se pudo confirmar la recepción. Es posible que el registro se haya enviado; evita reenviarlo ahora.",
+    "fr": "Impossible de confirmer la réception. Votre inscription a peut-être été envoyée ; évitez de la renvoyer maintenant."
+  },
+  "Não foi possível excluir. Confira sua senha e se a sessão ainda está ativa.": {
+    "en": "Couldn’t delete. Check your password and whether your session is still active.",
+    "es": "No se pudo eliminar. Comprueba tu contraseña y que la sesión siga activa.",
+    "fr": "Impossible de supprimer. Vérifiez votre mot de passe et que la session est toujours active."
+  },
+  "Não foi possível preparar uma sessão segura.": {
+    "en": "Couldn’t prepare a secure session.",
+    "es": "No se pudo preparar una sesión segura.",
+    "fr": "Impossible de préparer une session sécurisée."
+  },
+  "Não foi possível selecionar as fotos. Tente novamente.": {
+    "en": "Couldn’t select photos. Please try again.",
+    "es": "No se pudieron seleccionar las fotos. Inténtalo de nuevo.",
+    "fr": "Impossible de sélectionner les photos. Réessayez."
+  },
+  "Não há países disponíveis para esta seleção.": {
+    "en": "No countries available for this selection.",
+    "es": "No hay países disponibles para esta selección.",
+    "fr": "Aucun pays disponible pour cette sélection."
+  },
+  "Não informar": {
+    "en": "Not specified",
+    "es": "No indicar",
+    "fr": "Non renseigné"
+  },
+  "Não lida": {
+    "en": "Unread",
+    "es": "No leída",
+    "fr": "Non lue"
+  },
+  "Não lidas": {
+    "en": "Unread",
+    "es": "No leídas",
+    "fr": "Non lues"
+  },
+  "Número": {
+    "en": "Number",
+    "es": "Número",
+    "fr": "Numéro"
+  },
+  "O cadastro estará disponível assim que os termos e a política de privacidade forem publicados.": {
+    "en": "Registration will be available once the terms and privacy policy are published.",
+    "es": "El registro estará disponible cuando se publiquen los términos y la política de privacidad.",
+    "fr": "L’inscription sera disponible après publication des conditions et de la politique de confidentialité."
+  },
+  "O comentário, a nota e as fotos serão removidos. Esta ação não pode ser desfeita.": {
+    "en": "The comment, rating and photos will be removed. This action cannot be undone.",
+    "es": "Se eliminarán el comentario, la puntuación y las fotos. Esta acción no se puede deshacer.",
+    "fr": "Le commentaire, la note et les photos seront supprimés. Cette action est irréversible."
+  },
+  "O envio está temporariamente indisponível. Tente novamente mais tarde.": {
+    "en": "Sending is temporarily unavailable. Please try again later.",
+    "es": "El envío no está disponible temporalmente. Inténtalo más tarde.",
+    "fr": "L’envoi est temporairement indisponible. Réessayez plus tard."
+  },
+  "O número de WhatsApp será adicionado após a validação do camping.": {
+    "en": "The WhatsApp number will be added after campsite verification.",
+    "es": "El número de WhatsApp se añadirá tras verificar el camping.",
+    "fr": "Le numéro WhatsApp sera ajouté après vérification du camping."
+  },
+  "O que mais se destacou?": {
+    "en": "What stood out most?",
+    "es": "¿Qué destacarías?",
+    "fr": "Qu’avez-vous le plus apprécié ?"
+  },
+  "O serviço está indisponível. Tente novamente.": {
+    "en": "The service is unavailable. Please try again.",
+    "es": "El servicio no está disponible. Inténtalo de nuevo.",
+    "fr": "Le service est indisponible. Réessayez."
+  },
+  "Oculta": {
+    "en": "Hidden",
+    "es": "Oculta",
+    "fr": "Masqué"
+  },
+  "Ocultar senha": {
+    "en": "Hide password",
+    "es": "Ocultar contraseña",
+    "fr": "Masquer le mot de passe"
+  },
+  "Onde você vai acampar?": {
+    "en": "Where will you camp?",
+    "es": "¿Dónde vas a acampar?",
+    "fr": "Où allez-vous camper ?"
+  },
+  "Ordenados por melhor avaliação.": {
+    "en": "Sorted by highest rating.",
+    "es": "Ordenados por mejor puntuación.",
+    "fr": "Classés par meilleure note."
+  },
+  "Os tipos de contato ainda não estão disponíveis.": {
+    "en": "Contact types are not available yet.",
+    "es": "Los tipos de contacto aún no están disponibles.",
+    "fr": "Les types de contact ne sont pas encore disponibles."
+  },
+  "PRÓXIMAS AVENTURAS": {
+    "en": "UPCOMING ADVENTURES",
+    "es": "PRÓXIMAS AVENTURAS",
+    "fr": "PROCHAINES AVENTURES"
+  },
+  "Paisagem de camping ilustrativa": {
+    "en": "Illustrative campsite landscape",
+    "es": "Paisaje ilustrativo de camping",
+    "fr": "Paysage de camping illustratif"
+  },
+  "Para enviar para análise, preencha cidade, endereço, descrição, um contato e pelo menos uma foto.": {
+    "en": "To submit for review, provide a city, address, description, contact and at least one photo.",
+    "es": "Para enviar a revisión, indica ciudad, dirección, descripción, un contacto y al menos una foto.",
+    "fr": "Pour soumettre à examen, renseignez la ville, l’adresse, la description, un contact et au moins une photo."
+  },
+  "País (opcional):": {
+    "en": "Country (optional):",
+    "es": "País (opcional):",
+    "fr": "Pays (facultatif) :"
+  },
+  "País selecionado": {
+    "en": "Selected country",
+    "es": "País seleccionado",
+    "fr": "Pays sélectionné"
+  },
+  "Países": {
+    "en": "Countries",
+    "es": "Países",
+    "fr": "Pays"
+  },
+  "Perfil": {
+    "en": "Profile",
+    "es": "Perfil",
+    "fr": "Profil"
+  },
+  "Pode melhorar": {
+    "en": "Needs improvement",
+    "es": "Puede mejorar",
+    "fr": "Peut mieux faire"
+  },
+  "Política de Privacidade": {
+    "en": "Privacy Policy",
+    "es": "Política de privacidad",
+    "fr": "Politique de confidentialité"
+  },
+  "Preencha os dados do camping para análise da equipe. A publicação e a propriedade dependem de validações separadas.": {
+    "en": "Fill in the campsite information for our team to review. Publication and ownership require separate verification.",
+    "es": "Completa los datos del camping para su revisión. La publicación y la propiedad requieren verificaciones independientes.",
+    "fr": "Renseignez les informations du camping pour examen. La publication et la propriété nécessitent des vérifications distinctes."
+  },
+  "Preencha um e-mail válido e sua senha.": {
+    "en": "Enter a valid email and your password.",
+    "es": "Introduce un correo válido y tu contraseña.",
+    "fr": "Saisissez un e-mail valide et votre mot de passe."
+  },
+  "Prepare sua mochila!": {
+    "en": "Pack your backpack!",
+    "es": "¡Prepara tu mochila!",
+    "fr": "Préparez votre sac à dos !"
+  },
+  "Preço não informado": {
+    "en": "Price not provided",
+    "es": "Precio no indicado",
+    "fr": "Prix non renseigné"
+  },
+  "Protocolo:": {
+    "en": "Reference:",
+    "es": "Referencia:",
+    "fr": "Référence :"
+  },
+  "Próxima foto": {
+    "en": "Next photo",
+    "es": "Siguiente foto",
+    "fr": "Photo suivante"
+  },
+  "Publicada": {
+    "en": "Published",
+    "es": "Publicada",
+    "fr": "Publié"
+  },
+  "Publicado": {
+    "en": "Published",
+    "es": "Publicado",
+    "fr": "Publié"
+  },
+  "Rascunho": {
+    "en": "Draft",
+    "es": "Borrador",
+    "fr": "Brouillon"
+  },
+  "Rascunho salvo na sua conta.": {
+    "en": "Draft saved to your account.",
+    "es": "Borrador guardado en tu cuenta.",
+    "fr": "Brouillon enregistré dans votre compte."
+  },
+  "Recarregar comodidades": {
+    "en": "Reload amenities",
+    "es": "Recargar servicios",
+    "fr": "Recharger les équipements"
+  },
+  "Recarregar filtros": {
+    "en": "Reload filters",
+    "es": "Recargar filtros",
+    "fr": "Recharger les filtres"
+  },
+  "Recuperar senha": {
+    "en": "Recover password",
+    "es": "Recuperar contraseña",
+    "fr": "Récupérer le mot de passe"
+  },
+  "Regular": {
+    "en": "Average",
+    "es": "Regular",
+    "fr": "Moyen"
+  },
+  "Remover": {
+    "en": "Remove",
+    "es": "Eliminar",
+    "fr": "Supprimer"
+  },
+  "Remover dos salvos": {
+    "en": "Remove from saved",
+    "es": "Quitar de guardados",
+    "fr": "Retirer des enregistrements"
+  },
+  "Remover foto": {
+    "en": "Remove photo",
+    "es": "Eliminar foto",
+    "fr": "Supprimer la photo"
+  },
+  "Remover item indisponível dos salvos": {
+    "en": "Remove unavailable item from saved",
+    "es": "Quitar elemento no disponible de guardados",
+    "fr": "Retirer l’élément indisponible des enregistrements"
+  },
+  "Remover localização": {
+    "en": "Remove location",
+    "es": "Eliminar ubicación",
+    "fr": "Supprimer la localisation"
+  },
+  "Requer ajustes": {
+    "en": "Changes required",
+    "es": "Requiere ajustes",
+    "fr": "Modifications requises"
+  },
+  "Resposta da equipe": {
+    "en": "Team response",
+    "es": "Respuesta del equipo",
+    "fr": "Réponse de l’équipe"
+  },
+  "Resultados em todos os destinos": {
+    "en": "Results across all destinations",
+    "es": "Resultados en todos los destinos",
+    "fr": "Résultats dans toutes les destinations"
+  },
+  "Saindo...": {
+    "en": "Signing out...",
+    "es": "Cerrando sesión...",
+    "fr": "Déconnexion…"
+  },
+  "Sair da conta": {
+    "en": "Sign out",
+    "es": "Cerrar sesión",
+    "fr": "Se déconnecter"
+  },
+  "Salvando...": {
+    "en": "Saving...",
+    "es": "Guardando...",
+    "fr": "Enregistrement…"
+  },
+  "Salvar": {
+    "en": "Save",
+    "es": "Guardar",
+    "fr": "Enregistrer"
+  },
+  "Salvar alterações": {
+    "en": "Save changes",
+    "es": "Guardar cambios",
+    "fr": "Enregistrer les modifications"
+  },
+  "Salvar na minha conta": {
+    "en": "Save to my account",
+    "es": "Guardar en mi cuenta",
+    "fr": "Enregistrer dans mon compte"
+  },
+  "Salvar nova senha": {
+    "en": "Save new password",
+    "es": "Guardar nueva contraseña",
+    "fr": "Enregistrer le nouveau mot de passe"
+  },
+  "Salvar rascunho": {
+    "en": "Save draft",
+    "es": "Guardar borrador",
+    "fr": "Enregistrer le brouillon"
+  },
+  "Salvos": {
+    "en": "Saved",
+    "es": "Guardados",
+    "fr": "Enregistrés"
+  },
+  "Se esse e-mail estiver associado a uma conta ativa, você receberá um link para redefinir sua senha. Confira também a caixa de spam.": {
+    "en": "If this email belongs to an active account, you will receive a password reset link. Check your spam folder too.",
+    "es": "Si este correo pertenece a una cuenta activa, recibirás un enlace para restablecer la contraseña. Revisa también el correo no deseado.",
+    "fr": "Si cet e-mail correspond à un compte actif, vous recevrez un lien de réinitialisation. Vérifiez aussi vos courriers indésirables."
+  },
+  "Selecionar": {
+    "en": "Select",
+    "es": "Seleccionar",
+    "fr": "Sélectionner"
+  },
+  "Selecionar cidade e estado": {
+    "en": "Select city and state",
+    "es": "Seleccionar ciudad y región",
+    "fr": "Sélectionner la ville et la région"
+  },
+  "Selecionar fotos": {
+    "en": "Select photos",
+    "es": "Seleccionar fotos",
+    "fr": "Sélectionner des photos"
+  },
+  "Selecionar país": {
+    "en": "Select country",
+    "es": "Seleccionar país",
+    "fr": "Sélectionner un pays"
+  },
+  "Selecione até 9 fotos e escolha a capa. As imagens serão salvas com qualidade de 70%, preservando boa visualização ao abrir. JPEG ou PNG, até 10 MB por foto.": {
+    "en": "Select up to 9 photos and choose a cover. Photos are saved at 70% quality for clear viewing. JPEG or PNG, up to 10 MB per photo.",
+    "es": "Selecciona hasta 9 fotos y elige una portada. Se guardarán con calidad del 70 % para una buena visualización. JPEG o PNG, hasta 10 MB por foto.",
+    "fr": "Sélectionnez jusqu’à 9 photos et choisissez une couverture. Elles seront enregistrées avec une qualité de 70 % pour un bon rendu. JPEG ou PNG, jusqu’à 10 Mo par photo."
+  },
+  "Selecione fotos de até 10 MB e 40 megapixels.": {
+    "en": "Select photos up to 10 MB and 40 megapixels.",
+    "es": "Selecciona fotos de hasta 10 MB y 40 megapíxeles.",
+    "fr": "Sélectionnez des photos de 10 Mo et 40 mégapixels maximum."
+  },
+  "Selecione o país da cidade.": {
+    "en": "Select the city’s country.",
+    "es": "Selecciona el país de la ciudad.",
+    "fr": "Sélectionnez le pays de la ville."
+  },
+  "Selecione sua nota": {
+    "en": "Select your rating",
+    "es": "Selecciona tu puntuación",
+    "fr": "Sélectionnez votre note"
+  },
+  "Selecione uma nota e conte sua experiência em pelo menos 50 caracteres.": {
+    "en": "Select a rating and describe your experience in at least 50 characters.",
+    "es": "Selecciona una puntuación y cuenta tu experiencia en al menos 50 caracteres.",
+    "fr": "Sélectionnez une note et décrivez votre expérience en au moins 50 caractères."
+  },
+  "Sem avaliações": {
+    "en": "No reviews",
+    "es": "Sin reseñas",
+    "fr": "Aucun avis"
+  },
+  "Sem contatos informados.": {
+    "en": "No contact details provided.",
+    "es": "Sin datos de contacto.",
+    "fr": "Aucun contact renseigné."
+  },
+  "Sem fotos": {
+    "en": "No photos",
+    "es": "Sin fotos",
+    "fr": "Aucune photo"
+  },
+  "Sem fotos disponíveis": {
+    "en": "No photos available",
+    "es": "No hay fotos disponibles",
+    "fr": "Aucune photo disponible"
+  },
+  "Senha": {
+    "en": "Password",
+    "es": "Contraseña",
+    "fr": "Mot de passe"
+  },
+  "Senha atual": {
+    "en": "Current password",
+    "es": "Contraseña actual",
+    "fr": "Mot de passe actuel"
+  },
+  "Senha de acesso": {
+    "en": "Password",
+    "es": "Contraseña de acceso",
+    "fr": "Mot de passe"
+  },
+  "Seu camping está em análise. Aguarde a decisão antes de editar.": {
+    "en": "Your campsite is under review. Wait for the decision before editing.",
+    "es": "Tu camping está en revisión. Espera la decisión antes de editarlo.",
+    "fr": "Votre camping est en cours d’examen. Attendez la décision avant de le modifier."
+  },
+  "Seu e-mail está confirmado.": {
+    "en": "Your email is confirmed.",
+    "es": "Tu correo está confirmado.",
+    "fr": "Votre e-mail est confirmé."
+  },
+  "Seu estado": {
+    "en": "Your state",
+    "es": "Tu región",
+    "fr": "Votre région"
+  },
+  "Seu nome, e-mail, foto, localização, apresentação e estilos de viagem serão removidos. Seu acesso será encerrado e seus favoritos e notificações serão removidos.": {
+    "en": "Your name, email, photo, location, bio and travel styles will be removed. You will be signed out and your favorites and notifications will be deleted.",
+    "es": "Se eliminarán tu nombre, correo, foto, ubicación, presentación y estilos de viaje. Se cerrará tu sesión y se eliminarán tus favoritos y notificaciones.",
+    "fr": "Votre nom, e-mail, photo, localisation, présentation et styles de voyage seront supprimés. Vous serez déconnecté et vos favoris et notifications seront supprimés."
+  },
+  "Seu perfil Kampive": {
+    "en": "Your Kampive profile",
+    "es": "Tu perfil de Kampive",
+    "fr": "Votre profil Kampive"
+  },
+  "Seu próximo refúgio pode estar em qualquer lugar.": {
+    "en": "Your next getaway could be anywhere.",
+    "es": "Tu próximo refugio puede estar en cualquier lugar.",
+    "fr": "Votre prochaine escapade peut se trouver n’importe où."
+  },
+  "Seu relato da aventura": {
+    "en": "Your adventure story",
+    "es": "Tu relato de la aventura",
+    "fr": "Le récit de votre aventure"
+  },
+  "Seu telefone ou e-mail para contato *": {
+    "en": "Your contact phone or email *",
+    "es": "Tu teléfono o correo de contacto *",
+    "fr": "Votre téléphone ou e-mail de contact *"
+  },
+  "Seus favoritos": {
+    "en": "Your favorites",
+    "es": "Tus favoritos",
+    "fr": "Vos favoris"
+  },
+  "Sobre o camping": {
+    "en": "About the campsite",
+    "es": "Sobre el camping",
+    "fr": "À propos du camping"
+  },
+  "Solicitando...": {
+    "en": "Requesting...",
+    "es": "Solicitando...",
+    "fr": "Demande en cours…"
+  },
+  "Solicitar outro link": {
+    "en": "Request another link",
+    "es": "Solicitar otro enlace",
+    "fr": "Demander un autre lien"
+  },
+  "Solicitar recuperação": {
+    "en": "Request recovery",
+    "es": "Solicitar recuperación",
+    "fr": "Demander la récupération"
+  },
+  "Solicitar verificação": {
+    "en": "Request verification",
+    "es": "Solicitar verificación",
+    "fr": "Demander la vérification"
+  },
+  "Solicitação não encontrada.": {
+    "en": "Request not found.",
+    "es": "Solicitud no encontrada.",
+    "fr": "Demande introuvable."
+  },
+  "Solicitação recebida": {
+    "en": "Request received",
+    "es": "Solicitud recibida",
+    "fr": "Demande reçue"
+  },
+  "Solicitação recebida. Confira sua caixa de entrada e o spam. Use o link mais recente.": {
+    "en": "Request received. Check your inbox and spam folder. Use the most recent link.",
+    "es": "Solicitud recibida. Revisa tu bandeja de entrada y el correo no deseado. Usa el enlace más reciente.",
+    "fr": "Demande reçue. Vérifiez votre boîte de réception et vos indésirables. Utilisez le lien le plus récent."
+  },
+  "Solicite a verificação do seu vínculo. Nossa equipe entrará em contato e validará a propriedade antes de liberar a gestão.": {
+    "en": "Request ownership verification. Our team will contact you and verify ownership before granting management access.",
+    "es": "Solicita la verificación de propiedad. Nuestro equipo te contactará y validará la propiedad antes de habilitar la gestión.",
+    "fr": "Demandez la vérification de propriété. Notre équipe vous contactera et vérifiera la propriété avant d’accorder l’accès à la gestion."
+  },
+  "Sou proprietário deste camping": {
+    "en": "I own this campsite",
+    "es": "Soy propietario de este camping",
+    "fr": "Je suis propriétaire de ce camping"
+  },
+  "Sua apresentação deve ter até 500 caracteres.": {
+    "en": "Your bio must be no longer than 500 characters.",
+    "es": "Tu presentación debe tener como máximo 500 caracteres.",
+    "fr": "Votre présentation ne doit pas dépasser 500 caractères."
+  },
+  "Sua avaliação foi recebida e está em análise. Acompanhe o status no seu perfil.": {
+    "en": "Your review was received and is under review. Track its status in your profile.",
+    "es": "Tu reseña se recibió y está en revisión. Sigue su estado en tu perfil.",
+    "fr": "Votre avis a été reçu et est en cours d’examen. Suivez son statut dans votre profil."
+  },
+  "Sua conta": {
+    "en": "Your account",
+    "es": "Tu cuenta",
+    "fr": "Votre compte"
+  },
+  "Sua conta foi criada. Preparamos um e-mail de confirmação. Entre para acompanhar o envio e participar da comunidade.": {
+    "en": "Your account was created. We prepared a confirmation email. Sign in to track delivery and join the community.",
+    "es": "Tu cuenta se ha creado. Preparamos un correo de confirmación. Inicia sesión para seguir el envío y participar en la comunidad.",
+    "fr": "Votre compte a été créé. Nous avons préparé un e-mail de confirmation. Connectez-vous pour suivre l’envoi et rejoindre la communauté."
+  },
+  "Sua conta pode ser acessada normalmente. Entre para acompanhar a confirmação e solicitar outro e-mail.": {
+    "en": "You can access your account normally. Sign in to track confirmation and request another email.",
+    "es": "Puedes acceder a tu cuenta normalmente. Inicia sesión para seguir la confirmación y solicitar otro correo.",
+    "fr": "Vous pouvez accéder normalement à votre compte. Connectez-vous pour suivre la confirmation et demander un autre e-mail."
+  },
+  "Sua senha foi alterada": {
+    "en": "Your password was changed",
+    "es": "Tu contraseña ha cambiado",
+    "fr": "Votre mot de passe a été modifié"
+  },
+  "Sua sessão expirou. Entre novamente.": {
+    "en": "Your session expired. Please sign in again.",
+    "es": "Tu sesión ha caducado. Vuelve a iniciar sesión.",
+    "fr": "Votre session a expiré. Reconnectez-vous."
+  },
+  "Sua solicitação está na fila de análise. O resultado aparecerá aqui e nas suas notificações.": {
+    "en": "Your request is awaiting review. The result will appear here and in your notifications.",
+    "es": "Tu solicitud está pendiente de revisión. El resultado aparecerá aquí y en tus notificaciones.",
+    "fr": "Votre demande est en attente d’examen. Le résultat apparaîtra ici et dans vos notifications."
+  },
+  "Suas fotos e relato ajudam a manter o cadastro do camping atualizado para outros viajantes.": {
+    "en": "Your photos and story help keep campsite information up to date for other travelers.",
+    "es": "Tus fotos y tu relato ayudan a mantener los datos del camping actualizados para otros viajeros.",
+    "fr": "Vos photos et votre récit aident à maintenir les informations du camping à jour pour les autres voyageurs."
+  },
+  "Suas novidades aparecem aqui.": {
+    "en": "Your updates appear here.",
+    "es": "Tus novedades aparecen aquí.",
+    "fr": "Vos nouveautés apparaissent ici."
+  },
+  "Tentar novamente": {
+    "en": "Try again",
+    "es": "Intentar de nuevo",
+    "fr": "Réessayer"
+  },
+  "Termos de Uso": {
+    "en": "Terms of Use",
+    "es": "Términos de uso",
+    "fr": "Conditions d’utilisation"
+  },
+  "Todas": {
+    "en": "All",
+    "es": "Todas",
+    "fr": "Toutes"
+  },
+  "Todos": {
+    "en": "All",
+    "es": "Todos",
+    "fr": "Tous"
+  },
+  "Todos os países": {
+    "en": "All countries",
+    "es": "Todos los países",
+    "fr": "Tous les pays"
+  },
+  "Toque abaixo para confirmar o e-mail da sua conta Kampive e participar da comunidade.": {
+    "en": "Tap below to confirm your Kampive account email and join the community.",
+    "es": "Toca abajo para confirmar el correo de tu cuenta Kampive y participar en la comunidad.",
+    "fr": "Appuyez ci-dessous pour confirmer l’e-mail de votre compte Kampive et rejoindre la communauté."
+  },
+  "Toque nas estrelas para avaliar sua experiência": {
+    "en": "Tap the stars to rate your experience",
+    "es": "Toca las estrellas para valorar tu experiencia",
+    "fr": "Appuyez sur les étoiles pour noter votre expérience"
+  },
+  "Toque no coração de um camping para salvá-lo aqui.": {
+    "en": "Tap a campsite’s heart to save it here.",
+    "es": "Toca el corazón de un camping para guardarlo aquí.",
+    "fr": "Appuyez sur le cœur d’un camping pour l’enregistrer ici."
+  },
+  "Trailer": {
+    "en": "Trailer",
+    "es": "Caravana",
+    "fr": "Caravane"
+  },
+  "Capa": {
+    "en": "Cover",
+    "es": "Portada",
+    "fr": "Couverture"
+  },
+  "Usar outro e-mail": {
+    "en": "Use another email",
+    "es": "Usar otro correo",
+    "fr": "Utiliser un autre e-mail"
+  },
+  "Use de 8 a 128 caracteres, incluindo uma letra maiúscula e um número.": {
+    "en": "Use 8–128 characters, including one uppercase letter and one number.",
+    "es": "Usa entre 8 y 128 caracteres, incluyendo una mayúscula y un número.",
+    "fr": "Utilisez entre 8 et 128 caractères, dont une majuscule et un chiffre."
+  },
+  "Valor a partir de (opcional)": {
+    "en": "Starting price (optional)",
+    "es": "Precio desde (opcional)",
+    "fr": "Prix à partir de (facultatif)"
+  },
+  "Ver camping": {
+    "en": "View campsite",
+    "es": "Ver camping",
+    "fr": "Voir le camping"
+  },
+  "Ver detalhes": {
+    "en": "View details",
+    "es": "Ver detalles",
+    "fr": "Voir les détails"
+  },
+  "Ver rota no mapa": {
+    "en": "View route on map",
+    "es": "Ver ruta en el mapa",
+    "fr": "Voir l’itinéraire sur la carte"
+  },
+  "Ver solicitação": {
+    "en": "View request",
+    "es": "Ver solicitud",
+    "fr": "Voir la demande"
+  },
+  "Ver todos os países": {
+    "en": "View all countries",
+    "es": "Ver todos los países",
+    "fr": "Voir tous les pays"
+  },
+  "Verificado pela Kampive": {
+    "en": "Verified by Kampive",
+    "es": "Verificado por Kampive",
+    "fr": "Vérifié par Kampive"
+  },
+  "Verificando sessão...": {
+    "en": "Checking session...",
+    "es": "Verificando sesión...",
+    "fr": "Vérification de la session…"
+  },
+  "Verificar propriedade": {
+    "en": "Verify ownership",
+    "es": "Verificar propiedad",
+    "fr": "Vérifier la propriété"
+  },
+  "Você ainda não enviou avaliações.": {
+    "en": "You haven’t submitted any reviews yet.",
+    "es": "Aún no has enviado reseñas.",
+    "fr": "Vous n’avez pas encore envoyé d’avis."
+  },
+  "Você ainda não enviou solicitações": {
+    "en": "You haven’t submitted any requests yet",
+    "es": "Aún no has enviado solicitudes",
+    "fr": "Vous n’avez pas encore envoyé de demandes"
+  },
+  "Você ainda não tem um camping com vínculo aprovado. Para solicitar um vínculo, abra o camping e toque em “Sou proprietário deste camping”.": {
+    "en": "You don’t have a campsite with approved ownership yet. To request verification, open a campsite and tap “I own this campsite”.",
+    "es": "Aún no tienes un camping con propiedad aprobada. Para solicitarla, abre el camping y toca «Soy propietario de este camping».",
+    "fr": "Vous n’avez pas encore de camping avec une propriété approuvée. Pour la demander, ouvrez le camping et appuyez sur « Je suis propriétaire de ce camping »."
+  },
+  "Você chegou ao fim dos resultados.": {
+    "en": "You’ve reached the end of the results.",
+    "es": "Has llegado al final de los resultados.",
+    "fr": "Vous avez atteint la fin des résultats."
+  },
+  "Você já enviou uma avaliação para este camping. Confira suas avaliações no perfil.": {
+    "en": "You’ve already submitted a review for this campsite. Check your reviews in your profile.",
+    "es": "Ya has enviado una reseña para este camping. Consulta tus reseñas en tu perfil.",
+    "fr": "Vous avez déjà envoyé un avis pour ce camping. Consultez vos avis dans votre profil."
+  },
+  "Você pode continuar contribuindo até": {
+    "en": "You can continue contributing until",
+    "es": "Puedes seguir contribuyendo hasta",
+    "fr": "Vous pouvez continuer à contribuer jusqu’au"
+  },
+  "Você pode selecionar mais de um.": {
+    "en": "You can select more than one.",
+    "es": "Puedes seleccionar más de uno.",
+    "fr": "Vous pouvez en sélectionner plusieurs."
+  },
+  "Voltar": {
+    "en": "Back",
+    "es": "Volver",
+    "fr": "Retour"
+  },
+  "Voltar ao login": {
+    "en": "Back to sign in",
+    "es": "Volver al inicio de sesión",
+    "fr": "Retour à la connexion"
+  },
+  "Voltar ao perfil": {
+    "en": "Back to profile",
+    "es": "Volver al perfil",
+    "fr": "Retour au profil"
+  },
+  "Vínculo aprovado": {
+    "en": "Ownership approved",
+    "es": "Propiedad aprobada",
+    "fr": "Propriété approuvée"
+  },
+  "Vínculo de proprietário": {
+    "en": "Ownership verification",
+    "es": "Verificación de propiedad",
+    "fr": "Vérification de propriété"
+  },
+  "campings publicados": {
+    "en": "published campsites",
+    "es": "campings publicados",
+    "fr": "campings publiés"
+  },
+  "de 5)": {
+    "en": "out of 5)",
+    "es": "de 5)",
+    "fr": "sur 5)"
+  },
+  "fotos · Toque para ampliar": {
+    "en": "photos · Tap to enlarge",
+    "es": "fotos · Toca para ampliar",
+    "fr": "photos · Appuyez pour agrandir"
+  },
+  "· versão": {
+    "en": "· version",
+    "es": "· versión",
+    "fr": "· version"
+  },
+  ". Confirme seu e-mail antes dessa data.": {
+    "en": ". Confirm your email before this date.",
+    "es": ". Confirma tu correo antes de esa fecha.",
+    "fr": ". Confirmez votre e-mail avant cette date."
+  },
+  "/3 selecionadas)": {
+    "en": "/3 selected)",
+    "es": "/3 seleccionadas)",
+    "fr": "/3 sélectionnées)"
+  },
+  "/500 caracteres": {
+    "en": "/500 characters",
+    "es": "/500 caracteres",
+    "fr": "/500 caractères"
+  },
+  "Idioma": {
+    "en": "Language",
+    "es": "Idioma",
+    "fr": "Langue"
+  },
+  "Automático pelo país": {
+    "en": "Automatic by country",
+    "es": "Automático según el país",
+    "fr": "Automatique selon le pays"
+  },
+  "Idioma atual: {language}": {
+    "en": "Current language: {language}",
+    "es": "Idioma actual: {language}",
+    "fr": "Langue actuelle : {language}"
+  },
+  "Use o país do seu cadastro ou escolha o idioma do app. A preferência fica salva neste dispositivo para sua conta.": {
+    "en": "Use your registered country or choose the app language. Your preference is saved on this device for your account.",
+    "es": "Usa el país de tu perfil o elige el idioma de la app. La preferencia se guarda en este dispositivo para tu cuenta.",
+    "fr": "Utilisez le pays de votre profil ou choisissez la langue de l’application. Votre préférence est enregistrée sur cet appareil pour votre compte."
+  },
+  "Não foi possível consultar seu país. Usando o idioma do dispositivo por enquanto.": {
+    "en": "Couldn’t retrieve your country. Using your device language for now.",
+    "es": "No se pudo consultar tu país. Por ahora se usa el idioma del dispositivo.",
+    "fr": "Impossible de récupérer votre pays. La langue de l’appareil est utilisée pour le moment."
+  },
+  "Não foi possível salvar o idioma. Tente novamente.": {
+    "en": "Couldn’t save your language. Please try again.",
+    "es": "No se pudo guardar el idioma. Inténtalo de nuevo.",
+    "fr": "Impossible d’enregistrer la langue. Réessayez."
+  },
+  "Meu estado: {name}": {
+    "en": "My state: {name}",
+    "es": "Mi región: {name}",
+    "fr": "Ma région : {name}"
+  },
+  "Campings em {name}": {
+    "en": "Campsites in {name}",
+    "es": "Campings en {name}",
+    "fr": "Campings à {name}"
+  },
+  "{count} notificação não lida": {
+    "en": "{count} unread notification",
+    "es": "{count} notificación no leída",
+    "fr": "{count} notification non lue"
+  },
+  "{count} notificações não lidas": {
+    "en": "{count} unread notifications",
+    "es": "{count} notificaciones no leídas",
+    "fr": "{count} notifications non lues"
+  },
+  "Enviaremos a confirmação para {email}.": {
+    "en": "We will send confirmation to {email}.",
+    "es": "Enviaremos la confirmación a {email}.",
+    "fr": "Nous enverrons la confirmation à {email}."
+  },
+  "Reenviar em {seconds}s": {
+    "en": "Resend in {seconds}s",
+    "es": "Reenviar en {seconds}s",
+    "fr": "Renvoyer dans {seconds}s"
+  },
+  "Ver {name}": {
+    "en": "View {name}",
+    "es": "Ver {name}",
+    "fr": "Voir {name}"
+  },
+  "Detalhes de {name}": {
+    "en": "Details of {name}",
+    "es": "Detalles de {name}",
+    "fr": "Détails de {name}"
+  },
+  "Explorar {name}": {
+    "en": "Explore {name}",
+    "es": "Explorar {name}",
+    "fr": "Explorer {name}"
+  },
+  "Foto {number}": {
+    "en": "Photo {number}",
+    "es": "Foto {number}",
+    "fr": "Photo {number}"
+  },
+  "Remover foto {number}": {
+    "en": "Remove photo {number}",
+    "es": "Eliminar foto {number}",
+    "fr": "Supprimer la photo {number}"
+  },
+  "Adicionar foto {number}": {
+    "en": "Add photo {number}",
+    "es": "Añadir foto {number}",
+    "fr": "Ajouter la photo {number}"
+  },
+  "{count} estrela": {
+    "en": "{count} star",
+    "es": "{count} estrella",
+    "fr": "{count} étoile"
+  },
+  "{count} estrelas": {
+    "en": "{count} stars",
+    "es": "{count} estrellas",
+    "fr": "{count} étoiles"
+  },
+  " /noite": {
+    "en": " /night",
+    "es": " /noche",
+    "fr": " /nuit"
+  },
+  "+ Foto": {
+    "en": "+ Photo",
+    "es": "+ Foto",
+    "fr": "+ Photo"
+  },
+  "+ Adicionar": {
+    "en": "+ Add",
+    "es": "+ Añadir",
+    "fr": "+ Ajouter"
+  },
+  "{count} avaliação": {
+    "en": "{count} review",
+    "es": "{count} reseña",
+    "fr": "{count} avis"
+  },
+  "{count} avaliações": {
+    "en": "{count} reviews",
+    "es": "{count} reseñas",
+    "fr": "{count} avis"
+  }
+}

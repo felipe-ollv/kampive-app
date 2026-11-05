@@ -1,3 +1,4 @@
+import { useTranslation } from '../../lib/i18n';
 import { Link, router } from 'expo-router';
 import { useEffect, useRef, useState } from 'react';
 import { Pressable, View } from 'react-native';
@@ -5,14 +6,15 @@ import * as Linking from 'expo-linking';
 import { CTA, Input, Page, TopBar, ToggleChip } from '../../components/stitch';
 import { Check, Notice, T } from '../../components/ui';
 import { Dialog, isEmail } from '../../components/forms';
-import { Social } from '../../components/stitch-forms';
 import { api, errorMessage, type LegalDocument } from '../../lib/api';
 import { useCountries } from '../../hooks/use-countries';
 
 export default function Register() {
+  const { t } = useTranslation();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmation, setConfirmation] = useState('');
   const [countryUuid, setCountryUuid] = useState<string>();
   const [selectingCountry, setSelectingCountry] = useState(false);
   const [terms, setTerms] = useState(false);
@@ -51,15 +53,28 @@ export default function Register() {
   async function submit() {
     if (lock.current) return;
     if (
+      password.length < 8 ||
+      password.length > 128 ||
+      !/[A-Z]/.test(password) ||
+      !/[0-9]/.test(password)
+    ) {
+      setError(
+        t('A senha deve ter de 8 a 128 caracteres, pelo menos uma letra maiúscula e um número.'),
+      );
+      return;
+    }
+    if (password !== confirmation) {
+      setError('As senhas não coincidem. Confira a confirmação da senha.');
+      return;
+    }
+    if (
       name.trim().length < 3 ||
       name.trim().length > 150 ||
       !isEmail(email.trim()) ||
-      password.length < 15 ||
-      password.length > 128 ||
       !terms ||
       !legalReady
     ) {
-      setError('Confira nome, e-mail, senha de 15 a 128 caracteres e aceite os documentos.');
+      setError('Confira nome, e-mail e aceite os documentos.');
       return;
     }
     lock.current = true;
@@ -74,6 +89,7 @@ export default function Register() {
         acceptedDocumentUuids: documents.map((d) => d.uuid),
       });
       setPassword('');
+      setConfirmation('');
       setSuccess(true);
     } catch (e) {
       setError(errorMessage(e));
@@ -100,15 +116,15 @@ export default function Register() {
           accessibilityRole="header"
           className="font-display text-[32px] leading-[38px] text-primary"
         >
-          Junte-se à comunidade de exploradores selvagens
+          {t('Junte-se à comunidade de exploradores selvagens')}
         </T>
         <T className="text-sm text-ink-variant">
-          Crie sua conta para começar sua jornada no Kampive.
+          {t('Crie sua conta para começar sua jornada no Kampive.')}
         </T>
       </View>
       <View className="gap-4">
         <Input
-          label="Nome completo"
+          label={t('Nome completo')}
           value={name}
           onChangeText={setName}
           maxLength={150}
@@ -124,23 +140,33 @@ export default function Register() {
           maxLength={254}
         />
         <Input
-          label="Senha"
-          hint="15 a 128 caracteres"
+          label={t('Senha')}
+          hint="8 a 128 caracteres"
           value={password}
           onChangeText={setPassword}
           password
           maxLength={128}
           autoComplete="new-password"
         />
-        <T className="text-xs text-ink-variant">Use uma frase longa e exclusiva para sua conta.</T>
+        <T className="text-xs text-ink-variant">
+          {t('Mínimo de 8 caracteres, uma letra maiúscula (A–Z) e um número.')}
+        </T>
+        <Input
+          label={t('Confirmar senha')}
+          value={confirmation}
+          onChangeText={setConfirmation}
+          password
+          maxLength={128}
+          autoComplete="new-password"
+        />
         <Pressable
           accessibilityRole="button"
           onPress={() => setSelectingCountry(!selectingCountry)}
           className="min-h-12 rounded-lg bg-surface-container p-3"
         >
           <T>
-            País (opcional):{' '}
-            {countries.data?.items.find((c) => c.uuid === countryUuid)?.name || 'Selecionar'}
+            {t('País (opcional):')}{' '}
+            {countries.data?.items.find((c) => c.uuid === countryUuid)?.name || t('Selecionar')}
           </T>
         </Pressable>
         {selectingCountry && (
@@ -150,17 +176,17 @@ export default function Register() {
               selected={!countryUuid}
               onPress={() => setCountryUuid(undefined)}
             >
-              Não informar
+              {t('Não informar')}
             </ToggleChip>
-            {countries.loading && <T>Carregando países...</T>}
+            {countries.loading && <T>{t('Carregando países...')}</T>}
             {countries.error ? (
               <>
                 <Notice error>{countries.error}</Notice>
-                <CTA title="Tentar novamente" onPress={() => void countries.reload()} />
+                <CTA title={t('Tentar novamente')} onPress={() => void countries.reload()} />
               </>
             ) : null}
             {!countries.loading && !countries.error && !countries.data?.items.length && (
-              <T>Nenhum país disponível no momento.</T>
+              <T>{t('Nenhum país disponível no momento.')}</T>
             )}
             {countries.data?.items.map((c) => (
               <ToggleChip
@@ -176,21 +202,26 @@ export default function Register() {
               </ToggleChip>
             ))}
             {countries.data && countries.data.page + 1 < countries.data.totalPages && (
-              <CTA title="Mais países" disabled={countries.loading} onPress={countries.loadMore} />
+              <CTA
+                title={t('Mais países')}
+                disabled={countries.loading}
+                onPress={countries.loadMore}
+              />
             )}
           </View>
         )}
       </View>
-      {loadingDocs && <T>Carregando documentos...</T>}
+      {loadingDocs && <T>{t('Carregando documentos...')}</T>}
       {docsError ? <Notice error>{docsError}</Notice> : null}
       {!loadingDocs && !docsError && !legalReady && (
         <Notice>
-          O cadastro estará disponível assim que os termos e a política de privacidade forem
-          publicados.
+          {t(
+            'O cadastro estará disponível assim que os termos e a política de privacidade forem publicados.',
+          )}
         </Notice>
       )}
       {(!legalReady || docsError) && !loadingDocs && (
-        <CTA title="Atualizar documentos" outline onPress={() => setRevision((n) => n + 1)} />
+        <CTA title={t('Atualizar documentos')} outline onPress={() => setRevision((n) => n + 1)} />
       )}
       {legalReady && !loadingDocs && !docsError && (
         <View className="gap-3">
@@ -201,34 +232,37 @@ export default function Register() {
               onPress={() => void openDocument(document)}
             >
               <T className="text-secondary underline">
-                {document.type === 'terms_of_use' ? 'Termos de Uso' : 'Política de Privacidade'} ·
-                versão {document.version}
+                {document.type === 'terms_of_use'
+                  ? t('Termos de Uso')
+                  : t('Política de Privacidade')}{' '}
+                {t('· versão')} {document.version}
               </T>
             </Pressable>
           ))}
           <Check checked={terms} onChange={() => setTerms(!terms)}>
-            Li e aceito os Termos de Uso e a Política de Privacidade.
+            {t('Li e aceito os Termos de Uso e a Política de Privacidade.')}
           </Check>
         </View>
       )}
       {error ? <Notice error>{error}</Notice> : null}
       <CTA
-        title={busy ? 'Criando conta...' : 'Criar Minha Conta'}
+        title={busy ? t('Criando conta...') : t('Criar Minha Conta')}
         disabled={busy || success || loadingDocs || !legalReady || !terms || !!docsError}
         onPress={() => void submit()}
       />
-      <Social register />
       <T className="text-center">
-        Já tem uma conta?{' '}
+        {t('Já tem uma conta?')}{' '}
         <Link href="/login" className="text-secondary">
-          Entrar
+          {t('Entrar')}
         </Link>
       </T>
       {success && (
         <Dialog
-          title="Conta criada"
-          text="Sua conta foi criada. Entre com seu e-mail e senha para continuar."
-          onClose={() => router.replace('/login')}
+          title={t('Conta criada')}
+          text={t(
+            'Sua conta foi criada. Preparamos um e-mail de confirmação. Entre para acompanhar o envio e participar da comunidade.',
+          )}
+          onClose={() => router.replace('/email-verification')}
         />
       )}
     </Page>

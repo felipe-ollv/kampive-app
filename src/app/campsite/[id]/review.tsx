@@ -1,40 +1,73 @@
 import { router, useLocalSearchParams } from 'expo-router';
-import { useRef, useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import { Pressable, TextInput, View } from 'react-native';
-import {
-  Back,
-  C,
-  CTA,
-  Page,
-  Pill,
-  SIcon,
-  Surface,
-  ToggleChip,
-  type SymbolName,
-} from '../../../components/stitch';
+import { Back, C, CTA, Page, SIcon, Surface, ToggleChip } from '../../../components/stitch';
 import { Empty, Notice, T } from '../../../components/ui';
 import { Dialog } from '../../../components/forms';
 import { UploadPhotos } from '../../../components/stitch-forms';
-import { campsites } from '../../../data/campsites';
-import { stitchImages } from '../../../data/stitch-images';
-import { useStore } from '../../../lib/store';
-const highlights: { text: string; icon: SymbolName }[] = [
-  { text: 'Limpeza impecável', icon: 'arrow_back_ios_new' },
-  { text: 'Boa localização', icon: 'explore' },
-  { text: 'Recepção acolhedora', icon: 'handshake' },
-  { text: 'Ducha quente', icon: 'hot_tub' },
-];
+import { api, errorMessage } from '../../../lib/api';
+import { useAuth } from '../../../lib/auth';
+import { useApiResource } from '../../../hooks/use-api-resource';
 export default function Review() {
   const { id } = useLocalSearchParams<{ id: string }>();
-  const c = campsites.find((c) => c.id === id);
-  const { addReview } = useStore();
-  const [rating, setRating] = useState(5);
+  const { user, loading, error, refresh } = useAuth();
+  if (loading)
+    return (
+      <Page>
+        <T>Carregando conta...</T>
+      </Page>
+    );
+  if (error)
+    return (
+      <Page>
+        <Notice error>{error}</Notice>
+        <CTA title="Tentar novamente" onPress={() => void refresh()} />
+      </Page>
+    );
+  if (!user)
+    return (
+      <Page>
+        <Back />
+        <T>Entre para avaliar este camping.</T>
+        <CTA title="Entrar" onPress={() => router.push('/login')} />
+      </Page>
+    );
+  return <ReviewForm key={`${user.uuid}:${id}`} id={id} />;
+}
+function ReviewForm({ id }: { id: string }) {
+  const campsite = useApiResource(useCallback(() => api.campsite(id), [id]));
+  const options = useApiResource(useCallback(() => api.reviewOptions(), []));
+  const c = campsite.data?.summary;
+  const [busy, setBusy] = useState(false);
+  const [method, setMethod] = useState<string | null>(null);
+  const [rating, setRating] = useState(0);
   const [text, setText] = useState('');
-  const [photos, setPhotos] = useState(stitchImages.review);
-  const [selected, setSelected] = useState(['Limpeza impecável', 'Boa localização']);
+  const [photos, setPhotos] = useState<string[]>([]);
+  const [selected, setSelected] = useState<string[]>([]);
   const [error, setError] = useState('');
   const [done, setDone] = useState(false);
   const submitted = useRef(false);
+  if (campsite.loading || options.loading)
+    return (
+      <Page>
+        <Back />
+        <T>Carregando avaliação...</T>
+      </Page>
+    );
+  if (campsite.error || options.error)
+    return (
+      <Page>
+        <Back />
+        <Notice error>{campsite.error || options.error}</Notice>
+        <CTA
+          title="Tentar novamente"
+          onPress={() => {
+            void campsite.reload();
+            void options.reload();
+          }}
+        />
+      </Page>
+    );
   if (!c)
     return (
       <Page>
@@ -45,15 +78,30 @@ export default function Review() {
         />
       </Page>
     );
-  function submit() {
-    if (text.trim().length < 50) {
-      setError('Conte sua experiência em pelo menos 50 caracteres.');
+  async function submit() {
+    if (submitted.current) return;
+    if (!rating || text.trim().length < 50) {
+      setError('Selecione uma nota e conte sua experiência em pelo menos 50 caracteres.');
       return;
     }
-    if (submitted.current) return;
     submitted.current = true;
-    addReview({ campsiteId: c!.id, rating, text: text.trim(), photos });
-    setDone(true);
+    setBusy(true);
+    setError('');
+    try {
+      await api.createReview(id, {
+        rating,
+        text: text.trim(),
+        photos,
+        highlightUuids: selected,
+        campingMethodUuid: method,
+      });
+      setDone(true);
+    } catch (e) {
+      submitted.current = false;
+      setError(errorMessage(e));
+    } finally {
+      setBusy(false);
+    }
   }
   return (
     <Page
@@ -69,12 +117,16 @@ export default function Review() {
               </T>
             </View>
           </View>
-          <Pill icon="terrain" color={C.secondary}>
-            Serra
-          </Pill>
         </View>
       }
-      dock={<CTA title="Publicar Avaliação" icon="rate_review" onPress={submit} />}
+      dock={
+        <CTA
+          title={busy ? 'Enviando...' : 'Enviar avaliação'}
+          icon="rate_review"
+          disabled={busy || done}
+          onPress={() => void submit()}
+        />
+      }
     >
       <Surface className="gap-4 border border-line/40 p-5">
         <View className="items-center gap-1">
@@ -95,6 +147,7 @@ export default function Review() {
               accessibilityRole="radio"
               accessibilityLabel={`${n} estrelas`}
               accessibilityState={{ checked: rating === n }}
+              disabled={busy || done}
               onPress={() => setRating(n)}
               className="p-1"
             >
@@ -103,31 +156,56 @@ export default function Review() {
           ))}
         </View>
         <T className="text-center font-bold text-sm text-primary">
-          {['', 'Pode melhorar', 'Regular', 'Bom', 'Muito bom', 'Excelente'][rating]} ({rating} de
-          5)
+          {
+            ['Selecione sua nota', 'Pode melhorar', 'Regular', 'Bom', 'Muito bom', 'Excelente'][
+              rating
+            ]
+          }{' '}
+          ({rating} de 5)
         </T>
         <View className="gap-2.5 border-t border-line/50 pt-2">
           <T className="font-semibold text-xs text-ink-variant">O que mais se destacou?</T>
           <View className="flex-row flex-wrap gap-2">
-            {highlights.map((h) => (
+            {options.data?.highlights.map((h) => (
               <ToggleChip
-                key={h.text}
-                icon={h.icon}
-                selected={selected.includes(h.text)}
+                icon="check"
+                key={h.uuid}
+                selected={selected.includes(h.uuid)}
                 onPress={() =>
+                  !busy &&
+                  !done &&
                   setSelected(
-                    selected.includes(h.text)
-                      ? selected.filter((s) => s !== h.text)
-                      : [...selected, h.text],
+                    selected.includes(h.uuid)
+                      ? selected.filter((s) => s !== h.uuid)
+                      : [...selected, h.uuid],
                   )
                 }
               >
-                {h.text}
+                {h.name}
               </ToggleChip>
             ))}
           </View>
         </View>
       </Surface>
+      {!!options.data?.campingMethods.length && (
+        <View className="gap-2">
+          <T>Como você acampou?</T>
+          <View className="flex-row flex-wrap gap-2">
+            {options.data.campingMethods.map((item) => (
+              <ToggleChip
+                icon="camping"
+                key={item.uuid}
+                selected={method === item.uuid}
+                onPress={() => {
+                  if (!busy && !done) setMethod(method === item.uuid ? null : item.uuid);
+                }}
+              >
+                {item.name}
+              </ToggleChip>
+            ))}
+          </View>
+        </View>
+      )}
       <View className="gap-2">
         <View className="flex-row items-center justify-between">
           <T className="font-semibold text-lg text-primary">Seu relato da aventura</T>
@@ -135,9 +213,11 @@ export default function Review() {
         </View>
         <View className="rounded-xl border border-line/40 bg-surface-container p-3">
           <TextInput
+            contextMenuHidden={false}
             accessibilityLabel="Seu relato da aventura"
             placeholder="Conte como foi sua experiência, dicas de barraca, melhores pontos de montagem e facilidades do local..."
             placeholderTextColor={C.outline}
+            editable={!busy && !done}
             value={text}
             onChangeText={setText}
             maxLength={1000}
@@ -168,7 +248,7 @@ export default function Review() {
           </View>
           <SIcon name="add_photo_alternate" color={C.secondary} />
         </View>
-        <UploadPhotos photos={photos} onChange={setPhotos} labels={['Barraca', 'Fogueira']} />
+        <UploadPhotos photos={photos} onChange={setPhotos} disabled={busy || done} />
       </View>
       <View className="flex-row items-start gap-3 rounded-xl border border-line bg-surface-high/70 p-3.5">
         <SIcon name="info" size={20} color={C.secondary} />
@@ -180,9 +260,9 @@ export default function Review() {
       {error !== '' && <Notice error>{error}</Notice>}
       {done && (
         <Dialog
-          title="Avaliação salva na prévia"
-          text="Sua avaliação foi salva neste dispositivo. A publicação na comunidade será habilitada após a integração do serviço."
-          onClose={() => router.replace(`/campsite/${c.id}`)}
+          title="Avaliação enviada"
+          text="Sua avaliação foi recebida e está em análise. Acompanhe o status no seu perfil."
+          onClose={() => router.replace(`/campsite/${id}`)}
         />
       )}
     </Page>

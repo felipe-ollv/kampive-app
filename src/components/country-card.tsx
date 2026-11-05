@@ -1,3 +1,4 @@
+import { useTranslation } from '../lib/i18n';
 import { LinearGradient } from 'expo-linear-gradient';
 import { router } from 'expo-router';
 import { Pressable, View } from 'react-native';
@@ -10,13 +11,14 @@ export function CountryCard({
   country: Country;
   variant?: 'carousel' | 'fullWidth';
 }) {
+  const { t } = useTranslation();
   const flag = /^[A-Z]{2}$/.test(c.isoCode)
     ? String.fromCodePoint(...[...c.isoCode].map((letter) => 127397 + letter.charCodeAt(0)))
     : '🌎';
   return (
     <Pressable
       accessibilityRole="link"
-      accessibilityLabel={`Explorar ${c.name}`}
+      accessibilityLabel={t('Explorar {name}', { name: c.name })}
       onPress={() =>
         router.navigate({ pathname: '/', params: { country: c.name, countryUuid: c.uuid } })
       }
@@ -39,7 +41,7 @@ export function CountryCard({
         <View>
           <T className="font-bold text-lg text-white">{c.name}</T>
           <T className="font-bold text-[10px] text-[#caeada]">
-            {c.campsiteCount} campings publicados
+            {c.campsiteCount} {t('campings publicados')}
           </T>
         </View>
       </View>

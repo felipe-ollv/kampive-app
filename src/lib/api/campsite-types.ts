@@ -1,0 +1,74 @@
+export type PageResult<T> = {
+  items: T[];
+  page: number;
+  size: number;
+  totalElements: number;
+  totalPages: number;
+};
+export type CatalogOption = { uuid: string; name: string; icon: string | null };
+export type CampsiteOptions = {
+  categories: CatalogOption[];
+  amenities: CatalogOption[];
+  settings: CatalogOption[];
+  contactTypes: CatalogOption[];
+  currencies: { uuid: string; name: string; isoCode: string; symbol: string }[];
+};
+export type City = {
+  uuid: string;
+  name: string;
+  divisionUuid: string;
+  divisionName: string;
+  countryUuid: string;
+  countryName: string;
+};
+export type CampsiteStatus = 'draft' | 'pending_review' | 'published' | 'rejected' | 'archived';
+export type CampsiteSummary = {
+  uuid: string;
+  name: string;
+  status: CampsiteStatus;
+  categoryName: string;
+  cityName: string | null;
+  countryName: string | null;
+  countryUuid: string | null;
+  startingPricePerNight: number | null;
+  currencyCode: string | null;
+  coverUrl: string | null;
+  averageRating: number | null;
+  reviewCount: number;
+  featured: boolean;
+  verified: boolean;
+};
+export type CampsiteContent = {
+  name: string;
+  description: string;
+  categoryUuid: string;
+  cityUuid: string | null;
+  cityName?: string;
+  streetAddress: string;
+  addressNumber: string;
+  addressComplement: string;
+  neighborhood: string;
+  postalCode: string;
+  locationNotes: string;
+  latitude: number | null;
+  longitude: number | null;
+  altitudeMeters: number | null;
+  startingPricePerNight: number | null;
+  currencyUuid: string | null;
+  amenityUuids: string[];
+  settingUuids: string[];
+  contacts: { typeUuid: string; value: string }[];
+  photos: { url: string; description: string }[];
+};
+export type CampsiteDetail = { summary: CampsiteSummary; content: CampsiteContent };
+export type CampsiteQuery = {
+  divisionUuid?: string;
+  cityUuid?: string;
+  countryUuid?: string;
+  categoryUuid?: string;
+  amenityUuid?: string;
+  settingUuid?: string;
+  query?: string;
+  page?: number;
+  size?: number;
+};

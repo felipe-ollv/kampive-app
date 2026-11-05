@@ -1,3 +1,4 @@
+import { useTranslation } from '../../lib/i18n';
 import { useEffect, useState } from 'react';
 import { ScrollView, View } from 'react-native';
 import { CountryCard } from '../../components/country-card';
@@ -6,6 +7,7 @@ import { Empty, Notice, T } from '../../components/ui';
 import { api, errorMessage, type Continent } from '../../lib/api';
 import { useCountries } from '../../hooks/use-countries';
 export default function Countries() {
+  const { t } = useTranslation();
   const [continents, setContinents] = useState<Continent[]>([]);
   const [continent, setContinent] = useState<string>();
   const [text, setText] = useState('');
@@ -35,13 +37,13 @@ export default function Countries() {
   return (
     <Page header={<TopBar />}>
       <View className="gap-1">
-        <T className="font-bold text-[10px] uppercase text-secondary">Mundo Selvagem</T>
-        <T className="font-bold text-[24px] text-primary">Descubra por Países</T>
-        <T>Seu próximo refúgio pode estar em qualquer lugar.</T>
+        <T className="font-bold text-[10px] uppercase text-secondary">{t('Mundo Selvagem')}</T>
+        <T className="font-bold text-[22px] text-primary">{t('Descubra por Países')}</T>
+        <T>{t('Seu próximo refúgio pode estar em qualquer lugar.')}</T>
       </View>
       <Input
-        label="Buscar país"
-        placeholder="Nome ou código do país"
+        label={t('Buscar país')}
+        placeholder={t('Nome ou código do país')}
         value={text}
         onChangeText={setText}
         maxLength={120}
@@ -52,7 +54,7 @@ export default function Countries() {
         contentContainerStyle={{ gap: 8, paddingVertical: 4 }}
       >
         <ToggleChip icon="public" selected={!continent} onPress={() => setContinent(undefined)}>
-          Todos
+          {t('Todos')}
         </ToggleChip>
         {continents.map((option) => (
           <ToggleChip
@@ -69,7 +71,7 @@ export default function Countries() {
         <>
           <Notice error>{error || countries.error}</Notice>
           <CTA
-            title="Tentar novamente"
+            title={t('Tentar novamente')}
             onPress={() => {
               setRevision((n) => n + 1);
               void countries.reload();
@@ -77,9 +79,12 @@ export default function Countries() {
           />
         </>
       ) : null}
-      {countries.loading && <T>Carregando países...</T>}
+      {countries.loading && <T>{t('Carregando países...')}</T>}
       {!countries.loading && !countries.error && !countries.data?.items.length && (
-        <Empty title="Nenhum país encontrado" text="Não há países disponíveis para esta seleção." />
+        <Empty
+          title={t('Nenhum país encontrado')}
+          text={t('Não há países disponíveis para esta seleção.')}
+        />
       )}
       <View className="items-center gap-4">
         {countries.data?.items.map((c) => (
@@ -88,7 +93,7 @@ export default function Countries() {
       </View>
       {countries.data && countries.data.page + 1 < countries.data.totalPages && (
         <CTA
-          title="Carregar mais países"
+          title={t('Carregar mais países')}
           disabled={countries.loading}
           onPress={countries.loadMore}
         />

@@ -1,121 +1,121 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { createContext, useContext, useEffect, useRef, useState, type ReactNode } from 'react';
-import { initialNotifications, type AppNotification } from '../data/notifications';
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+  type ReactNode,
+} from 'react';
+import { api, ApiError, errorMessage } from './api';
+import { useAuth } from './auth';
 
-export type Review = {
-  id: string;
-  campsiteId: string;
-  rating: number;
-  text: string;
-  photos: string[];
-  date: string;
-};
-export type Space = {
-  id: string;
-  name: string;
-  category: string;
-  address: string;
-  instagram: string;
-  maps: string;
-  whatsapp: string;
-  website?: string;
-  price?: number;
-  amenities: string[];
-  photos: string[];
-};
-export type Profile = { name: string; country: string; outdoor: string; photo?: string };
-type Data = {
+type Store = {
   saved: string[];
-  reviews: Review[];
-  spaces: Space[];
-  profile: Profile;
-  notifications: boolean;
-  inbox: AppNotification[];
-};
-const initial: Data = {
-  saved: [],
-  reviews: [],
-  spaces: [],
-  profile: { name: 'Explorador', country: 'Brasil', outdoor: 'Selvagem' },
-  notifications: false,
-  inbox: initialNotifications,
-};
-type Store = Data & {
-  ready: boolean;
-  storageError: boolean;
-  toggleSaved: (id: string) => void;
-  addReview: (review: Omit<Review, 'id' | 'date'>) => void;
-  addSpace: (space: Omit<Space, 'id'>) => void;
-  setProfile: (profile: Profile) => void;
-  setNotifications: (value: boolean) => void;
-  setNotificationRead: (id: string, read: boolean) => void;
-  markAllNotificationsRead: () => void;
+  savedLoading: boolean;
+  savedError: string;
+  saving: boolean;
+  refreshSaved: () => Promise<void>;
+  toggleSaved: (id: string) => Promise<void>;
+  unreadCount: number;
+  refreshUnread: () => Promise<void>;
 };
 const Context = createContext<Store | null>(null);
-const key = 'kampive.layout.v1';
+
+// A new account gets a new provider immediately: no local data or previous account's requests leak.
 export function StoreProvider({ children }: { children: ReactNode }) {
-  const [data, setData] = useState(initial);
-  const [ready, setReady] = useState(false);
-  const [storageError, setStorageError] = useState(false);
-  const writes = useRef(Promise.resolve());
+  const { user } = useAuth();
+  return (
+    <AccountStore key={user?.uuid || 'guest'} actor={user?.uuid}>
+      {children}
+    </AccountStore>
+  );
+}
+function AccountStore({ children, actor }: { children: ReactNode; actor?: string }) {
+  const [saved, setSaved] = useState<string[]>([]);
+  const [savedLoading, setSavedLoading] = useState(!!actor);
+  const [savedError, setSavedError] = useState('');
+  const [saving, setSaving] = useState(false);
+  const [unreadCount, setUnreadCount] = useState(0);
+  const alive = useRef(true);
+  const version = useRef(0);
+  const unreadVersion = useRef(0);
+  const lock = useRef(false);
+  const refreshSaved = useCallback(async () => {
+    if (!actor || lock.current) return;
+    const current = ++version.current;
+    setSavedLoading(true);
+    setSavedError('');
+    try {
+      const result = await api.favorites();
+      if (alive.current && current === version.current) setSaved(result);
+    } catch (e) {
+      if (alive.current && current === version.current) setSavedError(errorMessage(e));
+    } finally {
+      if (alive.current && current === version.current) setSavedLoading(false);
+    }
+  }, [actor]);
+  const refreshUnread = useCallback(async () => {
+    if (!actor) return;
+    const current = ++unreadVersion.current;
+    try {
+      const result = await api.notifications(0, 'all', 1);
+      if (alive.current && current === unreadVersion.current) setUnreadCount(result.unreadCount);
+    } catch {
+      // Unknown count is not presented as a stale badge. The inbox exposes its own retryable error.
+      if (alive.current && current === unreadVersion.current) setUnreadCount(0);
+    }
+  }, [actor]);
   useEffect(() => {
-    AsyncStorage.getItem(key)
-      .then((raw) => {
-        if (raw) {
-          const parsed = JSON.parse(raw);
-          if (
-            Array.isArray(parsed.saved) &&
-            Array.isArray(parsed.reviews) &&
-            Array.isArray(parsed.spaces) &&
-            parsed.profile?.name
-          )
-            setData({ ...initial, ...parsed });
-        }
-      })
-      .catch(() => setStorageError(true))
-      .finally(() => setReady(true));
-  }, []);
-  useEffect(() => {
-    if (ready)
-      writes.current = writes.current
-        .then(() => AsyncStorage.setItem(key, JSON.stringify(data)))
-        .catch(() => setStorageError(true));
-  }, [data, ready]);
-  const value: Store = {
-    ...data,
-    ready,
-    storageError,
-    toggleSaved: (id) =>
-      setData((d) => ({
-        ...d,
-        saved: d.saved.includes(id) ? d.saved.filter((x) => x !== id) : [...d.saved, id],
-      })),
-    addReview: (review) =>
-      setData((d) => ({
-        ...d,
-        reviews: [
-          {
-            ...review,
-            photos: review.photos.slice(0, 3),
-            id: `${Date.now()}`,
-            date: new Date().toISOString(),
-          },
-          ...d.reviews,
-        ],
-      })),
-    addSpace: (space) =>
-      setData((d) => ({ ...d, spaces: [{ ...space, id: `${Date.now()}` }, ...d.spaces] })),
-    setProfile: (profile) => setData((d) => ({ ...d, profile })),
-    setNotifications: (notifications) => setData((d) => ({ ...d, notifications })),
-    setNotificationRead: (id, read) =>
-      setData((d) => ({
-        ...d,
-        inbox: d.inbox.map((item) => (item.id === id ? { ...item, read } : item)),
-      })),
-    markAllNotificationsRead: () =>
-      setData((d) => ({ ...d, inbox: d.inbox.map((item) => ({ ...item, read: true })) })),
-  };
-  return <Context.Provider value={value}>{children}</Context.Provider>;
+    const lifecycle = version;
+    const unreadLifecycle = unreadVersion;
+    alive.current = true;
+    void refreshSaved();
+    void refreshUnread();
+    return () => {
+      alive.current = false;
+      lifecycle.current++;
+      unreadLifecycle.current++;
+    };
+  }, [refreshSaved, refreshUnread]);
+  async function toggleSaved(id: string) {
+    if (!actor) throw new ApiError(401, 'Entre na sua conta para salvar campings.');
+    if (lock.current || savedLoading) return;
+    if (savedError) throw new ApiError(0, 'Atualize seus favoritos antes de alterar a lista.');
+    lock.current = true;
+    version.current++;
+    setSaving(true);
+    const removing = saved.includes(id);
+    try {
+      if (removing) await api.removeFavorite(id);
+      else await api.saveFavorite(id);
+      if (alive.current)
+        setSaved((previous) =>
+          removing
+            ? previous.filter((item) => item !== id)
+            : [id, ...previous.filter((item) => item !== id)],
+        );
+    } finally {
+      lock.current = false;
+      if (alive.current) setSaving(false);
+    }
+  }
+  return (
+    <Context.Provider
+      value={{
+        saved,
+        savedLoading,
+        savedError,
+        saving,
+        refreshSaved,
+        toggleSaved,
+        unreadCount,
+        refreshUnread,
+      }}
+    >
+      {children}
+    </Context.Provider>
+  );
 }
 export function useStore() {
   const store = useContext(Context);

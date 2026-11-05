@@ -1,19 +1,7 @@
+import { useTranslation } from '../lib/i18n';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
-import { router } from 'expo-router';
 import { useEffect, useState, type ComponentProps, type ReactNode } from 'react';
-import {
-  Image,
-  KeyboardAvoidingView,
-  Platform,
-  Pressable,
-  ScrollView,
-  Text,
-  TextInput,
-  View,
-  type TextInputProps,
-  type TextProps,
-} from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { Image, Pressable, Text, View, type TextProps } from 'react-native';
 import { colors } from '../theme/tokens';
 export type IconName = ComponentProps<typeof MaterialCommunityIcons>['name'];
 export function Icon({
@@ -44,138 +32,11 @@ export function T({ className = '', ...props }: TextProps & { className?: string
     />
   );
 }
-export function Title({ children }: { children: ReactNode }) {
-  return (
-    <T
-      accessibilityRole="header"
-      className="font-display text-[28px] leading-[35px] tracking-tight"
-    >
-      {children}
-    </T>
-  );
-}
 export function Section({ children }: { children: ReactNode }) {
   return (
     <T accessibilityRole="header" className="font-bold text-lg leading-7">
       {children}
     </T>
-  );
-}
-export function IconButton({
-  icon,
-  label,
-  onPress,
-  light = false,
-  selected,
-}: {
-  icon: IconName;
-  label: string;
-  onPress: () => void;
-  light?: boolean;
-  selected?: boolean;
-}) {
-  return (
-    <Pressable
-      onPress={onPress}
-      accessibilityRole="button"
-      accessibilityLabel={label}
-      accessibilityState={selected === undefined ? undefined : { selected }}
-      className={`h-11 w-11 items-center justify-center rounded-full active:opacity-60 ${light ? 'bg-white/95' : 'bg-surface-low'}`}
-    >
-      <Icon name={icon} color={selected ? colors.secondary : colors.primary} />
-    </Pressable>
-  );
-}
-export function Header({ back = false, home = false }: { back?: boolean; home?: boolean }) {
-  return (
-    <View className="h-16 flex-row items-center justify-between border-b border-line px-5">
-      {back ? (
-        <IconButton
-          icon="arrow-left"
-          label="Voltar"
-          onPress={() => (router.canGoBack() ? router.back() : router.replace('/'))}
-        />
-      ) : (
-        <View className="w-1" />
-      )}
-      <Pressable
-        accessibilityRole="link"
-        accessibilityLabel="Kampive, início"
-        onPress={() => router.navigate('/')}
-        className="flex-row items-center gap-2"
-      >
-        <Icon name="compass" size={27} />
-        <T className="font-display text-[23px] tracking-tight">
-          Kampive<T className="text-secondary text-[23px]">.</T>
-        </T>
-      </Pressable>
-      {home ? (
-        <Pressable
-          accessibilityRole="link"
-          accessibilityLabel="Abrir perfil"
-          onPress={() => router.navigate('/profile')}
-          className="h-10 w-10 items-center justify-center rounded-full bg-primary-container"
-        >
-          <Icon name="account-cowboy-hat" size={27} />
-        </Pressable>
-      ) : (
-        <View className="flex-row items-center gap-1 rounded-full bg-primary-container px-2 py-1">
-          <View className="h-1.5 w-1.5 rounded-full bg-primary" />
-          <T className="font-bold text-[9px] text-primary">DEMO</T>
-        </View>
-      )}
-    </View>
-  );
-}
-export function Screen({
-  children,
-  back = false,
-  home = false,
-  header = true,
-}: {
-  children: ReactNode;
-  back?: boolean;
-  home?: boolean;
-  header?: boolean;
-}) {
-  return (
-    <SafeAreaView edges={['top', 'left', 'right']} className="flex-1 bg-surface">
-      <KeyboardAvoidingView
-        behavior={Platform.OS === 'ios' ? 'padding' : undefined}
-        className="flex-1"
-      >
-        {header && <Header back={back} home={home} />}
-        <ScrollView
-          keyboardShouldPersistTaps="handled"
-          showsVerticalScrollIndicator={false}
-          contentContainerStyle={{ padding: 24, paddingBottom: 44, gap: 24 }}
-        >
-          {children}
-        </ScrollView>
-      </KeyboardAvoidingView>
-    </SafeAreaView>
-  );
-}
-export function Badge({
-  children,
-  icon = 'pine-tree',
-  dark = false,
-}: {
-  children: ReactNode;
-  icon?: IconName;
-  dark?: boolean;
-}) {
-  return (
-    <View
-      className={`self-start flex-row items-center gap-1.5 rounded-full px-3 py-1.5 ${dark ? 'bg-primary-dark' : 'bg-primary-container'}`}
-    >
-      <Icon name={icon} size={13} color={dark ? '#4ade80' : colors.primary} />
-      <T
-        className={`font-bold text-[10px] leading-4 tracking-[1px] uppercase ${dark ? 'text-green-400' : 'text-primary'}`}
-      >
-        {children}
-      </T>
-    </View>
   );
 }
 export function Button({
@@ -201,69 +62,6 @@ export function Button({
     >
       <T className={`shrink font-bold ${secondary ? 'text-primary' : 'text-white'}`}>{title}</T>
       <Icon name={icon} size={20} color={secondary ? colors.primary : '#fff'} />
-    </Pressable>
-  );
-}
-export function Field({
-  label,
-  icon = 'pencil-outline',
-  password = false,
-  ...props
-}: TextInputProps & { label: string; icon?: IconName; password?: boolean }) {
-  const [show, setShow] = useState(false);
-  const [focus, setFocus] = useState(false);
-  return (
-    <View className="gap-2">
-      <T className="font-semibold text-xs">{label}</T>
-      <View
-        className={`min-h-14 flex-row items-center gap-3 rounded-xl border bg-surface-low px-3.5 ${focus ? 'border-primary' : 'border-line'}`}
-      >
-        <Icon name={icon} size={20} color={colors.muted} />
-        <TextInput
-          {...props}
-          onFocus={() => setFocus(true)}
-          onBlur={() => setFocus(false)}
-          accessibilityLabel={label}
-          placeholderTextColor={colors.muted}
-          autoCapitalize={password ? 'none' : props.autoCapitalize}
-          secureTextEntry={password && !show}
-          className={`min-h-14 min-w-0 flex-1 font-jakarta text-sm text-ink ${props.multiline ? 'py-4' : ''}`}
-          style={[props.multiline ? { height: 140, textAlignVertical: 'top' } : {}, props.style]}
-        />
-        {password && (
-          <IconButton
-            icon={show ? 'eye-off-outline' : 'eye-outline'}
-            label={show ? 'Ocultar senha' : 'Mostrar senha'}
-            onPress={() => setShow(!show)}
-          />
-        )}
-      </View>
-    </View>
-  );
-}
-export function Chip({
-  title,
-  selected,
-  onPress,
-  icon,
-}: {
-  title: string;
-  selected?: boolean;
-  onPress?: () => void;
-  icon?: IconName;
-}) {
-  return (
-    <Pressable
-      onPress={onPress}
-      disabled={!onPress}
-      accessibilityRole={onPress ? 'button' : undefined}
-      accessibilityState={{ selected: !!selected }}
-      className={`min-h-11 flex-row items-center justify-center gap-2 rounded-full border px-4 py-2 ${selected ? 'border-primary bg-primary' : 'border-line bg-surface-low'}`}
-    >
-      {icon && <Icon name={icon} size={16} color={selected ? '#fff' : colors.primary} />}
-      <T className={`font-semibold text-xs ${selected ? 'text-white' : 'text-ink-variant'}`}>
-        {title}
-      </T>
     </Pressable>
   );
 }
@@ -296,12 +94,15 @@ export function Check({
   );
 }
 export function Notice({ children, error = false }: { children: ReactNode; error?: boolean }) {
+  const { t } = useTranslation();
   return (
     <View
       accessibilityLiveRegion="polite"
       className={`rounded-xl p-4 ${error ? 'bg-red-50' : 'bg-primary-container/60'}`}
     >
-      <T className={`text-xs ${error ? 'text-red-700' : 'text-primary'}`}>{children}</T>
+      <T className={`text-xs ${error ? 'text-red-700' : 'text-primary'}`}>
+        {typeof children === 'string' ? t(children) : children}
+      </T>
     </View>
   );
 }
@@ -314,12 +115,13 @@ export function Empty({
   text: string;
   action?: () => void;
 }) {
+  const { t } = useTranslation();
   return (
     <View className="items-center gap-3 rounded-2xl border border-dashed border-line px-5 py-10">
       <Icon name="compass-outline" size={40} color={colors.muted} />
       <Section>{title}</Section>
       <T className="text-center text-ink-variant">{text}</T>
-      {action && <Button title="Explorar refúgios" onPress={action} secondary />}
+      {action && <Button title={t('Explorar refúgios')} onPress={action} secondary />}
     </View>
   );
 }
@@ -332,6 +134,7 @@ export function Photo({
   className?: string;
   style?: ComponentProps<typeof Image>['style'];
 }) {
+  const { t } = useTranslation();
   const [failed, setFailed] = useState(false);
   useEffect(() => setFailed(false), [uri]);
   return (
@@ -339,7 +142,7 @@ export function Photo({
       {failed ? (
         <View className="flex-1 items-center justify-center">
           <Icon name="image-outline" size={36} color={colors.muted} />
-          <T className="text-xs text-ink-variant">Imagem indisponível</T>
+          <T className="text-xs text-ink-variant">{t('Imagem indisponível')}</T>
         </View>
       ) : (
         <Image
@@ -347,7 +150,7 @@ export function Photo({
           onError={() => setFailed(true)}
           resizeMode="cover"
           style={{ width: '100%', height: '100%' }}
-          accessibilityLabel="Paisagem de camping ilustrativa"
+          accessibilityLabel={t('Paisagem de camping ilustrativa')}
         />
       )}
     </View>

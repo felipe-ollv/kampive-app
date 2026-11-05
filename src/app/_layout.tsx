@@ -1,3 +1,4 @@
+import { LanguageProvider, useTranslation } from '../lib/i18n';
 import '../../global.css';
 import { useFonts } from 'expo-font';
 import { PlusJakartaSans_400Regular } from '@expo-google-fonts/plus-jakarta-sans/400Regular';
@@ -5,13 +6,19 @@ import { PlusJakartaSans_500Medium } from '@expo-google-fonts/plus-jakarta-sans/
 import { PlusJakartaSans_600SemiBold } from '@expo-google-fonts/plus-jakarta-sans/600SemiBold';
 import { PlusJakartaSans_700Bold } from '@expo-google-fonts/plus-jakarta-sans/700Bold';
 import { PlusJakartaSans_800ExtraBold } from '@expo-google-fonts/plus-jakarta-sans/800ExtraBold';
-import { Stack } from 'expo-router';
+import { Stack, router, usePathname } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
-import { ActivityIndicator, View } from 'react-native';
-import { StoreProvider, useStore } from '../lib/store';
-import { AuthProvider } from '../lib/auth';
+import { View, Pressable } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { T } from '../components/ui';
+import * as SplashScreen from 'expo-splash-screen';
+import { LaunchScreen } from '../components/launch-screen';
+import { StoreProvider } from '../lib/store';
+import { AuthProvider, useAuth } from '../lib/auth';
 import { colors } from '../theme/tokens';
-import { Notice } from '../components/ui';
+
+void SplashScreen.preventAutoHideAsync();
+
 export default function Layout() {
   const [loaded, error] = useFonts({
     PlusJakartaSans_400Regular,
@@ -21,43 +28,60 @@ export default function Layout() {
     PlusJakartaSans_800ExtraBold,
     MaterialSymbols: require('../../assets/stitch/material-symbols.ttf'),
   });
-  if (!loaded && !error)
-    return (
-      <View className="flex-1 items-center justify-center bg-surface">
-        <ActivityIndicator color={colors.primary} />
-      </View>
-    );
+  if (!loaded && !error) return <LaunchScreen />;
   return (
     <AuthProvider>
-      <StoreProvider>
-        <Navigation />
-      </StoreProvider>
+      <LanguageProvider>
+        <StoreProvider>
+          <Navigation />
+        </StoreProvider>
+      </LanguageProvider>
     </AuthProvider>
   );
 }
 function Navigation() {
-  const { ready, storageError } = useStore();
-  if (!ready)
-    return (
-      <View className="flex-1 items-center justify-center bg-surface">
-        <ActivityIndicator color={colors.primary} />
-      </View>
-    );
+  const { t } = useTranslation();
+  const { user } = useAuth();
+  const pathname = usePathname();
   return (
-    <View className="w-full max-w-[448px] flex-1 self-center bg-surface">
+    <View
+      className="w-full max-w-[448px] flex-1 self-center bg-surface"
+      onLayout={() => SplashScreen.hide()}
+    >
       <StatusBar style="dark" />
-      {storageError && (
-        <Notice error>
-          Não foi possível salvar os dados neste dispositivo. Suas alterações podem ser perdidas ao
-          fechar.
-        </Notice>
-      )}
+      {user &&
+        !user.emailVerified &&
+        !['/email-verification', '/verify-email', '/email-verified'].includes(pathname) && (
+          <SafeAreaView edges={['top', 'left', 'right']} className="bg-surface">
+            <Pressable
+              accessibilityRole="button"
+              onPress={() => router.push('/email-verification')}
+              className="bg-primary p-3"
+            >
+              <T className="text-white text-center">
+                {t('Confirme seu e-mail para participar da comunidade. Toque aqui.')}
+              </T>
+            </Pressable>
+          </SafeAreaView>
+        )}
       <Stack
         screenOptions={{ headerShown: false, contentStyle: { backgroundColor: colors.surface } }}
       >
-        <Stack.Screen name="(tabs)" />
-        <Stack.Screen name="(auth)" />
-        <Stack.Screen name="campsite" />
+        <Stack.Protected guard={!user}>
+          <Stack.Screen name="(auth)" />
+        </Stack.Protected>
+        <Stack.Protected guard={!!user}>
+          <Stack.Screen name="(tabs)" />
+          <Stack.Screen name="campsite" />
+          <Stack.Screen name="requests" />
+          <Stack.Screen name="profile/edit" />
+          <Stack.Screen name="profile/delete" />
+        </Stack.Protected>
+        <Stack.Screen name="email-verification" />
+        <Stack.Screen name="verify-email" />
+        <Stack.Screen name="email-verified" />
+        <Stack.Screen name="reset-password" />
+        <Stack.Screen name="password-reset-success" />
       </Stack>
     </View>
   );

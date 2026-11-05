@@ -10,7 +10,9 @@
     "web": "expo start --web",
     "lint": "expo lint",
     "typecheck": "tsc --noEmit",
-    "test:api": "node --test tests/api-client.test.mjs"
+    "test": "node --test tests/*.test.mjs",
+    "test:api": "node --test tests/api-client.test.mjs",
+    "export:web:local": "EXPO_PUBLIC_API_URL=https://localhost:8443 expo export --platform web"
   },
   "dependencies": {
     "@expo-google-fonts/plus-jakarta-sans": "^0.4.2",
@@ -23,8 +25,10 @@
     "expo-image-picker": "~17.0.11",
     "expo-linear-gradient": "~15.0.8",
     "expo-linking": "~8.0.12",
+    "expo-localization": "~17.0.9",
     "expo-location": "~19.0.8",
     "expo-router": "~6.0.24",
+    "expo-splash-screen": "~31.0.13",
     "expo-status-bar": "~3.0.9",
     "nativewind": "^4",
     "react": "19.1.0",

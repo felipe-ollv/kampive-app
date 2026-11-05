@@ -1,3 +1,4 @@
+import type { ProfileInput } from './profile';
 import {
   createContext,
   useCallback,
@@ -7,7 +8,7 @@ import {
   useState,
   type ReactNode,
 } from 'react';
-import { api, ApiError, errorMessage, type ApiUser } from './api';
+import { api, ApiError, errorMessage, onSessionExpired, type ApiUser } from './api';
 
 type Auth = {
   user: ApiUser | null;
@@ -15,13 +16,16 @@ type Auth = {
   busy: boolean;
   error: string;
   refresh: () => Promise<void>;
+  clearSession: () => void;
   login: (email: string, password: string) => Promise<void>;
   logout: () => Promise<void>;
+  updateProfile: (input: ProfileInput) => Promise<void>;
+  deleteAccount: (password: string) => Promise<void>;
 };
 const Context = createContext<Auth | null>(null);
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<ApiUser | null>(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState('');
   const generation = useRef(0);
@@ -48,19 +52,27 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
   useEffect(() => {
     const lifecycle = generation;
-    void refresh();
+    // A new app session starts at login, even when the API cookie still exists.
     return () => {
       lifecycle.current++;
     };
-  }, [refresh]);
+  }, []);
+  const clearSession = useCallback(() => {
+    generation.current++;
+    setUser(null);
+    setError('');
+    setLoading(false);
+  }, []);
+  useEffect(() => onSessionExpired(clearSession), [clearSession]);
   async function login(email: string, password: string) {
     if (lock.current) return;
     lock.current = true;
-    generation.current++;
+    const current = ++generation.current;
     setBusy(true);
     setError('');
     try {
-      setUser(await api.login(email, password));
+      const account = await api.login(email, password);
+      if (current === generation.current) setUser(account);
     } finally {
       lock.current = false;
       setBusy(false);
@@ -86,8 +98,50 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       setLoading(false);
     }
   }
+  async function updateProfile(input: ProfileInput) {
+    if (lock.current) throw new Error('Aguarde a operação atual.');
+    lock.current = true;
+    generation.current++;
+    setBusy(true);
+    try {
+      setUser(await api.updateProfile(input));
+      setError('');
+    } finally {
+      lock.current = false;
+      setBusy(false);
+      setLoading(false);
+    }
+  }
+  async function deleteAccount(password: string) {
+    if (lock.current) throw new Error('Aguarde a operação atual.');
+    lock.current = true;
+    generation.current++;
+    setBusy(true);
+    try {
+      await api.deleteAccount(password);
+      setUser(null);
+      setError('');
+    } finally {
+      lock.current = false;
+      setBusy(false);
+      setLoading(false);
+    }
+  }
   return (
-    <Context.Provider value={{ user, loading, busy, error, refresh, login, logout }}>
+    <Context.Provider
+      value={{
+        user,
+        loading,
+        busy,
+        error,
+        refresh,
+        clearSession,
+        login,
+        logout,
+        updateProfile,
+        deleteAccount,
+      }}
+    >
       {children}
     </Context.Provider>
   );
