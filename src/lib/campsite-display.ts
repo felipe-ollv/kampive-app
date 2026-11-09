@@ -1,4 +1,5 @@
 import type { CampsiteStatus, CampsiteSummary } from './api';
+import { API_BASE_URL } from './api/config';
 export const campsiteStatus: Record<CampsiteStatus, string> = {
   draft: 'Rascunho',
   pending_review: 'Em análise',
@@ -18,9 +19,8 @@ export function campsitePrice(c: CampsiteSummary, locale = 'pt-BR') {
 }
 export function httpsPhoto(url: string | null | undefined): string | null {
   try {
-    const base = (process.env.EXPO_PUBLIC_API_URL || 'https://localhost:8443').replace(/\/$/, '');
     const source = /^\/api\/v1\/campsite-photos\/[0-9a-f-]{36}\.jpg$/.test(url || '')
-      ? base + url
+      ? API_BASE_URL + url
       : url;
     const parsed = new URL(source || '');
     return parsed.protocol === 'https:' && !parsed.username && !parsed.password

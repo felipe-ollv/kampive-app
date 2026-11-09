@@ -56,11 +56,9 @@ npx expo export --platform android --platform ios --platform web
 
 A exportação valida os bundles, não substitui teste em dispositivo. Permissões de localização, seletor de fotos, teclado e áreas seguras precisam de validação final em iOS/Android.
 
-## API HTTPS local e simulador iOS
-
 A API está em `https://localhost:8443`, disponibilizada pelo gateway do repositório irmão `kampive-infra`. Siga o README desse repositório para subir o Docker, exportar o certificado público da CA local e instalá-lo no simulador. Nunca desabilite a validação TLS. A chave privada da CA permanece no volume Docker e não deve ser compartilhada.
 
-A configuração padrão já usa esse endereço. Para alterá-lo, copie `.env.example` para `.env.local`, ajuste `EXPO_PUBLIC_API_URL` e reinicie o Expo. Essa variável é pública: não coloque credenciais nela. Execute `npm start` e abra o app no simulador com o certificado instalado.
+Para usar a API local, copie `.env.example` para `.env.local`, defina `EXPO_PUBLIC_API_URL=https://localhost:8443` e recarregue o app. Essa variável é pública: não coloque credenciais nela. Execute `npm start` e abra o app no simulador com o certificado instalado.
 
 O cliente usa cookies de sessão com `credentials: include` e obtém um token CSRF atualizado antes de cada escrita. Escritas são serializadas e não são repetidas automaticamente. Credenciais, cookies e tokens não são gravados no armazenamento JavaScript do app. O backend configura o cookie como Secure e HttpOnly; não foi introduzido JWT ou JWE.
 

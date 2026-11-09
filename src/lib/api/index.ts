@@ -1,4 +1,5 @@
 import { createApiClient } from './client';
+import { API_BASE_URL } from './config';
 export * from './client';
 // Public build-time configuration; never put credentials in EXPO_PUBLIC_* variables.
-export const api = createApiClient(process.env.EXPO_PUBLIC_API_URL || 'https://localhost:8443');
+export const api = createApiClient(API_BASE_URL);
